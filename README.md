@@ -1,4 +1,4 @@
-# Readings
+# Personal Readings
 
 Personal collection of annotated scientific papers, essays, and technical documents. Most PDFs carry highlights, margin notes, and inline scribbles from active reading sessions.
 
