@@ -3,11 +3,11 @@
 Extract paper metadata via Gemini 2.5 Flash and output nanograph JSONL.
 
 Usage:
-    python3 extract.py <pdf_path>              # Extract one paper, print JSONL to stdout
-    python3 extract.py <pdf_path> --append     # Extract and append to seed.jsonl
-    python3 extract.py --all                   # Extract all un-enriched papers
-    python3 extract.py --all --append          # Extract all and append to seed.jsonl
-    python3 extract.py --dry-run <pdf_path>    # Show what would be extracted (no API call)
+    python3 _graph/extract.py <pdf_path>              # Extract one paper, print JSONL to stdout
+    python3 _graph/extract.py <pdf_path> --append     # Extract and append to seed.jsonl
+    python3 _graph/extract.py --all                   # Extract all un-enriched papers
+    python3 _graph/extract.py --all --append          # Extract all and append to seed.jsonl
+    python3 _graph/extract.py --dry-run <pdf_path>    # Show what would be extracted (no API call)
 
 Requires: GEMINI_API_KEY environment variable
 No pip dependencies -- stdlib only.
@@ -27,8 +27,8 @@ from pathlib import Path
 
 MODEL = "gemini-2.5-flash"
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
-READINGS_DIR = Path(__file__).parent.resolve()
-SEED_FILE = READINGS_DIR / "seed.jsonl"
+READINGS_DIR = Path(__file__).parent.parent.resolve()
+SEED_FILE = Path(__file__).parent / "seed.jsonl"
 MAX_PDF_SIZE_MB = 20
 REQUEST_DELAY_S = 4.5  # ~13 RPM, well under 15 RPM limit
 
@@ -212,7 +212,7 @@ def call_gemini(pdf_path, prompt):
         return None
 
 
-def extraction_to_jsonl(extraction, paper_slug, existing_concepts, existing_authors):
+def extraction_to_jsonl(extraction, paper_slug, paper_title, paper_folder, paper_added, existing_concepts, existing_authors):
     """Convert Gemini extraction to JSONL lines for seed.jsonl."""
     lines = []
 
@@ -220,16 +220,13 @@ def extraction_to_jsonl(extraction, paper_slug, existing_concepts, existing_auth
         return lines
 
     # Update Paper node with year and abstract
-    update_data = {}
+    update_data = {"slug": paper_slug, "title": paper_title, "folder": paper_folder, "added": paper_added}
     if extraction.get("year"):
         update_data["year"] = extraction["year"]
     if extraction.get("abstract"):
         update_data["abstract"] = extraction["abstract"]
 
-    if update_data:
-        update_data["slug"] = paper_slug
-        # We output a full Paper node -- merge mode will upsert by @key
-        lines.append(json.dumps({"type": "Paper", "data": update_data}))
+    lines.append(json.dumps({"type": "Paper", "data": update_data}))
 
     # Author nodes + WrittenBy edges
     for author in extraction.get("authors", []):
@@ -283,6 +280,8 @@ def process_paper(pdf_path, papers, concepts, authors):
     paper_slug = Path(pdf_path).stem
     paper_data = papers.get(paper_slug, {})
     paper_title = paper_data.get("title", paper_slug)
+    paper_folder = paper_data.get("folder", "")
+    paper_added = paper_data.get("added", "")
 
     print(f"  Extracting: {paper_slug}", file=sys.stderr)
 
@@ -293,7 +292,7 @@ def process_paper(pdf_path, papers, concepts, authors):
         print(f"  FAILED: {paper_slug}", file=sys.stderr)
         return []
 
-    lines = extraction_to_jsonl(extraction, paper_slug, concepts, authors)
+    lines = extraction_to_jsonl(extraction, paper_slug, paper_title, paper_folder, paper_added, concepts, authors)
 
     author_count = len(extraction.get("authors", []))
     concept_count = len(extraction.get("concepts", []))
@@ -338,7 +337,14 @@ def main():
 
             print(f"[{i+1}/{total}]", file=sys.stderr)
             lines = process_paper(pdf_path, papers, concepts, authors)
-            all_lines.extend(lines)
+
+            # Write incrementally to survive timeouts
+            if append_mode and lines:
+                with open(SEED_FILE, "a") as f:
+                    for line in lines:
+                        f.write(line + "\n")
+            else:
+                all_lines.extend(lines)
 
             if i < total - 1:
                 time.sleep(REQUEST_DELAY_S)
@@ -370,7 +376,7 @@ def main():
             for line in all_lines:
                 f.write(line + "\n")
         print(f"\nAppended {len(all_lines)} lines to {SEED_FILE}", file=sys.stderr)
-        print("Run: nanograph load readings.nano --data seed.jsonl --mode merge", file=sys.stderr)
+        print("Run: nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)
     else:
         for line in all_lines:
             print(line)
