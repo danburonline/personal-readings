@@ -42,5 +42,25 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
 # ---- Nanograph ----
 _graph/readings.nano/

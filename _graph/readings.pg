@@ -13,6 +13,8 @@ node Paper {
   authors: String?
   doi: String?
   abstract: String?
+  thesis: String?
+  study_type: String?
 }
 
 node Author {
@@ -38,6 +40,46 @@ node Manuscript {
   status: String?
 }
 
+node Figure {
+  slug: String @key
+  figure_id: String
+  caption: String?
+  figure_type: String?
+  description: String?
+  key_data: String?
+  significance: String?
+}
+
+node Claim {
+  slug: String @key
+  claim: String
+  evidence_type: String?
+  strength: String?
+  support: String?
+}
+
+node Technique {
+  slug: String @key
+  name: String
+  category: String?
+}
+
+node Definition {
+  slug: String @key
+  term: String
+  definition: String
+  section: String?
+  formal: String?
+}
+
+node OpenQuestion {
+  slug: String @key
+  question: String
+  context: String?
+  tractability: String?
+  question_type: String?
+}
+
 // -- Edges --
 
 // Paper relationships
@@ -52,6 +94,13 @@ edge InFolder: Paper -> TopicFolder
 
 // Paper -> Daniel's manuscripts
 edge Informs: Paper -> Manuscript
+
+// Extraction-derived
+edge HasFigure: Paper -> Figure
+edge MakesClaim: Paper -> Claim
+edge UsesTechnique: Paper -> Technique
+edge HasDefinition: Paper -> Definition
+edge Raises: Paper -> OpenQuestion
 
 // Cross-entity
 edge AffiliatedWith: Author -> Concept

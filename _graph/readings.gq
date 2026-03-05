@@ -120,3 +120,93 @@ query papersByAuthor($author: String) {
   }
 }
 
+query papersByTechnique($technique: String) {
+  match {
+    $t: Technique { slug: $technique }
+    $p usesTechnique $t
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+  }
+}
+
+query techniquesByPaper($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+    $p usesTechnique $t
+  }
+  return {
+    $t.slug
+    $t.name
+    $t.category
+  }
+}
+
+query definitionsByTerm($term: String) {
+  match {
+    $d: Definition { term: $term }
+    $p hasDefinition $d
+  }
+  return {
+    $p.slug
+    $p.title
+    $d.definition
+    $d.formal
+  }
+}
+
+query definitionsByPaper($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+    $p hasDefinition $d
+  }
+  return {
+    $d.term
+    $d.definition
+    $d.section
+    $d.formal
+  }
+}
+
+query figuresByPaper($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+    $p hasFigure $f
+  }
+  return {
+    $f.figure_id
+    $f.figure_type
+    $f.caption
+    $f.description
+    $f.significance
+  }
+}
+
+query claimsByPaper($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+    $p makesClaim $c
+  }
+  return {
+    $c.claim
+    $c.evidence_type
+    $c.strength
+    $c.support
+  }
+}
+
+query openQuestionsByPaper($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+    $p raises $q
+  }
+  return {
+    $q.question
+    $q.question_type
+    $q.context
+    $q.tractability
+  }
+}
+
