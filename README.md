@@ -77,31 +77,31 @@ The collection includes a [nanograph](https://github.com/aaltshuler/nanograph) p
 
 ### Files
 
-| File             | Purpose                                                                                                                                                   |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `readings.pg`    | Schema -- node types (Paper, Author, Concept, TopicFolder, Manuscript) and edge types (Cites, Extends, Contradicts, WrittenBy, Covers, InFolder, Informs) |
-| `readings.gq`    | Canned queries -- 10 named queries for common operations                                                                                                  |
-| `seed.jsonl`     | Data -- all papers, topic folders, and manuscripts as JSONL                                                                                               |
-| `readings.nano/` | Compiled database (gitignored, rebuilt from schema + data)                                                                                                |
+| File                    | Purpose                                                                                                                                                   |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `_graph/readings.pg`    | Schema -- node types (Paper, Author, Concept, TopicFolder, Manuscript) and edge types (Cites, Extends, Contradicts, WrittenBy, Covers, InFolder, Informs) |
+| `_graph/readings.gq`    | Canned queries -- 10 named queries for common operations                                                                                                  |
+| `_graph/seed.jsonl`     | Data -- all papers, topic folders, and manuscripts as JSONL                                                                                               |
+| `_graph/readings.nano/` | Compiled database (gitignored, rebuilt from schema + data)                                                                                                |
 
 ### Quick Reference
 
 ```bash
 # Rebuild the database from scratch
-nanograph init readings.nano --schema readings.pg
-nanograph load readings.nano --data seed.jsonl --mode overwrite
+nanograph init _graph/readings.nano --schema _graph/readings.pg
+nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode overwrite
 
 # Run a query
-nanograph run --db readings.nano --query readings.gq --name papersPerFolder
-nanograph run --db readings.nano --query readings.gq --name papersByFolder --param folder=consciousness_theories
+nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papersPerFolder
+nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papersByFolder --param folder=consciousness_theories
 
 # Add data (e.g. new paper)
 # Append to seed.jsonl, then:
-nanograph load readings.nano --data seed.jsonl --mode merge
+nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
 
 # Inspect
-nanograph describe --db readings.nano
-nanograph check --db readings.nano --query readings.gq
+nanograph describe --db _graph/readings.nano
+nanograph check --db _graph/readings.nano --query _graph/readings.gq
 ```
 
 ### Available Queries
@@ -128,7 +128,7 @@ The seed data contains paper nodes extracted from filenames. To enrich the graph
 3. **Citations** -- add Cites/Extends/Contradicts edges between papers in the collection
 4. **Manuscripts** -- add Informs edges from papers to Daniel's manuscripts
 
-Use `nanograph load readings.nano --data new_data.jsonl --mode merge` to incrementally add data without overwriting.
+Use `nanograph load _graph/readings.nano --data new_data.jsonl --mode merge` to incrementally add data without overwriting.
 
 ## Agent Instructions
 

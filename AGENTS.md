@@ -33,11 +33,11 @@ You are operating in a personal research library of annotated scientific papers,
 
 ## Knowledge Graph
 
-This repository includes a nanograph property graph (`readings.nano/`) that models relationships between papers, authors, concepts, and manuscripts. The schema is in `readings.pg`, data in `seed.jsonl`, and canned queries in `readings.gq`.
+This repository includes a nanograph property graph (`_graph/readings.nano/`) that models relationships between papers, authors, concepts, and manuscripts. The schema is in `_graph/readings.pg`, data in `_graph/seed.jsonl`, and canned queries in `_graph/readings.gq`.
 
 When adding or enriching papers, update the graph:
 
-1. Append nodes and edges to `seed.jsonl`
-2. Reload: `nanograph load readings.nano --data seed.jsonl --mode merge`
+1. Append nodes and edges to `_graph/seed.jsonl`
+2. Reload: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
 
 See `.agents/skills/nanograph/SKILL.md` for the full JSONL format, CLI reference, slug conventions, and workflow details.
