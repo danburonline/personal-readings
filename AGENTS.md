@@ -30,3 +30,14 @@ You are operating in a personal research library of annotated scientific papers,
 - Prefer markdown for notes and summaries
 - Use structured formats (tables, lists, headings) over prose when presenting extracted data
 - Keep summaries concise but technically complete -- no padding, no redundant context-setting
+
+## Knowledge Graph
+
+This repository includes a nanograph property graph (`readings.nano/`) that models relationships between papers, authors, concepts, and manuscripts. The schema is in `readings.pg`, data in `seed.jsonl`, and canned queries in `readings.gq`.
+
+When adding or enriching papers, update the graph:
+
+1. Append nodes and edges to `seed.jsonl`
+2. Reload: `nanograph load readings.nano --data seed.jsonl --mode merge`
+
+See `.agents/skills/nanograph/SKILL.md` for the full JSONL format, CLI reference, slug conventions, and workflow details.

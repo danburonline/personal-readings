@@ -1,0 +1,57 @@
+// Readings -- Paper Knowledge Graph Schema
+//
+// Models papers, authors, concepts, and Daniel's manuscripts.
+// Enables cross-topic discovery, citation traversal, and
+// impact analysis across the research library.
+
+node Paper {
+  slug: String @key
+  title: String
+  folder: String
+  added: String
+  year: String?
+  authors: String?
+  doi: String?
+  abstract: String?
+}
+
+node Author {
+  slug: String @key
+  name: String
+}
+
+node Concept {
+  slug: String @key
+  name: String
+  description: String?
+}
+
+node TopicFolder {
+  slug: String @key
+  name: String
+  description: String?
+}
+
+node Manuscript {
+  slug: String @key
+  title: String
+  status: String?
+}
+
+// -- Edges --
+
+// Paper relationships
+edge Cites: Paper -> Paper
+edge Extends: Paper -> Paper
+edge Contradicts: Paper -> Paper
+
+// Paper <-> entities
+edge WrittenBy: Paper -> Author
+edge Covers: Paper -> Concept
+edge InFolder: Paper -> TopicFolder
+
+// Paper -> Daniel's manuscripts
+edge Informs: Paper -> Manuscript
+
+// Cross-entity
+edge AffiliatedWith: Author -> Concept

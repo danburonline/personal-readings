@@ -1,0 +1,121 @@
+// Readings -- Canned Queries
+// Usage: nanograph run --db readings.nano --query readings.gq --name <query_name>
+
+query papersByFolder($folder: String) {
+  match {
+    $p: Paper { folder: $folder }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query allFolders() {
+  match {
+    $f: TopicFolder
+  }
+  return {
+    $f.slug
+    $f.name
+  }
+}
+
+query allPapers() {
+  match {
+    $p: Paper
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersPerFolder() {
+  match {
+    $p: Paper
+    $p inFolder $f
+  }
+  return {
+    $f.name
+    count($p) as papers
+  }
+  order { papers desc }
+}
+
+query papersByConcept($concept: String) {
+  match {
+    $c: Concept { slug: $concept }
+    $p covers $c
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+  }
+}
+
+query citedBy($paper: String) {
+  match {
+    $source: Paper
+    $target: Paper { slug: $paper }
+    $source cites $target
+  }
+  return {
+    $source.slug
+    $source.title
+    $source.folder
+  }
+}
+
+query citesWhat($paper: String) {
+  match {
+    $source: Paper { slug: $paper }
+    $source cites $target
+  }
+  return {
+    $target.slug
+    $target.title
+    $target.folder
+  }
+}
+
+query papersForManuscript($manuscript: String) {
+  match {
+    $m: Manuscript { slug: $manuscript }
+    $p informs $m
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+  }
+}
+
+query allManuscripts() {
+  match {
+    $m: Manuscript
+  }
+  return {
+    $m.slug
+    $m.title
+    $m.status
+  }
+}
+
+query papersByAuthor($author: String) {
+  match {
+    $a: Author { slug: $author }
+    $p writtenBy $a
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+  }
+}
