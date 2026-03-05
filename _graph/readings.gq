@@ -98,3 +98,4 @@ query papersByAuthor($author: String) {
     $p.folder
   }
 }
+
