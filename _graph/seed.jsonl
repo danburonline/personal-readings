@@ -4635,3 +4635,37 @@
 {"edge": "Covers", "from": "20260306_mental_representation_without_neural_representation_understanding_the_evidence_pdf", "to": "surrogative-reasoning"}
 {"type": "Concept", "data": {"slug": "prime-principle-of-confirmation", "name": "Prime Principle of Confirmation", "description": "The epistemological rule that evidence E supports a representational hypothesis H1 over a non-representational hypothesis H2 only if E is more likely given H1 than H2"}}
 {"edge": "Covers", "from": "20260306_mental_representation_without_neural_representation_understanding_the_evidence_pdf", "to": "prime-principle-of-confirmation"}
+{"type": "Paper", "data": {"slug": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "title": "The dark path to eternal life: Machiavellianism predicts approval of mind upload technology", "folder": "mind_uploading_and_digital_minds", "added": "20260309", "year": "2021", "abstract": "Mind upload, making a digital copy of one's brain, is a part of the transhumanistic dream of eternal life and the end of suffering. It is also perceived as a viable route toward artificial general intelligence (AGI). However, AI safety research has alerted to one major risk in creating AGI by mind upload: namely, that mind upload technology could appeal primarily to callous and selfish individuals who then abuse this technology for their personal gain--and, potentially, at a considerable cost to the welfare of humankind. Therefore, it is important to understand whether people's acceptance of mind upload is associated with pathological and/or antisocial traits. To this end, the present research examined whether individual differences in Dark Triad traits predict attitudes toward mind upload in a sample of 1007 English-speaking adults. A pre-registered structural equation model revealed that Machiavellianism (but not psychopathy) was associated with favourable views about mind upload, both directly and indirectly through utilitarian moral attitudes. These results therefore substantiate the concerns voiced by AI safety researchers--namely, that mind upload technology could be adopted disproportionately by individuals with an antisocial personality.", "study_type": "empirical"}}
+{"edge": "InFolder", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "mind_uploading_and_digital_minds"}
+{"type": "Author", "data": {"slug": "laakasuo-michael", "name": "Michael Laakasuo"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "laakasuo-michael"}
+{"type": "Author", "data": {"slug": "repo-marko", "name": "Marko Repo"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "repo-marko"}
+{"type": "Author", "data": {"slug": "drosinou-marianna", "name": "Marianna Drosinou"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "drosinou-marianna"}
+{"type": "Author", "data": {"slug": "berg-anton", "name": "Anton Berg"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "berg-anton"}
+{"type": "Author", "data": {"slug": "kunnari-anton", "name": "Anton Kunnari"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "kunnari-anton"}
+{"type": "Author", "data": {"slug": "koverola-mika", "name": "Mika Koverola"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "koverola-mika"}
+{"type": "Author", "data": {"slug": "saikkonen-teemu", "name": "Teemu Saikkonen"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "saikkonen-teemu"}
+{"type": "Author", "data": {"slug": "hannikainen-ivar-r", "name": "Ivar R. Hannikainen"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "hannikainen-ivar-r"}
+{"type": "Author", "data": {"slug": "visala-aku", "name": "Aku Visala"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "visala-aku"}
+{"type": "Author", "data": {"slug": "sundvall-jukka", "name": "Jukka Sundvall"}}
+{"edge": "WrittenBy", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "sundvall-jukka"}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "mind-uploading"}
+{"type": "Concept", "data": {"slug": "dark-triad", "name": "Dark Triad"}}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "dark-triad"}
+{"type": "Concept", "data": {"slug": "machiavellianism", "name": "Machiavellianism"}}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "machiavellianism"}
+{"type": "Concept", "data": {"slug": "utilitarianism", "name": "Utilitarianism"}}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "utilitarianism"}
+{"type": "Concept", "data": {"slug": "sexual-disgust-sensitivity", "name": "Sexual Disgust Sensitivity"}}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "sexual-disgust-sensitivity"}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "ai-safety"}
+{"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "artificial-general-intelligence"}
+{"edge": "Informs", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "hybrid-mind-uploading"}
