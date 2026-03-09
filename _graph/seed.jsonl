@@ -4669,3 +4669,49 @@
 {"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "ai-safety"}
 {"edge": "Covers", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "artificial-general-intelligence"}
 {"edge": "Informs", "from": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf", "to": "hybrid-mind-uploading"}
+{"type": "Paper", "data": {"slug": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "title": "Microtubules are 'Fractal Time Crystals': Implications for Life and Consciousness", "folder": "consciousness_theories", "added": "20260309", "year": "2026", "doi": "10.53765/20512201.33.1.211", "abstract": "Microtubules are cylindrical lattice polymers of the protein tubulin which organise purposeful activities in brain neurons and all eukaryotic cells. Here we report that microtubules behave as 'fractal time crystals', characterised by self-similar resonance oscillations, 'clocks within clocks' in a nested hierarchy of similar dynamics ('triplets-of-triplets') which repeat in hertz, kilohertz, megahertz, gigahertz, and terahertz frequencies. Megahertz triplets are detectable from human scalp beyond traditional EEG frequencies, and are suppressed by general anaesthetics, indicating a connection to consciousness. The Orch OR theory proposes that consciousness results from quantum state reductions in microtubules consistent with time crystal behaviour."}}
+{"edge": "InFolder", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "consciousness_theories"}
+{"type": "Author", "data": {"slug": "hameroff-stuart", "name": "Stuart Hameroff"}}
+{"edge": "WrittenBy", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "hameroff-stuart"}
+{"type": "Author", "data": {"slug": "bandyopadhyay-anirban", "name": "Anirban Bandyopadhyay"}}
+{"edge": "WrittenBy", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "bandyopadhyay-anirban"}
+{"type": "Author", "data": {"slug": "lauretta-dante-s", "name": "Dante S. Lauretta"}}
+{"edge": "WrittenBy", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "lauretta-dante-s"}
+
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "orchestrated-objective-reduction"}
+{"type": "Concept", "data": {"slug": "time-crystals", "name": "Time Crystals"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "time-crystals"}
+{"type": "Concept", "data": {"slug": "fractal-time-crystals", "name": "Fractal Time Crystals"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "fractal-time-crystals"}
+
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "microtubules"}
+{"type": "Concept", "data": {"slug": "quantum-biology", "name": "Quantum Biology"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "quantum-biology"}
+
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "quantum-consciousness"}
+{"type": "Concept", "data": {"slug": "tubulin", "name": "Tubulin"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "tubulin"}
+{"type": "Concept", "data": {"slug": "cytoskeleton", "name": "Cytoskeleton"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "cytoskeleton"}
+{"type": "Concept", "data": {"slug": "anaesthesia-mechanism", "name": "Anaesthesia Mechanism"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "anaesthesia-mechanism"}
+{"type": "Concept", "data": {"slug": "meyer-overton-correlation", "name": "Meyer-Overton Correlation"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "meyer-overton-correlation"}
+{"type": "Concept", "data": {"slug": "triplets-of-triplets", "name": "Triplets-of-Triplets"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "triplets-of-triplets"}
+{"type": "Concept", "data": {"slug": "dodecanogram", "name": "Dodecanogram (DDG)"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "dodecanogram"}
+{"type": "Concept", "data": {"slug": "quantum-underground", "name": "Quantum Underground"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "quantum-underground"}
+{"type": "Concept", "data": {"slug": "floquet-time-crystals", "name": "Floquet Time Crystals"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "floquet-time-crystals"}
+{"type": "Concept", "data": {"slug": "aromatic-pi-electron-resonance", "name": "Aromatic Pi-Electron Resonance"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "aromatic-pi-electron-resonance"}
+{"type": "Concept", "data": {"slug": "ordered-water", "name": "Ordered Water"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "ordered-water"}
+{"type": "Concept", "data": {"slug": "ultraweak-photon-emission", "name": "Ultraweak Photon Emission"}}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "ultraweak-photon-emission"}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "phenomenal-consciousness"}
+{"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "qualia"}
+{"edge": "Extends", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "20250913_a_quantum_microtubule_substrate_of_consciousness_pdf"}
+{"edge": "Informs", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "05-ocm"}
