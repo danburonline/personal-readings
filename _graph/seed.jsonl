@@ -4715,3 +4715,29 @@
 {"edge": "Covers", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "qualia"}
 {"edge": "Extends", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "20250913_a_quantum_microtubule_substrate_of_consciousness_pdf"}
 {"edge": "Informs", "from": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf", "to": "05-ocm"}
+{"type": "Paper", "data": {"slug": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "title": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "folder": "", "added": "", "year": "2026", "abstract": "This paper demonstrates short-term functional recovery of adult murine hippocampus after cryopreservation by vitrification, both in brain slices and whole brains in situ. Key hippocampal features like structural integrity, metabolic responsiveness, neuronal excitability, synaptic transmission, and plasticity (including LTP) were preserved. These findings extend biophysical tolerance limits for brain tissue from hypothermic to cryogenic ranges, establishing a protocol for viable neural tissue storage."}}
+{"type": "Author", "data": {"slug": "german-alexander", "name": "Alexander German"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "german-alexander"}
+{"type": "Author", "data": {"slug": "akda-enes-yaz", "name": "Enes Ya\u011f\u0131z Akda\u015f"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "akda-enes-yaz"}
+{"type": "Author", "data": {"slug": "flgel-koch-cassandra", "name": "Cassandra Fl\u00fcgel-Koch"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "flgel-koch-cassandra"}
+{"type": "Author", "data": {"slug": "erterek-ezgi", "name": "Ezgi Erterek"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "erterek-ezgi"}
+{"type": "Author", "data": {"slug": "frischknecht-renato", "name": "Renato Frischknecht"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "frischknecht-renato"}
+{"type": "Author", "data": {"slug": "fejtova-anna", "name": "Anna Fejtova"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "fejtova-anna"}
+{"type": "Author", "data": {"slug": "winkler-jrgen", "name": "J\u00fcrgen Winkler"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "winkler-jrgen"}
+{"type": "Author", "data": {"slug": "alzheimer-christian", "name": "Christian Alzheimer"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "alzheimer-christian"}
+{"type": "Author", "data": {"slug": "zheng-fang", "name": "Fang Zheng"}}
+{"edge": "WrittenBy", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "zheng-fang"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "cryopreservation"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "vitrification"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "hippocampus"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "functional-recovery"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "electrophysiology"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "synaptic-plasticity"}
+{"edge": "Covers", "from": "20260312_functional_recovery_adult_murine_hippocampus_after_cryopreservation_by_vitrification", "to": "brain-metabolism"}
