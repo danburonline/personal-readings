@@ -67,7 +67,7 @@ These are generated as part of working with and querying the collection programm
 
 The collection is indexed and queried through multiple tools:
 
-- **[Anara](https://anara.ai)** -- primary RAG provider for semantic search and retrieval over the PDF corpus
+- **[Anara](https://anara.com)** -- primary RAG provider for semantic search and retrieval over the PDF corpus
 - **OpenCode / CLI agents** -- used for extracting content, generating summaries, building indices, and ad-hoc queries against the documents
 - **Any additional RAG or embedding tooling** as needed -- the repository is tool-agnostic; anything that can ingest PDFs and produce useful retrieval is fair game
 
