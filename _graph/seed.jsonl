@@ -4865,3 +4865,36 @@
 {"edge": "Raises", "from": "20260314_ultraviolet_superradiance_mega_networks_tryptophan_biological_architectures_pdf", "to": "20260314_ultraviolet_superradiance_mega_networks_tryptophan_biological_architectures_pdf--oq-18"}
 {"edge": "Extends", "from": "20260314_ultraviolet_superradiance_mega_networks_tryptophan_biological_architectures_pdf", "to": "20250913_a_quantum_microtubule_substrate_of_consciousness_pdf"}
 {"edge": "Extends", "from": "20260314_ultraviolet_superradiance_mega_networks_tryptophan_biological_architectures_pdf", "to": "20260309_microtubules_fractal_time_crystals_implications_life_consciousness_pdf"}
+{"type": "Paper", "data": {"slug": "20260316_spacetime_bounds_on_consciousness_pdf", "title": "20260316_spacetime_bounds_on_consciousness_pdf", "folder": "", "added": "", "year": "2026", "abstract": "This paper introduces spacetime bounds on consciousness, distinguishing between \"Chord\" (requiring simultaneous truth and causal exchange of ingredients within a time window) and \"Arpeggio\" (requiring only sequential occurrence). It derives a spatial diameter bound D < \u03ba\u03c5\u03b8 for Chord, where \u03ba is an architecture factor, \u03c5 is signal speed, and \u03b8 is the integration window duration. The model suggests a fragmentation transition at this bound, with implications for ant colonies, human populations, cloud-hosted AI, and brain-computer interface hybrids."}}
+{"type": "Author", "data": {"slug": "bennett-michael-timothy", "name": "Michael Timothy Bennett"}}
+{"edge": "WrittenBy", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "bennett-michael-timothy"}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "consciousness"}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "spacetime"}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "cognition"}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "hardware-architecture"}
+{"type": "Concept", "data": {"slug": "causal-exchange", "name": "Causal Exchange"}}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "causal-exchange"}
+{"type": "Concept", "data": {"slug": "temporal-integration", "name": "Temporal Integration"}}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "temporal-integration"}
+{"type": "Concept", "data": {"slug": "conscious-binding", "name": "Conscious Binding"}}
+{"edge": "Covers", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "conscious-binding"}
+{"edge": "Cites", "from": "20260316_spacetime_bounds_on_consciousness_pdf", "to": "20260224_confusion_function_consciousness_pdf"}
+{"type": "Paper", "data": {"slug": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "title": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "folder": "", "added": "", "year": "2026", "abstract": "This paper argues that computational functionalism, which posits that subjective experience arises from abstract causal topology, commits the \"Abstraction Fallacy\" by mischaracterizing the relationship between physics and information. It introduces the concept of a \"mapmaker\"\u2014an active, experiencing cognitive agent\u2014as a prerequisite for defining computation and assigning semantic meaning to physical states. The framework distinguishes between simulation (behavioral mimicry) and instantiation (intrinsic physical constitution), concluding that algorithmic symbol manipulation cannot instantiate consciousness, thereby refuting computational functionalism and clarifying the non-sentient nature of AI as a tool."}}
+{"type": "Author", "data": {"slug": "lerchner-alexander", "name": "Alexander Lerchner"}}
+{"edge": "WrittenBy", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "lerchner-alexander"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "computational-functionalism"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "artificial-consciousness"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "ai-safety"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "simulation"}
+{"type": "Concept", "data": {"slug": "instantiation", "name": "Instantiation"}}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "instantiation"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "substrate-independence"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "phenomenal-consciousness"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "ontology"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "physicalism"}
+{"edge": "Covers", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "embodiment"}
+{"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20260224_troubles_with_functionalism_ned_block_pdf"}
+{"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20251010_can_only_meat_machines_be_conscious_pdf"}
+{"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness_pdf"}
+{"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20250714_feelings_source_of_consciousness_damasio_article_pdf"}
+{"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20251023_taking_ai_welfare_seriously_pdf"}
