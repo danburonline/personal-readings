@@ -4898,3 +4898,29 @@
 {"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness_pdf"}
 {"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20250714_feelings_source_of_consciousness_damasio_article_pdf"}
 {"edge": "Cites", "from": "20260316_the_abstraction_fallacy_why_ai_can_simulate_but_not_instantiate_consciousness_pdf", "to": "20251023_taking_ai_welfare_seriously_pdf"}
+{"type": "Paper", "data": {"slug": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "title": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "folder": "", "added": "", "year": "2022", "abstract": "This study investigates moral reactions to cognitive-enhancing brain implants across different levels of enhancement (alleviation, optimization, superhuman). Findings indicate general approval for alleviating ailments and achieving optimal performance, but strong opposition to superhuman enhancement levels. Negative attitudes towards these technologies are linked to sexual disgust sensitivity and binding moral foundations, while familiarity with science fiction themes predicts greater approval."}}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "koverola-mika"}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "kunnari-anton"}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "drosinou-marianna"}
+{"type": "Author", "data": {"slug": "palomki-jussi", "name": "Jussi Palom\u00e4ki"}}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "palomki-jussi"}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "hannikainen-ivar-r"}
+{"type": "Author", "data": {"slug": "koov-michaela-jirout", "name": "Michaela Jirout Ko\u0161ov\u00e1"}}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "koov-michaela-jirout"}
+{"type": "Author", "data": {"slug": "kopeck-robin", "name": "Robin Kopeck\u00fd"}}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "kopeck-robin"}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "sundvall-jukka"}
+{"edge": "WrittenBy", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "laakasuo-michael"}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "brain-implants"}
+{"type": "Concept", "data": {"slug": "cognitive-enhancement", "name": "Cognitive Enhancement"}}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "cognitive-enhancement"}
+{"type": "Concept", "data": {"slug": "dehumanization", "name": "Dehumanization"}}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "dehumanization"}
+{"type": "Concept", "data": {"slug": "moral-foundations-theory", "name": "Moral Foundations Theory"}}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "moral-foundations-theory"}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "sexual-disgust-sensitivity"}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "transhumanism"}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "personal-identity"}
+{"type": "Concept", "data": {"slug": "science-fiction-hobbyism", "name": "Science Fiction Hobbyism"}}
+{"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "science-fiction-hobbyism"}
+{"edge": "Cites", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf"}
