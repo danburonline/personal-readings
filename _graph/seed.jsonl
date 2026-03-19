@@ -4924,3 +4924,27 @@
 {"type": "Concept", "data": {"slug": "science-fiction-hobbyism", "name": "Science Fiction Hobbyism"}}
 {"edge": "Covers", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "science-fiction-hobbyism"}
 {"edge": "Cites", "from": "20260317_treatments_approved_boosts_eschewed_moral_limits_neurotechnological_enhancement_pdf", "to": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology_pdf"}
+{"type": "Paper", "data": {"slug": "20260319_biological_computationalism_pdf", "title": "20260319_biological_computationalism_pdf", "folder": "", "added": "", "year": "2025", "abstract": "This paper argues that current artificial intelligence systems are unlikely to replicate conscious processing as it arises in biology due to fundamental differences in computational modes. It proposes that biological brains support conscious processing through scale-inseparable, substrate-dependent multiscale processing as a metabolic optimization strategy, and by performing continuous-valued computations alongside discrete ones. These features, termed biological computationalism, are presented as essential for understanding consciousness in the brain and for guiding the development of truly conscious artificial systems."}}
+{"edge": "WrittenBy", "from": "20260319_biological_computationalism_pdf", "to": "milinkovic-borjan"}
+{"edge": "WrittenBy", "from": "20260319_biological_computationalism_pdf", "to": "aru-jaan"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "consciousness"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "artificial-consciousness"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "biological-computation"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "computational-functionalism"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "biological-naturalism"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "multiscale-dynamics"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "hybrid-computation"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "neuromorphic-computing"}
+{"type": "Concept", "data": {"slug": "scale-inseparability", "name": "Scale inseparability"}}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "scale-inseparability"}
+{"type": "Concept", "data": {"slug": "metabolic-constraints", "name": "Metabolic constraints"}}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "metabolic-constraints"}
+{"edge": "Covers", "from": "20260319_biological_computationalism_pdf", "to": "substrate-independence"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20250825_an_introduction_to_the_problems_of_ai_consciousness_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20250915_defining_biological_naturalism_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20251103_engineering_emergence_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20250913_a_quantum_microtubule_substrate_of_consciousness_pdf"}
+{"edge": "Cites", "from": "20260319_biological_computationalism_pdf", "to": "20251105_integrated_information_theory_consciousness_first_approach_pdf"}
