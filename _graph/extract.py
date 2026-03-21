@@ -900,7 +900,7 @@ MODES = {
     "metadata": {
         "build_prompt": build_metadata_prompt,
         "handle_output": handle_metadata_output,
-        "max_tokens": 8192,
+        "max_tokens": 65536,
     },
     "figures": {
         "build_prompt": build_figures_prompt,
@@ -910,27 +910,27 @@ MODES = {
     "claims": {
         "build_prompt": build_claims_prompt,
         "handle_output": handle_claims_output,
-        "max_tokens": 8192,
+        "max_tokens": 65536,
     },
     "relations": {
         "build_prompt": build_relations_prompt,
         "handle_output": handle_relations_output,
-        "max_tokens": 8192,
+        "max_tokens": 65536,
     },
     "methods": {
         "build_prompt": build_methods_prompt,
         "handle_output": handle_methods_output,
-        "max_tokens": 8192,
+        "max_tokens": 65536,
     },
     "definitions": {
         "build_prompt": build_definitions_prompt,
         "handle_output": handle_definitions_output,
-        "max_tokens": 8192,
+        "max_tokens": 65536,
     },
     "open-questions": {
         "build_prompt": build_openq_prompt,
         "handle_output": handle_openq_output,
-        "max_tokens": 8192,
+        "max_tokens": 65536,
     },
 }
 
