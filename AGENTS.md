@@ -35,9 +35,39 @@ You are operating in a personal research library of annotated scientific papers,
 
 This repository includes a nanograph property graph (`_graph/readings.nano/`) that models relationships between papers, authors, concepts, and manuscripts. The schema is in `_graph/readings.pg`, data in `_graph/seed.jsonl`, and canned queries in `_graph/readings.gq`.
 
-When adding or enriching papers, update the graph:
+### When to Update
 
-1. Append nodes and edges to `_graph/seed.jsonl`
-2. Reload: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+- **Adding a paper**: append Paper node + InFolder edge to `_graph/seed.jsonl`, then reload
+- **After reading/extracting**: append Author, Concept, Technique, Claim, Definition, OpenQuestion nodes and their edges
+- **Never overwrite** `_graph/seed.jsonl` -- always append
 
-See `.agents/skills/nanograph/SKILL.md` for the full JSONL format, CLI reference, slug conventions, and workflow details.
+### JSONL Format (minimal reference)
+
+Nodes use `"type"` key; edges use `"edge"` key:
+
+```json
+{"type": "Paper", "data": {"slug": "20260115_my_paper_pdf", "title": "...", "folder": "consciousness_theories", "added": "20260115"}}
+{"type": "Author", "data": {"slug": "tononi-giulio", "name": "Giulio Tononi"}}
+{"type": "Concept", "data": {"slug": "integrated-information-theory", "name": "Integrated Information Theory"}}
+{"edge": "WrittenBy", "from": "20260115_my_paper_pdf", "to": "tononi-giulio"}
+{"edge": "Covers", "from": "20260115_my_paper_pdf", "to": "integrated-information-theory"}
+{"edge": "Cites", "from": "20260115_my_paper_pdf", "to": "20250930_other_paper_pdf"}
+```
+
+### Slug Conventions
+
+- Paper: PDF filename minus `.pdf` (e.g. `20250703_neurophenomenal_structuralism_pdf`)
+- Author: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
+- Concept: lowercase hyphenated (e.g. `integrated-information-theory`)
+- Technique: lowercase hyphenated (e.g. `calcium-imaging`)
+
+### Automated Extraction
+
+`_graph/extract.py` uses Gemini 2.5 Flash to extract structured content from PDFs into JSONL. Modes: metadata, figures, claims, relations, methods, definitions, open-questions.
+
+```bash
+python3 _graph/extract.py path/to/paper.pdf --mode metadata --append
+nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
+```
+
+Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for full CLI reference, all modes, batch operations, and workflow details.

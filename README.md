@@ -38,10 +38,9 @@ The date prefix represents when the paper was added to the collection, not the p
 2. **Rename** the file with a `YYYYMMDD_` date prefix (date of discovery, not publication)
 3. **Read** on a reMarkable tablet -- highlight passages, scribble margin notes, work through derivations
 4. **Archive** the annotated PDF into the appropriate topic folder in this repository
-5. **Extract** (optional) -- generate reading notes, markdown summaries, or structured metadata as needed
-6. **Index** -- add the document to Anara and any other RAG providers for retrieval
-
-Steps 5 and 6 are still evolving. The extraction and indexing pipeline is not yet fully settled.
+5. **Extract** -- run `python3 _graph/extract.py <pdf> --append` to extract metadata, claims, techniques, definitions, and open questions into the knowledge graph. Use `--mode <mode>` for targeted passes (figures, relations, methods, etc.)
+6. **Graph** -- reload the compiled database: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+7. **Index** -- add the document to Anara and any other RAG providers for retrieval
 
 ## Annotations
 
