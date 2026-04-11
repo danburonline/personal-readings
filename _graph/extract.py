@@ -45,7 +45,7 @@ MODEL = "gemini-2.5-flash"
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 READINGS_DIR = Path(__file__).parent.parent.resolve()
 SEED_FILE = Path(__file__).parent / "seed.jsonl"
-MAX_PDF_SIZE_MB = 20
+MAX_PDF_SIZE_MB = 30
 REQUEST_DELAY_S = 4.5  # ~13 RPM, well under 15 RPM limit
 
 TOPIC_FOLDERS = [
@@ -905,7 +905,7 @@ MODES = {
     "figures": {
         "build_prompt": build_figures_prompt,
         "handle_output": handle_figures_output,
-        "max_tokens": 16384,
+        "max_tokens": 65536,
     },
     "claims": {
         "build_prompt": build_claims_prompt,
