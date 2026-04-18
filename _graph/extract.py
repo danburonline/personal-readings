@@ -599,7 +599,10 @@ def handle_figures_output(extraction, ctx):
         fig_slug = f"{slug}--fig-{i}"
 
         key_data = fig.get("key_data", [])
-        key_data_str = "; ".join(key_data) if isinstance(key_data, list) else str(key_data or "")
+        if isinstance(key_data, list):
+            key_data_str = "; ".join(str(item) if not isinstance(item, str) else item for item in key_data)
+        else:
+            key_data_str = str(key_data or "")
 
         node = {
             "type": "Figure",
