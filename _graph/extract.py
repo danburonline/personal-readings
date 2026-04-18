@@ -45,7 +45,7 @@ MODEL = "gemini-2.5-flash"
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 READINGS_DIR = Path(__file__).parent.parent.resolve()
 SEED_FILE = Path(__file__).parent / "seed.jsonl"
-MAX_PDF_SIZE_MB = 30
+MAX_PDF_SIZE_MB = 35
 REQUEST_DELAY_S = 4.5  # ~13 RPM, well under 15 RPM limit
 
 TOPIC_FOLDERS = [
@@ -163,6 +163,45 @@ def build_paper_catalogue(papers, exclude_slug=""):
 # Gemini API
 # ─────────────────────────────────────────────
 
+def _repair_truncated_json(text):
+    depth = 0
+    in_string = False
+    escape = False
+    bracket_stack = []
+    last_complete = {}
+
+    for i, c in enumerate(text):
+        if escape:
+            escape = False
+            continue
+        if c == '\\' and in_string:
+            escape = True
+            continue
+        if c == '"':
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if c in '{[':
+            depth += 1
+            bracket_stack.append(c)
+        elif c in '}]':
+            depth -= 1
+            if bracket_stack:
+                bracket_stack.pop()
+            last_complete[depth] = (i, list(bracket_stack))
+
+    for target_depth in sorted(last_complete.keys()):
+        pos, remaining_stack = last_complete[target_depth]
+        suffix = ''.join(']' if opener == '[' else '}' for opener in reversed(remaining_stack))
+        try:
+            return json.loads(text[:pos + 1] + suffix)
+        except json.JSONDecodeError:
+            pass
+
+    return None
+
+
 def call_gemini(pdf_path, prompt, max_tokens=8192):
     """Send PDF + prompt to Gemini 2.5 Flash, return parsed JSON."""
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -198,7 +237,7 @@ def call_gemini(pdf_path, prompt, max_tokens=8192):
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
 
     try:
-        with urllib.request.urlopen(req, timeout=120) as resp:
+        with urllib.request.urlopen(req, timeout=300) as resp:
             result = json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8") if e.fp else ""
@@ -221,6 +260,10 @@ def call_gemini(pdf_path, prompt, max_tokens=8192):
     try:
         return json.loads(text)
     except json.JSONDecodeError as e:
+        repaired = _repair_truncated_json(text)
+        if repaired is not None:
+            print(f"  Warning: JSON truncated, recovered partial result", file=sys.stderr)
+            return repaired
         print(f"Failed to parse JSON: {e}\nRaw response:\n{text[:1000]}", file=sys.stderr)
         return None
 
