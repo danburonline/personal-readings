@@ -27,7 +27,6 @@ Regular maintenance to keep the research library and knowledge graph healthy.
       [ ] Enrich `_graph/seed.jsonl`: Concept nodes + Covers edges
       [ ] Enrich `_graph/seed.jsonl`: Cites / Extends / Contradicts edges to other papers in collection
       [ ] Reload: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
-- [ ] Index to Anara
 
 ### Monthly
 
