@@ -40,7 +40,6 @@ The date prefix represents when the paper was added to the collection, not the p
 4. **Archive** the annotated PDF into the appropriate topic folder in this repository
 5. **Extract** -- run `python3 _graph/extract.py <pdf> --append` to extract metadata, claims, techniques, definitions, and open questions into the knowledge graph. Use `--mode <mode>` for targeted passes (figures, relations, methods, etc.)
 6. **Graph** -- reload the compiled database: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
-7. **Index** -- add the document to Anara and any other RAG providers for retrieval
 
 ## Annotations
 
@@ -66,7 +65,6 @@ These are generated as part of working with and querying the collection programm
 
 The collection is indexed and queried through multiple tools:
 
-- **[Anara](https://anara.com)** -- primary RAG provider for semantic search and retrieval over the PDF corpus
 - **OpenCode / CLI agents** -- used for extracting content, generating summaries, building indices, and ad-hoc queries against the documents
 - **Any additional RAG or embedding tooling** as needed -- the repository is tool-agnostic; anything that can ingest PDFs and produce useful retrieval is fair game
 

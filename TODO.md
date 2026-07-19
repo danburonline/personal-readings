@@ -28,7 +28,6 @@ Regular maintenance to keep the research library and knowledge graph healthy.
       [ ] Enrich `_graph/seed.jsonl`: Cites / Extends / Contradicts edges to other papers in collection
       [ ] Enrich `_graph/seed.jsonl`: Informs edges to relevant manuscripts (05-ocm, frontiers-consciousness-engineering, cortical-reorganisation, hybrid-mind-uploading)
       [ ] Reload: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
-- [ ] Index to Anara
 
 ### Monthly
 
