@@ -102,8 +102,12 @@ nanograph doctor _graph/readings.nano
 
 ### Adding a new paper
 
-1. Append Paper node + InFolder edge to `_graph/seed.jsonl`
-2. Run: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+1. Append Paper node + InFolder edge to `_graph/seed.jsonl` (do **not** reload yet if extraction modes will follow)
+2. Run all desired extraction modes with `--append` (see below)
+3. Squash the duplicate Paper nodes for the new slug into a single node (union of all fields) -- see "Duplicate Paper nodes" below
+4. Then reload: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+
+Keep exactly one Paper node per slug in `seed.jsonl`.
 
 ### Enriching after reading
 
@@ -171,9 +175,11 @@ python3 _graph/extract.py --all --mode claims --dry-run
 nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
+**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load, so if several modes ran for the same paper, squash those nodes into one node per slug (union of all fields, e.g. `year`, `doi`, `abstract`, `thesis`, `study_type`) before reloading. Rewriting the file for this squash is the one sanctioned exception to "never overwrite `seed.jsonl`".
+
 **Limitations:**
 
-- PDFs >20MB are skipped (Gemini inline data limit)
+- PDFs >35MB are skipped (`MAX_PDF_SIZE_MB` in `extract.py`; Gemini inline data limit)
 - Some papers may fail due to JSON truncation (retry individually if needed)
 - Citations and relations are only detected against papers already in the collection
 
