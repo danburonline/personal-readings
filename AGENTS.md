@@ -37,9 +37,9 @@ This repository includes a nanograph property graph (`_graph/readings.nano/`) th
 
 ### When to Update
 
-- **Adding a paper**: append Paper node + InFolder edge to `_graph/seed.jsonl`, then reload
+- **Adding a paper**: append Paper node + InFolder edge to `_graph/seed.jsonl` (reload only after all extraction modes have run)
 - **After reading/extracting**: append Author, Concept, Technique, Claim, Definition, OpenQuestion nodes and their edges
-- **Never overwrite** `_graph/seed.jsonl` -- always append
+- **Never overwrite** `_graph/seed.jsonl` -- always append. Sole exception: squashing duplicate Paper nodes before a merge (see below)
 
 ### JSONL Format (minimal reference)
 
@@ -71,3 +71,5 @@ nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
 Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for full CLI reference, all modes, batch operations, and workflow details.
+
+**Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so before running `nanograph load --mode merge`, squash these into a single node per slug carrying the union of all fields (`year`, `doi`, `abstract`, `thesis`, `study_type`). Keep exactly one Paper node per slug in `seed.jsonl`.
