@@ -1,6 +1,6 @@
 # Personal Readings
 
-Personal collection of annotated scientific papers, essays, and technical documents. Most PDFs carry highlights, margin notes, and inline scribbles from active reading sessions.
+Personal collection of scientific papers, essays, and technical documents. Device annotations are not uniformly embedded in the archived PDFs.
 
 ## Structure
 
@@ -27,29 +27,31 @@ Papers are organised into topic directories:
 ## Naming Convention
 
 ```txt
-YYYYMMDD_descriptive_title_pdf.pdf
+YYYYMMDD_descriptive_title.pdf
 ```
 
-The date prefix represents when the paper was added to the collection, not the publication date. Underscores replace spaces; `_pdf` is appended before the extension.
+The date prefix represents when the paper was added to the collection, not the publication date. Underscores replace spaces. The graph paper slug is the filename without the `.pdf` extension.
 
 ## Workflow
 
-1. **Find** a paper or document online
-2. **Rename** the file with a `YYYYMMDD_` date prefix (date of discovery, not publication)
-3. **Read** on a reMarkable tablet -- highlight passages, scribble margin notes, work through derivations
-4. **Archive** the annotated PDF into the appropriate topic folder in this repository
-5. **Extract** -- run `python3 _graph/extract.py <pdf> --append` to extract metadata, claims, techniques, definitions, and open questions into the knowledge graph. Use `--mode <mode>` for targeted passes (figures, relations, methods, etc.)
-6. **Graph** -- reload the compiled database: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+1. **Find** a paper or document online and retain an untouched source copy
+2. **Rename** the archival file with a `YYYYMMDD_` date prefix (date of discovery, not publication)
+3. **Read** on the current device -- highlight passages, write margin notes, and work through derivations
+4. **Export** a portable annotated PDF and, where available, a device-native archive; verify visible marks before retiring the device copy
+5. **Archive** the canonical PDF in the appropriate topic folder and append its Paper node and InFolder edge to `_graph/seed.jsonl`
+6. **Extract** each desired mode separately. `python3 _graph/extract.py <pdf> --append` runs metadata only; use `--mode figures|claims|relations|methods|definitions|open-questions` for the other passes
+7. **Normalise** duplicate Paper records emitted by metadata, claims, and methods into one Paper node carrying the union of their fields
+8. **Graph** -- reload the compiled database: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`
 
 ## Annotations
 
-All reading and annotation happens on a reMarkable tablet. Expect:
+Reading annotations may include:
 
 - **Highlights** -- key claims, definitions, results
 - **Margin notes** -- questions, cross-references to other papers, disagreements
 - **Inline scribbles** -- derivation checks, alternative formulations
 
-These annotations are embedded in the PDF files themselves.
+An audit on 17 August 2026 found no standard PDF ink, highlight, text-note, or free-text annotation objects and no native reMarkable sidecars in this repository. Existing marks could be flattened into page content, which a structural scan cannot distinguish reliably. Preserve the untouched source, any device-native archive, and a visually verified annotated export as separate files before a device migration.
 
 ## Auxiliary Files
 
@@ -70,23 +72,30 @@ The collection is indexed and queried through multiple tools:
 
 ## Knowledge Graph
 
-The collection includes a [nanograph](https://github.com/aaltshuler/nanograph) property graph that models relationships between papers, authors, concepts, and manuscripts. This enables cross-topic discovery, citation traversal, and impact analysis that folder structure and semantic search alone cannot provide.
+The collection includes a [nanograph](https://github.com/nanograph/nanograph) property graph that models relationships between papers, authors, concepts, and manuscripts. This enables cross-topic discovery, citation traversal, and impact analysis that folder structure and semantic search alone cannot provide.
 
 ### Files
 
-| File                    | Purpose                                                                                                                                                   |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `_graph/readings.pg`    | Schema -- node types (Paper, Author, Concept, TopicFolder, Manuscript) and edge types (Cites, Extends, Contradicts, WrittenBy, Covers, InFolder, Informs) |
-| `_graph/readings.gq`    | Canned queries -- 10 named queries for common operations                                                                                                  |
-| `_graph/seed.jsonl`     | Data -- all papers, topic folders, and manuscripts as JSONL                                                                                               |
-| `_graph/readings.nano/` | Compiled database (gitignored, rebuilt from schema + data)                                                                                                |
+| File                    | Purpose                                                            |
+| ----------------------- | ------------------------------------------------------------------ |
+| `_graph/readings.pg`    | Schema for all node and edge types                                 |
+| `_graph/readings.gq`    | Seventeen named queries for common operations                      |
+| `_graph/seed.jsonl`     | Canonical graph data as JSONL                                      |
+| `_graph/extract.py`     | Multi-mode Gemini extraction into graph records                    |
+| `_graph/readings.nano/` | Derived database, gitignored and rebuilt from the schema and JSONL |
 
 ### Quick Reference
 
 ```bash
-# Rebuild the database from scratch
-nanograph init _graph/readings.nano --schema _graph/readings.pg
-nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode overwrite
+# Install the current CLI
+brew tap nanograph/tap
+brew install nanograph/tap/nanograph
+
+# Future complete rebuild through a staging database
+nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg
+nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite
+nanograph lint --db _graph/readings.nano.new --query _graph/readings.gq
+nanograph doctor --db _graph/readings.nano.new --schema _graph/readings.pg --verbose
 
 # Run a query
 nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papersPerFolder
@@ -94,12 +103,17 @@ nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papers
 
 # Add data (e.g. new paper)
 # Append to seed.jsonl, then:
-nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
+nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 
 # Inspect
 nanograph describe --db _graph/readings.nano
-nanograph check --db _graph/readings.nano --query _graph/readings.gq
+nanograph lint --db _graph/readings.nano --query _graph/readings.gq
+nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 ```
+
+Nanograph 1.3.0 was installed and the active database was rebuilt from the canonical seed on 17 August 2026. It now uses the `namespace-lineage` storage generation, manifest format 3, and `db_version: 1`; `lint` passes all 17 queries and `doctor` passes all 25 datasets. The stale pre-v1.2 database is preserved at `_graph/readings.nano.legacy-v3/` for rollback only. Do not merge it into the active graph.
+
+This repository intentionally has no `nanograph.toml`. Run Nanograph from the repository root and pass `--db`, `--schema`, and `--query` paths explicitly. If `nanograph init` generates a configuration scaffold under `_graph/`, remove it after the staged rebuild.
 
 ### Available Queries
 
@@ -112,9 +126,16 @@ nanograph check --db _graph/readings.nano --query _graph/readings.gq
 | `papersByFolder`      | `folder`     | Papers in a given topic directory     |
 | `papersByConcept`     | `concept`    | Papers covering a given concept       |
 | `papersByAuthor`      | `author`     | Papers by a given author              |
+| `papersByTechnique`   | `technique`  | Papers using a technique              |
 | `citedBy`             | `paper`      | Papers that cite a given paper        |
 | `citesWhat`           | `paper`      | Papers cited by a given paper         |
 | `papersForManuscript` | `manuscript` | Papers informing a given manuscript   |
+| `techniquesByPaper`   | `paper`      | Techniques used by a paper            |
+| `definitionsByTerm`   | `term`       | Definitions of a term across papers   |
+| `definitionsByPaper`  | `paper`      | Definitions extracted from a paper    |
+| `figuresByPaper`      | `paper`      | Figures extracted from a paper        |
+| `claimsByPaper`       | `paper`      | Claims extracted from a paper         |
+| `openQuestionsByPaper` | `paper`      | Open questions extracted from a paper |
 
 ### Enrichment
 
@@ -125,7 +146,7 @@ The seed data contains paper nodes extracted from filenames. To enrich the graph
 3. **Citations** -- add Cites/Extends/Contradicts edges between papers in the collection
 4. **Manuscripts** -- add Informs edges from papers to Daniel's manuscripts
 
-Use `nanograph load _graph/readings.nano --data new_data.jsonl --mode merge` to incrementally add data without overwriting.
+Append new records to `_graph/seed.jsonl`, keep one node per `(type, slug)` key, then run `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`.
 
 ## Agent Instructions
 

@@ -12,6 +12,7 @@ node Paper {
   year: String?
   authors: String?
   doi: String?
+  arxiv_id: String?
   abstract: String?
   thesis: String?
   study_type: String?

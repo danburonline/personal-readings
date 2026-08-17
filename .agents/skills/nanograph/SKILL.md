@@ -5,7 +5,7 @@ description: Manage the Readings knowledge graph -- add papers, enrich with auth
 
 # Nanograph -- Readings Knowledge Graph
 
-This research library includes a [nanograph](https://github.com/aaltshuler/nanograph) property graph at the repository root.
+This research library includes a [nanograph](https://github.com/nanograph/nanograph) property graph at the repository root. Use nanograph v1.3 or later.
 
 ## Files
 
@@ -24,47 +24,51 @@ This research library includes a [nanograph](https://github.com/aaltshuler/nanog
 
 Every node type has a `slug: String @key` used for edge references.
 
-Paper has: `slug`, `title`, `folder`, `added` (YYYYMMDD), plus optional `year`, `abstract`, `thesis`, `study_type`, `doi`.
+Paper has: `slug`, `title`, `folder`, `added` (YYYYMMDD), plus optional `year`, `abstract`, `thesis`, `study_type`, `doi`, `arxiv_id`.
 
 ## JSONL Format
 
 Nodes:
 
 ```json
-{"type": "Paper", "data": {"slug": "20260115_my_paper_pdf", "title": "My paper", "folder": "consciousness_theories", "added": "20260115"}}
+{"type": "Paper", "data": {"slug": "20260115_my_paper", "title": "My paper", "folder": "consciousness_theories", "added": "20260115"}}
 {"type": "Author", "data": {"slug": "tononi-giulio", "name": "Giulio Tononi"}}
 {"type": "Concept", "data": {"slug": "iit", "name": "Integrated Information Theory"}}
 {"type": "Technique", "data": {"slug": "calcium-imaging", "name": "Calcium Imaging", "category": "imaging"}}
-{"type": "Figure", "data": {"slug": "20260115_my_paper_pdf--fig-1", "figure_id": "Figure 1", "caption": "...", "figure_type": "diagram", "description": "...", "key_data": "...", "significance": "..."}}
-{"type": "Claim", "data": {"slug": "20260115_my_paper_pdf--claim-1", "claim": "...", "evidence_type": "empirical", "strength": "strong", "support": "..."}}
-{"type": "Definition", "data": {"slug": "20260115_my_paper_pdf--def-consciousness", "term": "consciousness", "definition": "...", "section": "2.1", "formal": "false"}}
-{"type": "OpenQuestion", "data": {"slug": "20260115_my_paper_pdf--oq-1", "question": "...", "context": "...", "tractability": "near_term", "question_type": "open_problem"}}
+{"type": "Figure", "data": {"slug": "20260115_my_paper--fig-1", "figure_id": "Figure 1", "caption": "...", "figure_type": "diagram", "description": "...", "key_data": "...", "significance": "..."}}
+{"type": "Claim", "data": {"slug": "20260115_my_paper--claim-1", "claim": "...", "evidence_type": "empirical", "strength": "strong", "support": "..."}}
+{"type": "Definition", "data": {"slug": "20260115_my_paper--def-consciousness", "term": "consciousness", "definition": "...", "section": "2.1", "formal": "false"}}
+{"type": "OpenQuestion", "data": {"slug": "20260115_my_paper--oq-1", "question": "...", "context": "...", "tractability": "near_term", "question_type": "open_problem"}}
 ```
 
 Edges:
 
 ```json
-{"edge": "WrittenBy", "from": "20260115_my_paper_pdf", "to": "tononi-giulio"}
-{"edge": "Covers", "from": "20260115_my_paper_pdf", "to": "iit"}
-{"edge": "Cites", "from": "20260115_my_paper_pdf", "to": "20250930_other_paper_pdf"}
-{"edge": "HasFigure", "from": "20260115_my_paper_pdf", "to": "20260115_my_paper_pdf--fig-1"}
-{"edge": "MakesClaim", "from": "20260115_my_paper_pdf", "to": "20260115_my_paper_pdf--claim-1"}
-{"edge": "UsesTechnique", "from": "20260115_my_paper_pdf", "to": "calcium-imaging"}
-{"edge": "HasDefinition", "from": "20260115_my_paper_pdf", "to": "20260115_my_paper_pdf--def-consciousness"}
-{"edge": "Raises", "from": "20260115_my_paper_pdf", "to": "20260115_my_paper_pdf--oq-1"}
+{"edge": "WrittenBy", "from": "20260115_my_paper", "to": "tononi-giulio"}
+{"edge": "Covers", "from": "20260115_my_paper", "to": "iit"}
+{"edge": "Cites", "from": "20260115_my_paper", "to": "20250930_other_paper"}
+{"edge": "HasFigure", "from": "20260115_my_paper", "to": "20260115_my_paper--fig-1"}
+{"edge": "MakesClaim", "from": "20260115_my_paper", "to": "20260115_my_paper--claim-1"}
+{"edge": "UsesTechnique", "from": "20260115_my_paper", "to": "calcium-imaging"}
+{"edge": "HasDefinition", "from": "20260115_my_paper", "to": "20260115_my_paper--def-consciousness"}
+{"edge": "Raises", "from": "20260115_my_paper", "to": "20260115_my_paper--oq-1"}
 ```
 
 **Critical:** Edges use `"edge"` key, NOT `"type"`. The `"from"` and `"to"` values must match existing `@key` slugs.
 
 ## CLI Commands
 
+The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact and must never be merged into the active graph. This repository intentionally has no `nanograph.toml`; always pass explicit database, schema, and query paths. Remove any configuration scaffold generated under `_graph/` during a staged rebuild.
+
 ```bash
-# Rebuild from scratch
-nanograph init _graph/readings.nano --schema _graph/readings.pg
-nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode overwrite
+# Future complete rebuild through a staging database
+nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg
+nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite
+nanograph lint --db _graph/readings.nano.new --query _graph/readings.gq
+nanograph doctor --db _graph/readings.nano.new --schema _graph/readings.pg --verbose
 
 # Incremental update (after appending to seed.jsonl)
-nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
+nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 
 # Run a named query
 nanograph run --db _graph/readings.nano --query _graph/readings.gq --name <query_name>
@@ -72,8 +76,8 @@ nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papers
 
 # Inspect
 nanograph describe --db _graph/readings.nano
-nanograph check --db _graph/readings.nano --query _graph/readings.gq
-nanograph doctor _graph/readings.nano
+nanograph lint --db _graph/readings.nano --query _graph/readings.gq
+nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 ```
 
 ## Available Queries
@@ -105,7 +109,7 @@ nanograph doctor _graph/readings.nano
 1. Append Paper node + InFolder edge to `_graph/seed.jsonl` (do **not** reload yet if extraction modes will follow)
 2. Run all desired extraction modes with `--append` (see below)
 3. Squash the duplicate Paper nodes for the new slug into a single node (union of all fields) -- see "Duplicate Paper nodes" below
-4. Then reload: `nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+4. Then reload: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`
 
 Keep exactly one Paper node per slug in `seed.jsonl`.
 
@@ -122,11 +126,12 @@ Then reload with `--mode merge`.
 
 ### Automated extraction with Gemini
 
-The repository includes `_graph/extract.py` -- a multi-mode extraction script that uses Gemini 2.5 Flash to extract structured content from PDFs. Every mode produces JSONL for the knowledge graph.
+The repository includes `_graph/extract.py` -- a multi-mode extraction script that uses the Gemini model selected by `GEMINI_MODEL` (default `gemini-3.6-flash`). Every mode produces JSONL for the knowledge graph.
 
 **Prerequisites:**
 
 - `GEMINI_API_KEY` environment variable must be set
+- `GEMINI_MODEL` is optional and defaults to `gemini-3.6-flash`
 - No pip dependencies (stdlib only)
 
 **Extraction modes:**
@@ -172,10 +177,10 @@ python3 _graph/extract.py --all --mode claims --dry-run
 **After extraction:**
 
 ```bash
-nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
+nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
-**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load, so if several modes ran for the same paper, squash those nodes into one node per slug (union of all fields, e.g. `year`, `doi`, `abstract`, `thesis`, `study_type`) before reloading. Rewriting the file for this squash is the one sanctioned exception to "never overwrite `seed.jsonl`".
+**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load, so if several modes ran for the same paper, squash those nodes into one node per slug (union of all fields, e.g. `year`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`) before reloading. Rewriting the file for a controlled migration or this squash is the exception to "never overwrite `seed.jsonl`".
 
 **Limitations:**
 
@@ -194,13 +199,13 @@ Daniel's active manuscripts (use these slugs for Informs edges):
 
 ## Conventions
 
-- Paper slugs: PDF filename minus `.pdf` extension (e.g. `20250703_neurophenomenal_structuralism_pdf`)
+- Paper slugs: PDF filename minus `.pdf` extension (e.g. `20250703_neurophenomenal_structuralism`)
 - Author slugs: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
 - Concept slugs: lowercase hyphenated (e.g. `integrated-information-theory`)
 - Technique slugs: lowercase hyphenated (e.g. `calcium-imaging`, `patch-clamp-electrophysiology`)
-- Figure slugs: `{paper_slug}--fig-{n}` (e.g. `20260115_my_paper_pdf--fig-1`)
+- Figure slugs: `{paper_slug}--fig-{n}` (e.g. `20260115_my_paper--fig-1`)
 - Claim slugs: `{paper_slug}--claim-{n}`
-- Definition slugs: `{paper_slug}--def-{term_slug}` (e.g. `20260115_my_paper_pdf--def-consciousness`)
+- Definition slugs: `{paper_slug}--def-{term_slug}` (e.g. `20260115_my_paper--def-consciousness`)
 - OpenQuestion slugs: `{paper_slug}--oq-{n}`
 
 Always check existing slugs before creating duplicates: `nanograph run --db _graph/readings.nano --query _graph/readings.gq --name allPapers`

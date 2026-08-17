@@ -1,5 +1,5 @@
 // Readings -- Canned Queries
-// Usage: nanograph run --db readings.nano --query readings.gq --name <query_name>
+// Usage from the repository root: nanograph run --db _graph/readings.nano --query _graph/readings.gq --name <query_name>
 
 query papersByFolder($folder: String) {
   match {
@@ -209,4 +209,3 @@ query openQuestionsByPaper($paper: String) {
     $q.tractability
   }
 }
-

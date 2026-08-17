@@ -20,10 +20,10 @@ You are operating in a personal research library of annotated scientific papers,
 
 ## Working with Documents
 
-- PDFs in this repository are annotated with highlights, margin notes, and inline scribbles from reading on a reMarkable tablet
-- When extracting content, capture both the source text and any visible annotations
+- PDFs may contain flattened visible marks, but the repository does not contain standard PDF note/highlight/ink annotations or native reMarkable sidecars as of the 17 August 2026 audit
+- When extracting content, capture both the source text and any visible annotations; do not infer that a file is unannotated solely from its PDF annotation objects
 - Respect the topic-based folder structure when organising output
-- File naming follows `YYYYMMDD_descriptive_title_pdf.pdf` -- the date is when the paper was added, not its publication date
+- File naming follows `YYYYMMDD_descriptive_title.pdf` -- the date is when the paper was added, not its publication date
 
 ## Output Format
 
@@ -39,37 +39,39 @@ This repository includes a nanograph property graph (`_graph/readings.nano/`) th
 
 - **Adding a paper**: append Paper node + InFolder edge to `_graph/seed.jsonl` (reload only after all extraction modes have run)
 - **After reading/extracting**: append Author, Concept, Technique, Claim, Definition, OpenQuestion nodes and their edges
-- **Never overwrite** `_graph/seed.jsonl` -- always append. Sole exception: squashing duplicate Paper nodes before a merge (see below)
+- **Never overwrite** `_graph/seed.jsonl` during routine use -- always append. Controlled slug/schema migrations and squashing duplicate Paper nodes are the exceptions
 
 ### JSONL Format (minimal reference)
 
 Nodes use `"type"` key; edges use `"edge"` key:
 
 ```json
-{"type": "Paper", "data": {"slug": "20260115_my_paper_pdf", "title": "...", "folder": "consciousness_theories", "added": "20260115"}}
+{"type": "Paper", "data": {"slug": "20260115_my_paper", "title": "...", "folder": "consciousness_theories", "added": "20260115"}}
 {"type": "Author", "data": {"slug": "tononi-giulio", "name": "Giulio Tononi"}}
 {"type": "Concept", "data": {"slug": "integrated-information-theory", "name": "Integrated Information Theory"}}
-{"edge": "WrittenBy", "from": "20260115_my_paper_pdf", "to": "tononi-giulio"}
-{"edge": "Covers", "from": "20260115_my_paper_pdf", "to": "integrated-information-theory"}
-{"edge": "Cites", "from": "20260115_my_paper_pdf", "to": "20250930_other_paper_pdf"}
+{"edge": "WrittenBy", "from": "20260115_my_paper", "to": "tononi-giulio"}
+{"edge": "Covers", "from": "20260115_my_paper", "to": "integrated-information-theory"}
+{"edge": "Cites", "from": "20260115_my_paper", "to": "20250930_other_paper"}
 ```
 
 ### Slug Conventions
 
-- Paper: PDF filename minus `.pdf` (e.g. `20250703_neurophenomenal_structuralism_pdf`)
+- Paper: PDF filename minus `.pdf` (e.g. `20250703_neurophenomenal_structuralism`)
 - Author: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
 - Concept: lowercase hyphenated (e.g. `integrated-information-theory`)
 - Technique: lowercase hyphenated (e.g. `calcium-imaging`)
 
 ### Automated Extraction
 
-`_graph/extract.py` uses Gemini 2.5 Flash to extract structured content from PDFs into JSONL. Modes: metadata, figures, claims, relations, methods, definitions, open-questions.
+`_graph/extract.py` uses the Gemini model selected by `GEMINI_MODEL` (default `gemini-3.6-flash`) to extract structured content from PDFs into JSONL. Modes: metadata, figures, claims, relations, methods, definitions, open-questions.
 
 ```bash
 python3 _graph/extract.py path/to/paper.pdf --mode metadata --append
-nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge
+nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
 Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for full CLI reference, all modes, batch operations, and workflow details.
 
-**Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so before running `nanograph load --mode merge`, squash these into a single node per slug carrying the union of all fields (`year`, `doi`, `abstract`, `thesis`, `study_type`). Keep exactly one Paper node per slug in `seed.jsonl`.
+**Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so squash these into a single node per slug carrying the union of all fields (`year`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`) before reloading. Keep exactly one Paper node per slug in `seed.jsonl`.
+
+Use nanograph v1.3 or later. The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact, not a merge source. For a future complete rebuild, build `_graph/readings.nano.new/` with `nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg` followed by `nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite`; run `lint` and `doctor` before activating it under an unused backup name. This repository intentionally has no `nanograph.toml`, so every command must pass its database, schema, and query paths explicitly.

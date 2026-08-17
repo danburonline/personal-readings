@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Extract structured content from scientific papers via Gemini 2.5 Flash.
+Extract structured content from scientific papers via the configured Gemini model.
 
 Every mode produces JSONL for the knowledge graph (seed.jsonl).
 
@@ -26,6 +26,7 @@ Modes:
     open-questions      OpenQuestion nodes + Raises edges
 
 Requires: GEMINI_API_KEY environment variable
+Optional: GEMINI_MODEL environment variable (defaults to gemini-3.6-flash)
 No pip dependencies -- stdlib only.
 """
 
@@ -41,7 +42,7 @@ from pathlib import Path
 
 # --- Config ---
 
-MODEL = "gemini-2.5-flash"
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 READINGS_DIR = Path(__file__).parent.parent.resolve()
 SEED_FILE = Path(__file__).parent / "seed.jsonl"
@@ -94,7 +95,7 @@ def load_seed_data():
     concepts = {}
     authors = {}
     techniques = {}
-    enriched = {edge: set() for edge in MODE_EDGE.values()}
+    enriched = {edge: set() for edge in set(MODE_EDGE.values()) | {"Contradicts"}}
 
     if not SEED_FILE.exists():
         return papers, concepts, authors, techniques, enriched
@@ -156,7 +157,7 @@ def build_paper_catalogue(papers, exclude_slug=""):
     for slug, data in sorted(papers.items()):
         if slug != exclude_slug:
             lines.append(f"  - {slug}: {data.get('title', slug)}")
-    return "\n".join(lines[:200])
+    return "\n".join(lines)
 
 
 # ─────────────────────────────────────────────
@@ -203,7 +204,7 @@ def _repair_truncated_json(text):
 
 
 def call_gemini(pdf_path, prompt, max_tokens=8192):
-    """Send PDF + prompt to Gemini 2.5 Flash, return parsed JSON."""
+    """Send a PDF and prompt to the configured Gemini model."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         print("Error: GEMINI_API_KEY not set", file=sys.stderr)
@@ -227,7 +228,6 @@ def call_gemini(pdf_path, prompt, max_tokens=8192):
             ]
         }],
         "generationConfig": {
-            "temperature": 0.1,
             "maxOutputTokens": max_tokens,
             "responseMimeType": "application/json",
         }
@@ -287,7 +287,7 @@ def find_pdf_path(paper_slug, papers):
 # ─────────────────────────────────────────────
 
 def build_metadata_prompt(ctx):
-    """Prompt for metadata extraction (authors, year, abstract, concepts, citations)."""
+    """Prompt for bibliographic metadata, concepts, and in-collection citations."""
     concept_list = "\n".join(
         f"  - {s}: {c.get('name', s)}" for s, c in sorted(ctx["concepts"].items())
     )
@@ -305,8 +305,10 @@ Extract the following from this PDF:
 
 1. **authors**: List of author names exactly as printed on the paper. Full names, not initials.
 2. **year**: Publication year (from the paper, not from when it was added to the library).
-3. **abstract**: A 2-3 sentence summary of the paper's main contribution. Keep it concise.
-4. **concepts**: 3-7 key scientific concepts this paper *substantially* covers. Not passing mentions -- core topics.
+3. **doi**: Canonical DOI without a URL prefix. Return an empty string if the paper has none.
+4. **arxiv_id**: arXiv identifier without the `arXiv:` prefix. Return an empty string if the paper has none.
+5. **abstract**: A 2-3 sentence summary of the paper's main contribution. Keep it concise.
+6. **concepts**: 3-7 key scientific concepts this paper *substantially* covers. Not passing mentions -- core topics.
 
    REUSE these existing concept slugs when they match:
 {concept_list}
@@ -314,7 +316,7 @@ Extract the following from this PDF:
    For new concepts, use lowercase-hyphenated format (e.g. "cortical-plasticity", "whole-brain-emulation").
    Return both the slug and a human-readable name.
 
-5. **cites_in_collection**: Check the paper's bibliography/references. Do any of these papers from our collection appear?
+7. **cites_in_collection**: Check the paper's bibliography/references. Do any of these papers from our collection appear?
 
 {catalogue}
 
@@ -324,6 +326,8 @@ Return ONLY valid JSON. No markdown fences. No explanation. This exact structure
 {{
   "authors": [{{"name": "Full Name"}}],
   "year": "2024",
+  "doi": "10.0000/example",
+  "arxiv_id": "2401.01234",
   "abstract": "The abstract text...",
   "concepts": [{{"slug": "concept-slug", "name": "Concept Name"}}],
   "cites_in_collection": ["slug-of-cited-paper"]
@@ -549,6 +553,10 @@ def handle_metadata_output(extraction, ctx):
     }
     if extraction.get("year"):
         update_data["year"] = extraction["year"]
+    if extraction.get("doi"):
+        update_data["doi"] = extraction["doi"]
+    if extraction.get("arxiv_id"):
+        update_data["arxiv_id"] = extraction["arxiv_id"]
     if extraction.get("abstract"):
         update_data["abstract"] = extraction["abstract"]
     lines.append(json.dumps({"type": "Paper", "data": update_data}))
@@ -1117,7 +1125,7 @@ def main():
                 for line in all_lines:
                     f.write(line + "\n")
             print(f"\nAppended {len(all_lines)} lines to {SEED_FILE}", file=sys.stderr)
-            print("Run: nanograph load _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)
+            print("Run: nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)
         else:
             for line in all_lines:
                 print(line)

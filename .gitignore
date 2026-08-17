@@ -63,4 +63,8 @@ pip-delete-this-directory.txt
 .pytest_cache/
 
 # ---- Nanograph ----
-_graph/readings.nano/
+_graph/readings.nano*/
+.env
+.env.*
+!.env.example
+.env.nano
