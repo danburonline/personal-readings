@@ -26,7 +26,7 @@ Modes:
     open-questions      OpenQuestion nodes + Raises edges
 
 Requires: GEMINI_API_KEY environment variable
-Optional: GEMINI_MODEL environment variable (defaults to gemini-3.6-flash)
+Optional: GEMINI_MODEL environment variable (defaults to gemini-3.7-flash)
 No pip dependencies -- stdlib only.
 """
 
@@ -42,7 +42,7 @@ from pathlib import Path
 
 # --- Config ---
 
-MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.7-flash")
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 READINGS_DIR = Path(__file__).parent.parent.resolve()
 SEED_FILE = Path(__file__).parent / "seed.jsonl"
