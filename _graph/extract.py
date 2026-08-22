@@ -30,15 +30,17 @@ Optional: GEMINI_MODEL environment variable (defaults to gemini-3.7-flash)
 No pip dependencies -- stdlib only.
 """
 
+import base64
 import json
 import os
-import sys
-import base64
 import re
+import sys
 import time
-import urllib.request
 import urllib.error
+import urllib.request
+from collections.abc import Callable
 from pathlib import Path
+from typing import Any, TypedDict
 
 # --- Config ---
 
@@ -243,7 +245,7 @@ def call_gemini(pdf_path, prompt, max_tokens=8192):
         body = e.read().decode("utf-8") if e.fp else ""
         print(f"API error {e.code}: {body[:500]}", file=sys.stderr)
         return None
-    except Exception as e:
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, UnicodeDecodeError) as e:
         print(f"Request failed: {e}", file=sys.stderr)
         return None
 
@@ -262,7 +264,7 @@ def call_gemini(pdf_path, prompt, max_tokens=8192):
     except json.JSONDecodeError as e:
         repaired = _repair_truncated_json(text)
         if repaired is not None:
-            print(f"  Warning: JSON truncated, recovered partial result", file=sys.stderr)
+            print("  Warning: JSON truncated, recovered partial result", file=sys.stderr)
             return repaired
         print(f"Failed to parse JSON: {e}\nRaw response:\n{text[:1000]}", file=sys.stderr)
         return None
@@ -950,7 +952,13 @@ def handle_openq_output(extraction, ctx):
 # Mode registry
 # ─────────────────────────────────────────────
 
-MODES = {
+class ModeSpec(TypedDict):
+    build_prompt: Callable[[dict[str, Any]], str]
+    handle_output: Callable[[Any, dict[str, Any]], list[str]]
+    max_tokens: int
+
+
+MODES: dict[str, ModeSpec] = {
     "metadata": {
         "build_prompt": build_metadata_prompt,
         "handle_output": handle_metadata_output,
@@ -1092,8 +1100,7 @@ def main():
 
             if append_mode and lines:
                 with open(SEED_FILE, "a") as f:
-                    for line in lines:
-                        f.write(line + "\n")
+                    f.writelines(line + "\n" for line in lines)
             else:
                 all_lines.extend(lines)
 
@@ -1122,8 +1129,7 @@ def main():
     if all_lines:
         if append_mode:
             with open(SEED_FILE, "a") as f:
-                for line in all_lines:
-                    f.write(line + "\n")
+                f.writelines(line + "\n" for line in all_lines)
             print(f"\nAppended {len(all_lines)} lines to {SEED_FILE}", file=sys.stderr)
             print("Run: nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)
         else:
