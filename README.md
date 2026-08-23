@@ -6,23 +6,32 @@ Personal collection of scientific papers, essays, and technical documents. Devic
 
 Papers are organised into topic directories:
 
-| Directory                                  | Focus                                                |
-| ------------------------------------------ | ---------------------------------------------------- |
-| `ai_consciousness_and_ethics/`             | Moral status of AI, machine consciousness criteria   |
-| `bioprinting_and_biofabrication/`          | 3D bioprinting, tissue fabrication techniques        |
-| `brain_plasticity_and_gliomas/`            | Neuroplasticity, glioma biology and modelling        |
-| `brain_preservation_and_ex_vivo_models/`   | Fixation, cryopreservation, ex vivo tissue models    |
-| `computational_neuroscience/`              | Connectomics, network topology, neural computation   |
-| `consciousness_theories/`                  | IIT, GWT, higher-order theories, formal models       |
-| `machine_learning_and_generative_models/`  | Deep learning architectures, generative methods      |
-| `mind_uploading_and_digital_minds/`        | Whole-brain emulation, substrate independence        |
-| `neural_interfaces_and_neuromodulation/`   | BCI, stimulation paradigms, neural recording         |
-| `neural_regeneration_and_stem_cells/`      | Neurogenesis, stem cell therapies, repair            |
-| `neural_tissue_engineering_and_organoids/` | Cerebral organoids, engineered neural tissue         |
-| `neuromorphic_computing/`                  | Neuromorphic hardware, spiking network chips         |
-| `philosophy_of_mind/`                      | Personal identity, functionalism, qualia             |
-| `theoretical_physics/`                     | Foundations, quantum mechanics, mathematical physics |
-| `virtual_reality_and_simulation/`          | Simulation theory, VR neuroscience applications      |
+| Directory                                  | Focus                                                           |
+| ------------------------------------------ | --------------------------------------------------------------- |
+| `ai_consciousness_and_ethics/`             | Moral status of AI, machine consciousness criteria              |
+| `biophysical_mechanisms/`                  | Electromagnetic, thermodynamic, quantum, and microtubular models |
+| `bioprinting_and_biofabrication/`          | 3D bioprinting, tissue fabrication techniques                   |
+| `brain_plasticity_and_gliomas/`            | Neuroplasticity, glioma biology and modelling                   |
+| `brain_preservation_and_ex_vivo_models/`   | Fixation, cryopreservation, ex vivo tissue models               |
+| `cellular_and_circuit_neuroscience/`       | Neuronal morphology, cell types, dendrites, and synapses        |
+| `cognition_and_representation/`            | Cognitive representation, simulation, emotion, and cognition   |
+| `computational_neuroscience/`              | Broad and cross-scale computational accounts of the brain       |
+| `consciousness_theories/`                  | Broad and integrative theories of consciousness                 |
+| `machine_learning_and_generative_models/`  | Deep learning architectures, generative methods                 |
+| `mathematical_and_formal_models/`          | Formal measures, information theory, and mathematical structure |
+| `mind_uploading_and_digital_minds/`        | Whole-brain emulation, substrate independence                   |
+| `network_science_and_dynamics/`            | Network topology, criticality, synchrony, and dynamical regimes |
+| `neural_interfaces_and_neuromodulation/`   | BCI, stimulation paradigms, neural recording                    |
+| `neural_regeneration_and_stem_cells/`      | Neurogenesis, stem cell therapies, repair                       |
+| `neural_simulation_and_computation/`       | Spiking models, neural mass models, and brain simulation        |
+| `neural_tissue_engineering_and_organoids/` | Cerebral organoids, engineered neural tissue                    |
+| `neuromorphic_computing/`                  | Neuromorphic hardware, spiking network chips                    |
+| `phenomenology_and_experience/`            | Qualia, valence, altered states, and phenomenal structure       |
+| `philosophy_of_mind/`                      | Personal identity, functionalism, qualia                        |
+| `scientific_methods_and_validation/`       | Consciousness detection, falsification, and validation          |
+| `spatial_cognition_and_navigation/`        | Grid cells, path integration, and navigational coding           |
+| `theoretical_physics/`                     | Foundations, quantum mechanics, mathematical physics            |
+| `virtual_reality_and_simulation/`          | Simulation theory, VR neuroscience applications                 |
 
 ## Naming Convention
 

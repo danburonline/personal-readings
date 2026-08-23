@@ -9,7 +9,7 @@
 
 ## Deferred PDF changes
 
-The 17 August 2026 decision is to leave the PDFs in their current state. Duplicate consolidation, further filename cleanup, OCR derivatives, PDF repairs, and second-level folder changes are not active tasks.
+Filename cleanup and the flat first-level topic split were completed on 23 August 2026. Duplicate consolidation, OCR derivatives, PDF repairs, and nested folder changes are not active tasks.
 
 ## Graph improvements
 
@@ -20,7 +20,7 @@ The 17 August 2026 decision is to leave the PDFs in their current state. Duplica
 - [ ] Curate Techniques that are actually theories or concepts and normalise the known Author and Concept spelling variants
 - [ ] Add queries for extraction completeness, Extends, Contradicts, paper details, and manuscript coverage
 - [ ] Populate Informs beyond the current two edges across four Manuscript nodes
-- [ ] Add recursive path support and a subfolder model before introducing second-level topic folders
+- [x] Introduce more granular peer-level root folders while retaining broad `consciousness_theories/` and `computational_neuroscience/` folders; nested topic folders remain intentionally unsupported (23 August 2026)
 
 ## Per paper
 
