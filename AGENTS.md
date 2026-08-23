@@ -24,6 +24,8 @@ You are operating in a personal research library of annotated scientific papers,
 - When extracting content, capture both the source text and any visible annotations; do not infer that a file is unannotated solely from its PDF annotation objects
 - Respect the topic-based folder structure when organising output
 - File naming follows `YYYYMMDD_descriptive_title.pdf` -- the date is when the paper was added, not its publication date
+- Keep the folder structure flat: every PDF must live in one root-level topic folder. Do not create nested topic folders. When a broad category needs more granularity, add a generic peer-level root folder and retain the broad folder for papers that do not clearly fit the narrower category
+- Before adding, renaming, or moving a PDF, measure the complete prospective Kindle Scribe path as `Documents/<repository-relative path>`. Target 200 characters or fewer and never exceed 255 characters. Shorten the descriptive filename portion while preserving the `YYYYMMDD_` prefix
 
 ## Output Format
 
@@ -39,6 +41,7 @@ This repository includes a nanograph property graph (`_graph/readings.nano/`) th
 
 - **Adding a paper**: append Paper node + InFolder edge to `_graph/seed.jsonl` (reload only after all extraction modes have run)
 - **After reading/extracting**: append Author, Concept, Technique, Claim, Definition, OpenQuestion nodes and their edges
+- **Renaming or moving a paper**: a filename change requires migration of the Paper slug, paper-prefixed child slugs, and every affected edge endpoint; a root-folder change requires matching updates to `Paper.folder` and its `InFolder` edge. Keep PDF/Paper/`InFolder` identity and folder parity
 - **Never overwrite** `_graph/seed.jsonl` during routine use -- always append. Controlled slug/schema migrations and squashing duplicate Paper nodes are the exceptions
 
 ### JSONL Format (minimal reference)
