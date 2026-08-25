@@ -4505,7 +4505,7 @@
 {"type": "OpenQuestion", "data": {"slug": "20260521_newman_problem_of_consciousness_science--oq-4", "question": "Explore more advanced mathematical morphisms (such as local automorphisms and sheaves) or entirely different ways of formulating the condition that replaces (D2) to potentially improve Condition (D2') and address the trivial automorphism group problem.", "context": "", "tractability": "concrete", "question_type": "future_work"}}
 {"type": "Figure", "data": {"slug": "20260521_mathematical_structure_integrated_information_theory--fig-1", "figure_id": "Figure 1", "caption": "An Integrated Information Theory specifies for every system in a particular state its conscious experience, described formally as an element of an experience space. In our formalization, this is a map Sys → Exp from the system class Sys into a class Exp of experience spaces, which, first, sends each system S to its space of possible experiences E(S), and, second, sends each state s ∈ St(S) to the actual experience the system is having when in that space, St(S) → E(S) s ↦ E(S, s). The definition of this map in terms of axiomatic descriptions of physical systems, experience spaces and further structure used in classical IIT is given in the first half of this paper.", "figure_type": "diagram", "description": "The diagram illustrates the high-level structure of an Integrated Information Theory (IIT). It shows two boxes: 'Physical systems and states' and 'Spaces and states of conscious experience'. An arrow labeled 'E' connects 'Physical systems and states' to 'Spaces and states of conscious experience'. Below the boxes, a mathematical mapping `Sys → Exp` is described, where `Sys` is a class of systems, `Exp` is a class of experience spaces. It further details that each system `S` maps to `E(S)` (space of possible experiences) and each state `s ∈ St(S)` maps to `E(S, s)` (actual experience).", "key_data": "", "significance": "This figure provides a high-level conceptual overview of how an Integrated Information Theory maps physical systems and their states to conscious experiences, setting the stage for the formal mathematical definitions presented in the paper."}}
 {"type": "Figure", "data": {"slug": "20260521_mathematical_structure_of_conscious_experience--fig-1", "figure_id": "Figure 1", "caption": "To help explain the example of relative similarity, this figure illustrates experiences with color qualities and variations thereof. Subfigure A illustrates an experience of three color chips as well as the concept of relative similarity: many readers will experience the color of the top-left color chip to be less similar to the reference chip than the color of the top-right color chip. Subfigure B illustrates our notation for the color aspects corresponding to the color chips. Subfigures C and D illustrate variations v of experiences: a swap of two color aspects in C; and a replacement of two color aspects in D.", "figure_type": "illustration", "description": "The figure consists of four subfigures (A, B, C, D) illustrating color chip experiences and variations. Subfigure A shows three circular color chips: a yellow reference chip at the bottom, a light blue chip (top-left), and a darker blue chip (top-right). Subfigure B labels these chips as 'b0' (reference), 'b1' (top-left), and 'b2' (top-right), establishing notation for color aspects. Subfigure C demonstrates a variation 'v' where the positions of 'b1' and 'b2' are swapped, showing the light blue chip on the right and the darker blue on the left after the variation. Subfigure D illustrates another variation 'v' where 'b1' and 'b2' are replaced by new color aspects, 'b3' (green) and 'b4' (yellow), in their respective positions.", "key_data": "", "significance": "This figure provides a visual and conceptual foundation for understanding relative similarity as a structural aspect of conscious experience. It concretely illustrates how 'color qualities' and 'variations' are represented, which is essential for applying the paper's proposed definition of a Mathematical Structure of Conscious Experience (MSC) to the example of a strict partial order."}}
-{"type": "Paper", "data": {"slug": "20250824_ sharing_the_world_with_digital_minds", "title": "Sharing the world with digital minds", "folder": "ai_consciousness_and_ethics", "added": "20250824"}}
+{"type": "Paper", "data": {"slug": "20250824_sharing_the_world_with_digital_minds", "title": "Sharing the world with digital minds", "folder": "ai_consciousness_and_ethics", "added": "20250824"}}
 {"type": "Paper", "data": {"slug": "20250825_an_introduction_to_the_problems_of_ai_consciousness", "title": "An introduction to the problems of ai consciousness", "folder": "ai_consciousness_and_ethics", "added": "20250825"}}
 {"type": "Paper", "data": {"slug": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "title": "Dissociating artificial intelligence from artificial consciousness", "folder": "ai_consciousness_and_ethics", "added": "20250927"}}
 {"type": "Paper", "data": {"slug": "20251003_neurons_embodied_in_a_virtual_world_evidence_for_organoid_ethics", "title": "Neurons embodied in a virtual world evidence for organoid ethics", "folder": "ai_consciousness_and_ethics", "added": "20251003"}}
@@ -4521,7 +4521,7 @@
 {"type": "Paper", "data": {"slug": "20250915_data_driven_de_novo_design_of_super_adhesive_hydrogels", "title": "Data driven de novo design of super adhesive hydrogels", "folder": "bioprinting_and_biofabrication", "added": "20250915"}}
 {"type": "Paper", "data": {"slug": "20250915_leveraging_transfer_learning_for_efficient_bioprinting", "title": "Leveraging transfer learning for efficient bioprinting", "folder": "bioprinting_and_biofabrication", "added": "20250915"}}
 {"type": "Paper", "data": {"slug": "20250927_bioinspired_neuropods_ai_enhanced_4d_composite_bioprinting_revolutionizing_brain_on_chip_and_neural_regeneration", "title": "Bioinspired neuropods ai enhanced 4d composite bioprinting revolutionizing brain on chip and neural regeneration", "folder": "bioprinting_and_biofabrication", "added": "20250927"}}
-{"type": "Paper", "data": {"slug": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "title": "Soft glycerol-plasticized chitosan scaffolds for nerve regeneration", "folder": "bioprinting_and_biofabrication", "added": "20251023"}}
+{"type": "Paper", "data": {"slug": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "title": "Soft glycerol-plasticized chitosan scaffolds for nerve regeneration", "folder": "bioprinting_and_biofabrication", "added": "20251023"}}
 {"type": "Paper", "data": {"slug": "20251111_dynamically_autofocused_3d_pulsed_laser_micromachining_for_advanced_3d_bioelectronics", "title": "Dynamically autofocused 3d pulsed laser micromachining for advanced 3d bioelectronics", "folder": "bioprinting_and_biofabrication", "added": "20251111"}}
 {"type": "Paper", "data": {"slug": "20251112_time_code_for_multifunctional_3d_printhead_controls", "title": "Time code for multifunctional 3d printhead controls", "folder": "bioprinting_and_biofabrication", "added": "20251112"}}
 {"type": "Paper", "data": {"slug": "20251125_bicontinuous_microarchitected_scaffolds_govern_neuronal_behavior_and_maturation", "title": "Bicontinuous microarchitected scaffolds govern neuronal behavior and maturation", "folder": "bioprinting_and_biofabrication", "added": "20251125"}}
@@ -4533,7 +4533,7 @@
 {"type": "Paper", "data": {"slug": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "title": "Diffuse low grade gliomas and neuroplasticity", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
 {"type": "Paper", "data": {"slug": "20251023_focal_cortical_lesions_and_interneuron_excitability", "title": "Focal cortical lesions induce bidirectional changes in excitability of fast spiking and non fast spiking cortical interneurons", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
 {"type": "Paper", "data": {"slug": "20251023_low_grade_glioma_functional_mapping_and_neuroplasticity", "title": "Functional mapping before and after low-grade glioma surgery a new way to decipher various spatiotemporal patterns of individual neuroplastic potential in brain tumor patients", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
-{"type": "Paper", "data": {"slug": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "title": "Glioma-neuron interactions insights from neural plasticity", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
+{"type": "Paper", "data": {"slug": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "title": "Glioma-neuron interactions insights from neural plasticity", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
 {"type": "Paper", "data": {"slug": "20251023_inhibitory_engrams_in_perception_and_memory", "title": "Inhibitory engrams in perception and memory", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
 {"type": "Paper", "data": {"slug": "20251023_neuroplasticity_of_glioma_patients_brain_structure_and_topological_network", "title": "Neuroplasticity of glioma patients brain structure and topological network", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
 {"type": "Paper", "data": {"slug": "20251023_plasticity_of_inhibition_review", "title": "Plasticity of inhibition review", "folder": "brain_plasticity_and_gliomas", "added": "20251023"}}
@@ -4564,7 +4564,7 @@
 {"type": "Paper", "data": {"slug": "20250815_comprehensive_neural_dataset_report", "title": "Comprehensive neural dataset report", "folder": "computational_neuroscience", "added": "20250815"}}
 {"type": "Paper", "data": {"slug": "20250915_computational_synthesis_of_cortical_dendritic_morphologies", "title": "Computational synthesis of cortical dendritic morphologies", "folder": "cellular_and_circuit_neuroscience", "added": "20250915"}}
 {"type": "Paper", "data": {"slug": "20250915_mouse_brain_cell_atlas", "title": "Mouse brain cell atlas", "folder": "cellular_and_circuit_neuroscience", "added": "20250915"}}
-{"type": "Paper", "data": {"slug": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "title": "A comparative perspective on the cerebello-cerebral system and its link to cognition", "folder": "cellular_and_circuit_neuroscience", "added": "20250916"}}
+{"type": "Paper", "data": {"slug": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "title": "A comparative perspective on the cerebello-cerebral system and its link to cognition", "folder": "cellular_and_circuit_neuroscience", "added": "20250916"}}
 {"type": "Paper", "data": {"slug": "20250916_cognition_emotion_and_the_cerebellum", "title": "Cognition emotion and the cerebellum", "folder": "cognition_and_representation", "added": "20250916"}}
 {"type": "Paper", "data": {"slug": "20250927_neural_foundations_of_mental_simulation_future_prediction_of_latent_representations_on_dynamic_scenes", "title": "Neural foundations of mental simulation future prediction of latent representations on dynamic scenes", "folder": "cognition_and_representation", "added": "20250927"}}
 {"type": "Paper", "data": {"slug": "20251006_morphoelectric_and_transcriptomic_divergence_of_the_layer_1_interneuron_repertoire_in_human_versus_mouse_neocortex", "title": "Morphoelectric and transcriptomic divergence of the layer 1 interneuron repertoire in human versus mouse neocortex", "folder": "cellular_and_circuit_neuroscience", "added": "20251006"}}
@@ -4576,7 +4576,7 @@
 {"type": "Paper", "data": {"slug": "20251116_the_neuron_as_a_direct_data_driven_controller", "title": "The neuron as a direct data driven controller", "folder": "neural_simulation_and_computation", "added": "20251116"}}
 {"type": "Paper", "data": {"slug": "20251216_how_critical_is_brain_criticality_feature_review", "title": "How critical is brain criticality feature review", "folder": "network_science_and_dynamics", "added": "20251216"}}
 {"type": "Paper", "data": {"slug": "20251223_mouse_whole_cortex_simulation_on_fugaku", "title": "Microscopic level mouse whole cortex simulation composed of 9 million biophysical neurons and 26 billion synapses on the supercomputer fugaku", "folder": "neural_simulation_and_computation", "added": "20251223"}}
-{"type": "Paper", "data": {"slug": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "title": "Surface optimization governs the local design of physical networks", "folder": "network_science_and_dynamics", "added": "20260113"}}
+{"type": "Paper", "data": {"slug": "20260113_surface_optimization_physical_network_design", "title": "Surface optimization governs the local design of physical networks", "folder": "network_science_and_dynamics", "added": "20260113"}}
 {"type": "Paper", "data": {"slug": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model", "title": "Can the hippocampus tell time the temporo septal engram shift model", "folder": "cognition_and_representation", "added": "20260114"}}
 {"type": "Paper", "data": {"slug": "20260125_representations_of_geometric_shapes_have_syntactic_structure", "title": "Representations of geometric shapes have syntactic structure", "folder": "cognition_and_representation", "added": "20260125"}}
 {"type": "Paper", "data": {"slug": "20260210_connectionism_coming_of_age_legacy_and_future_challenges", "title": "Connectionism coming of age legacy and future challenges", "folder": "cognition_and_representation", "added": "20260210"}}
@@ -4634,10 +4634,10 @@
 {"type": "Paper", "data": {"slug": "20250828_dopaminergic_neurons_electrical_stimulation_dopamine_biosynthesis", "title": "Dopaminergic neurons electrical stimulation dopamine biosynthesis", "folder": "neural_interfaces_and_neuromodulation", "added": "20250828"}}
 {"type": "Paper", "data": {"slug": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "title": "Electrical stimulation on neural stem cell fate and function", "folder": "neural_interfaces_and_neuromodulation", "added": "20250828"}}
 {"type": "Paper", "data": {"slug": "20250828_principles_of_electrical_stimulation_of_neural_tissue", "title": "Principles of electrical stimulation of neural tissue", "folder": "neural_interfaces_and_neuromodulation", "added": "20250828"}}
-{"type": "Paper", "data": {"slug": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "title": "Short duration electrical stimulation to enhance neurite outgrowth and maturation of adult", "folder": "neural_interfaces_and_neuromodulation", "added": "20250828"}}
+{"type": "Paper", "data": {"slug": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "title": "Short duration electrical stimulation to enhance neurite outgrowth and maturation of adult", "folder": "neural_interfaces_and_neuromodulation", "added": "20250828"}}
 {"type": "Paper", "data": {"slug": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery", "title": "A 3d flexible neural interface with microfluidic interconnection cable for chemical delivery", "folder": "neural_interfaces_and_neuromodulation", "added": "20250918"}}
-{"type": "Paper", "data": {"slug": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "title": "An ultrasoft and flexible pdms-based balloon-type implantable device for controlled drug delivery", "folder": "neural_interfaces_and_neuromodulation", "added": "20250918"}}
-{"type": "Paper", "data": {"slug": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "title": "Double-sided thin-film microelectrode array with hemispheric electrodes for subretinal stimulation", "folder": "neural_interfaces_and_neuromodulation", "added": "20250918"}}
+{"type": "Paper", "data": {"slug": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "title": "An ultrasoft and flexible pdms-based balloon-type implantable device for controlled drug delivery", "folder": "neural_interfaces_and_neuromodulation", "added": "20250918"}}
+{"type": "Paper", "data": {"slug": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "title": "Double-sided thin-film microelectrode array with hemispheric electrodes for subretinal stimulation", "folder": "neural_interfaces_and_neuromodulation", "added": "20250918"}}
 {"type": "Paper", "data": {"slug": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review", "title": "Current developments and challenges in the field of biohybrid neural interfaces a scoping review", "folder": "neural_interfaces_and_neuromodulation", "added": "20251021"}}
 {"type": "Paper", "data": {"slug": "20251112_adaptive_biomimicry_design_of_neural_interfaces_with_enhanced_biointegration", "title": "Adaptive biomimicry design of neural interfaces with enhanced biointegration", "folder": "neural_interfaces_and_neuromodulation", "added": "20251112"}}
 {"type": "Paper", "data": {"slug": "20251112_biohybrid_neural_interfaces_improving_biological_integration_of_neural_implants", "title": "Biohybrid neural interfaces improving biological integration of neural implants", "folder": "neural_interfaces_and_neuromodulation", "added": "20251112"}}
@@ -4651,10 +4651,10 @@
 {"type": "Paper", "data": {"slug": "20251019_delayed_transplantation_of_neural_stem_cells_improves_initial_graft_survival_after_stroke", "title": "Delayed transplantation of neural stem cells improves initial graft survival after stroke", "folder": "neural_regeneration_and_stem_cells", "added": "20251019"}}
 {"type": "Paper", "data": {"slug": "20251019_hypoxia_preconditioned_neural_xenografts_promote_repair_of_brain_tissue_after_stroke", "title": "Hypoxia preconditioned neural xenografts promote repair of brain tissue after stroke", "folder": "neural_regeneration_and_stem_cells", "added": "20251019"}}
 {"type": "Paper", "data": {"slug": "20251112_old_brain_young_again", "title": "Old brain young again", "folder": "neural_regeneration_and_stem_cells", "added": "20251112"}}
-{"type": "Paper", "data": {"slug": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target-dependent_dopamine_neuron_maturation", "title": "Reconstruction of the human nigrostriatal pathway in vitro reveals target-dependent dopamine neuron maturation", "folder": "neural_regeneration_and_stem_cells", "added": "20260110"}}
+{"type": "Paper", "data": {"slug": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target_dependent_dopamine_neuron_maturation", "title": "Reconstruction of the human nigrostriatal pathway in vitro reveals target-dependent dopamine neuron maturation", "folder": "neural_regeneration_and_stem_cells", "added": "20260110"}}
 {"type": "Paper", "data": {"slug": "20250703_in_vivo_neocortical_tissue_rebuilding_platform_study", "title": "In vivo neocortical tissue rebuilding platform study", "folder": "neural_tissue_engineering_and_organoids", "added": "20250703"}}
 {"type": "Paper", "data": {"slug": "20250703_maturation_transplanted_organoids", "title": "Maturation transplanted organoids", "folder": "neural_tissue_engineering_and_organoids", "added": "20250703"}}
-{"type": "Paper", "data": {"slug": "20250814_3D_neural_models_review_2025", "title": "3D neural models review 2025", "folder": "neural_tissue_engineering_and_organoids", "added": "20250814"}}
+{"type": "Paper", "data": {"slug": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "title": "Recent advances in 3D models of the nervous system for neural regeneration research and drug development", "folder": "neural_tissue_engineering_and_organoids", "added": "20250814"}}
 {"type": "Paper", "data": {"slug": "20250818_human_neural_organoids_learning_memory_study", "title": "Human neural organoids learning memory study", "folder": "neural_tissue_engineering_and_organoids", "added": "20250818"}}
 {"type": "Paper", "data": {"slug": "20251003_three_dimensional_explants", "title": "Three dimensional explants", "folder": "neural_tissue_engineering_and_organoids", "added": "20251003"}}
 {"type": "Paper", "data": {"slug": "20251112_in_vivo_platform_for_rebuilding_functional_neocortical_tissue", "title": "In vivo platform for rebuilding functional neocortical tissue", "folder": "neural_tissue_engineering_and_organoids", "added": "20251112"}}
@@ -4667,7 +4667,7 @@
 {"type": "Paper", "data": {"slug": "20250927_neuromorphic_algorithms_for_brain_implants_a_review", "title": "Neuromorphic algorithms for brain implants a review", "folder": "neuromorphic_computing", "added": "20250927"}}
 {"type": "Paper", "data": {"slug": "20251011_constructing_artificial_neurons_with_functional_parameters_comprehensively_matching_biological_values", "title": "Constructing artificial neurons with functional parameters comprehensively matching biological values", "folder": "neuromorphic_computing", "added": "20251011"}}
 {"type": "Paper", "data": {"slug": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "title": "Neuromorphic hardware for somatosensory neuroprostheses", "folder": "neuromorphic_computing", "added": "20251021"}}
-{"type": "Paper", "data": {"slug": "20250802_filename_ neuropsychological_basis_experience_free_will", "title": "Filename  neuropsychological basis experience free will", "folder": "philosophy_of_mind", "added": "20250802"}}
+{"type": "Paper", "data": {"slug": "20250802_neuropsychological_basis_experience_free_will", "title": "Neuropsychological basis experience free will", "folder": "philosophy_of_mind", "added": "20250802"}}
 {"type": "Paper", "data": {"slug": "20250810_personal_identity_psychological_continuity_analysis", "title": "Personal identity psychological continuity analysis", "folder": "philosophy_of_mind", "added": "20250810"}}
 {"type": "Paper", "data": {"slug": "20250820_when_suicide_is_not_self_killing", "title": "When suicide is not self killing", "folder": "philosophy_of_mind", "added": "20250820"}}
 {"type": "Paper", "data": {"slug": "20250915_defining_biological_naturalism", "title": "Defining biological naturalism", "folder": "philosophy_of_mind", "added": "20250915"}}
@@ -4690,14 +4690,14 @@
 {"type": "Paper", "data": {"slug": "20251122_evidence_of_universal_conformal_invariance_in_living_biological_matter", "title": "Evidence of universal conformal invariance in living biological matter", "folder": "theoretical_physics", "added": "20251122"}}
 {"type": "Paper", "data": {"slug": "20251122_topological_quantum_gates_in_homotopy_type_theory", "title": "Topological quantum gates in homotopy type theory", "folder": "theoretical_physics", "added": "20251122"}}
 {"type": "Paper", "data": {"slug": "20251129_non_local_detection_of_coherent_yu_shiba_rusinov_quantum_projections", "title": "Non local detection of coherent yu shiba rusinov quantum projections", "folder": "theoretical_physics", "added": "20251129"}}
-{"type": "Paper", "data": {"slug": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "title": "What computer science has to say about the simulation hypothesis", "folder": "virtual_reality_and_simulation", "added": "20250927"}}
+{"type": "Paper", "data": {"slug": "20250927_implications_computer_science_theory_simulation_hypothesis", "title": "Implications of computer science theory for the simulation hypothesis", "folder": "virtual_reality_and_simulation", "added": "20250927"}}
 {"type": "Paper", "data": {"slug": "20250927_the_logical_and_physical_impossibility_of_the_simulation_hypothesis", "title": "The logical and physical impossibility of the simulation hypothesis", "folder": "virtual_reality_and_simulation", "added": "20250927"}}
 {"type": "Paper", "data": {"slug": "20251102_personal_universes", "title": "Personal universes", "folder": "virtual_reality_and_simulation", "added": "20251102"}}
 {"type": "Paper", "data": {"slug": "20251204_against_brain_in_a_vatism_on_the_value_of_virtual_reality", "title": "Against brain in a vatism on the value of virtual reality", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
 {"type": "Paper", "data": {"slug": "20251204_authenticities_online_understanding_cyberspace_identity", "title": "Authenticities online understanding cyberspace identity", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
 {"type": "Paper", "data": {"slug": "20251204_brain_in_a_vat_versus_enactive_views_of_experience", "title": "Brain in a vat versus enactive views of experience", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
 {"type": "Paper", "data": {"slug": "20251204_embodiment_and_presence_in_virtual_worlds_a_review", "title": "Embodiment and presence in virtual worlds a review", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
-{"type": "Paper", "data": {"slug": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "title": "Non-perceptual representational immersion in video games response to chalmers reality plus", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
+{"type": "Paper", "data": {"slug": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "title": "Non-perceptual representational immersion in video games response to chalmers reality plus", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
 {"type": "Paper", "data": {"slug": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "title": "Real people and virtual bodies how disembodied can embodiment be", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
 {"type": "Paper", "data": {"slug": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere", "title": "The brain in a vat special issue introduction cathy gere", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
 {"type": "Paper", "data": {"slug": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality", "title": "The simulated body preliminary investigation neuroscientific studies phenomenology virtual reality", "folder": "virtual_reality_and_simulation", "added": "20251204"}}
@@ -6268,7 +6268,7 @@
 {"type": "OpenQuestion", "data": {"slug": "20260527_non_materialist_physicalism_testable_conjecture--oq-28", "question": "The central hypothesis of quantum-coherent neuronal superpositions for phenomenal binding is 'unintuitive'.", "context": "The paper's conjecture and common-sense or classical intuitions about brain function.", "tractability": "", "question_type": "tension"}}
 {"type": "OpenQuestion", "data": {"slug": "20260527_non_materialist_physicalism_testable_conjecture--oq-29", "question": "Orthodox neuroscience confidently predicts that invoking an exact phenomenal-physical structural match at Tegmarkian temporal resolutions is false.", "context": "The paper's core conjecture and the prevailing views and predictions of mainstream neuroscience regarding decoherence and consciousness.", "tractability": "", "question_type": "tension"}}
 {"type": "OpenQuestion", "data": {"slug": "20260527_non_materialist_physicalism_testable_conjecture--oq-30", "question": "Pronouncing on the nature of physical science might seem 'presumptuous' for anyone but a professional physicist.", "context": "The philosophical scope of the paper's claims about the intrinsic nature of reality and traditional disciplinary boundaries in science.", "tractability": "", "question_type": "tension"}}
-{"edge": "InFolder", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "ai_consciousness_and_ethics"}
+{"edge": "InFolder", "from": "20250824_sharing_the_world_with_digital_minds", "to": "ai_consciousness_and_ethics"}
 {"edge": "InFolder", "from": "20250825_an_introduction_to_the_problems_of_ai_consciousness", "to": "ai_consciousness_and_ethics"}
 {"edge": "InFolder", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "ai_consciousness_and_ethics"}
 {"edge": "InFolder", "from": "20251003_neurons_embodied_in_a_virtual_world_evidence_for_organoid_ethics", "to": "ai_consciousness_and_ethics"}
@@ -6284,7 +6284,7 @@
 {"edge": "InFolder", "from": "20250915_data_driven_de_novo_design_of_super_adhesive_hydrogels", "to": "bioprinting_and_biofabrication"}
 {"edge": "InFolder", "from": "20250915_leveraging_transfer_learning_for_efficient_bioprinting", "to": "bioprinting_and_biofabrication"}
 {"edge": "InFolder", "from": "20250927_bioinspired_neuropods_ai_enhanced_4d_composite_bioprinting_revolutionizing_brain_on_chip_and_neural_regeneration", "to": "bioprinting_and_biofabrication"}
-{"edge": "InFolder", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "bioprinting_and_biofabrication"}
+{"edge": "InFolder", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "bioprinting_and_biofabrication"}
 {"edge": "InFolder", "from": "20251111_dynamically_autofocused_3d_pulsed_laser_micromachining_for_advanced_3d_bioelectronics", "to": "bioprinting_and_biofabrication"}
 {"edge": "InFolder", "from": "20251112_time_code_for_multifunctional_3d_printhead_controls", "to": "bioprinting_and_biofabrication"}
 {"edge": "InFolder", "from": "20251125_bicontinuous_microarchitected_scaffolds_govern_neuronal_behavior_and_maturation", "to": "bioprinting_and_biofabrication"}
@@ -6296,7 +6296,7 @@
 {"edge": "InFolder", "from": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "to": "brain_plasticity_and_gliomas"}
 {"edge": "InFolder", "from": "20251023_focal_cortical_lesions_and_interneuron_excitability", "to": "brain_plasticity_and_gliomas"}
 {"edge": "InFolder", "from": "20251023_low_grade_glioma_functional_mapping_and_neuroplasticity", "to": "brain_plasticity_and_gliomas"}
-{"edge": "InFolder", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "brain_plasticity_and_gliomas"}
+{"edge": "InFolder", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "brain_plasticity_and_gliomas"}
 {"edge": "InFolder", "from": "20251023_inhibitory_engrams_in_perception_and_memory", "to": "brain_plasticity_and_gliomas"}
 {"edge": "InFolder", "from": "20251023_neuroplasticity_of_glioma_patients_brain_structure_and_topological_network", "to": "brain_plasticity_and_gliomas"}
 {"edge": "InFolder", "from": "20251023_plasticity_of_inhibition_review", "to": "brain_plasticity_and_gliomas"}
@@ -6327,7 +6327,7 @@
 {"edge": "InFolder", "from": "20250815_comprehensive_neural_dataset_report", "to": "computational_neuroscience"}
 {"edge": "InFolder", "from": "20250915_computational_synthesis_of_cortical_dendritic_morphologies", "to": "cellular_and_circuit_neuroscience"}
 {"edge": "InFolder", "from": "20250915_mouse_brain_cell_atlas", "to": "cellular_and_circuit_neuroscience"}
-{"edge": "InFolder", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "cellular_and_circuit_neuroscience"}
+{"edge": "InFolder", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "cellular_and_circuit_neuroscience"}
 {"edge": "InFolder", "from": "20250916_cognition_emotion_and_the_cerebellum", "to": "cognition_and_representation"}
 {"edge": "InFolder", "from": "20250927_neural_foundations_of_mental_simulation_future_prediction_of_latent_representations_on_dynamic_scenes", "to": "cognition_and_representation"}
 {"edge": "InFolder", "from": "20251006_morphoelectric_and_transcriptomic_divergence_of_the_layer_1_interneuron_repertoire_in_human_versus_mouse_neocortex", "to": "cellular_and_circuit_neuroscience"}
@@ -6339,7 +6339,7 @@
 {"edge": "InFolder", "from": "20251116_the_neuron_as_a_direct_data_driven_controller", "to": "neural_simulation_and_computation"}
 {"edge": "InFolder", "from": "20251216_how_critical_is_brain_criticality_feature_review", "to": "network_science_and_dynamics"}
 {"edge": "InFolder", "from": "20251223_mouse_whole_cortex_simulation_on_fugaku", "to": "neural_simulation_and_computation"}
-{"edge": "InFolder", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "network_science_and_dynamics"}
+{"edge": "InFolder", "from": "20260113_surface_optimization_physical_network_design", "to": "network_science_and_dynamics"}
 {"edge": "InFolder", "from": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model", "to": "cognition_and_representation"}
 {"edge": "InFolder", "from": "20260125_representations_of_geometric_shapes_have_syntactic_structure", "to": "cognition_and_representation"}
 {"edge": "InFolder", "from": "20260210_connectionism_coming_of_age_legacy_and_future_challenges", "to": "cognition_and_representation"}
@@ -6397,10 +6397,10 @@
 {"edge": "InFolder", "from": "20250828_dopaminergic_neurons_electrical_stimulation_dopamine_biosynthesis", "to": "neural_interfaces_and_neuromodulation"}
 {"edge": "InFolder", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "neural_interfaces_and_neuromodulation"}
 {"edge": "InFolder", "from": "20250828_principles_of_electrical_stimulation_of_neural_tissue", "to": "neural_interfaces_and_neuromodulation"}
-{"edge": "InFolder", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "neural_interfaces_and_neuromodulation"}
+{"edge": "InFolder", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "neural_interfaces_and_neuromodulation"}
 {"edge": "InFolder", "from": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery", "to": "neural_interfaces_and_neuromodulation"}
-{"edge": "InFolder", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "neural_interfaces_and_neuromodulation"}
-{"edge": "InFolder", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "neural_interfaces_and_neuromodulation"}
+{"edge": "InFolder", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "neural_interfaces_and_neuromodulation"}
+{"edge": "InFolder", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "neural_interfaces_and_neuromodulation"}
 {"edge": "InFolder", "from": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review", "to": "neural_interfaces_and_neuromodulation"}
 {"edge": "InFolder", "from": "20251112_adaptive_biomimicry_design_of_neural_interfaces_with_enhanced_biointegration", "to": "neural_interfaces_and_neuromodulation"}
 {"edge": "InFolder", "from": "20251112_biohybrid_neural_interfaces_improving_biological_integration_of_neural_implants", "to": "neural_interfaces_and_neuromodulation"}
@@ -6414,10 +6414,10 @@
 {"edge": "InFolder", "from": "20251019_delayed_transplantation_of_neural_stem_cells_improves_initial_graft_survival_after_stroke", "to": "neural_regeneration_and_stem_cells"}
 {"edge": "InFolder", "from": "20251019_hypoxia_preconditioned_neural_xenografts_promote_repair_of_brain_tissue_after_stroke", "to": "neural_regeneration_and_stem_cells"}
 {"edge": "InFolder", "from": "20251112_old_brain_young_again", "to": "neural_regeneration_and_stem_cells"}
-{"edge": "InFolder", "from": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target-dependent_dopamine_neuron_maturation", "to": "neural_regeneration_and_stem_cells"}
+{"edge": "InFolder", "from": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target_dependent_dopamine_neuron_maturation", "to": "neural_regeneration_and_stem_cells"}
 {"edge": "InFolder", "from": "20250703_in_vivo_neocortical_tissue_rebuilding_platform_study", "to": "neural_tissue_engineering_and_organoids"}
 {"edge": "InFolder", "from": "20250703_maturation_transplanted_organoids", "to": "neural_tissue_engineering_and_organoids"}
-{"edge": "InFolder", "from": "20250814_3D_neural_models_review_2025", "to": "neural_tissue_engineering_and_organoids"}
+{"edge": "InFolder", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "neural_tissue_engineering_and_organoids"}
 {"edge": "InFolder", "from": "20250818_human_neural_organoids_learning_memory_study", "to": "neural_tissue_engineering_and_organoids"}
 {"edge": "InFolder", "from": "20251003_three_dimensional_explants", "to": "neural_tissue_engineering_and_organoids"}
 {"edge": "InFolder", "from": "20251112_in_vivo_platform_for_rebuilding_functional_neocortical_tissue", "to": "neural_tissue_engineering_and_organoids"}
@@ -6430,7 +6430,7 @@
 {"edge": "InFolder", "from": "20250927_neuromorphic_algorithms_for_brain_implants_a_review", "to": "neuromorphic_computing"}
 {"edge": "InFolder", "from": "20251011_constructing_artificial_neurons_with_functional_parameters_comprehensively_matching_biological_values", "to": "neuromorphic_computing"}
 {"edge": "InFolder", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "neuromorphic_computing"}
-{"edge": "InFolder", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "philosophy_of_mind"}
+{"edge": "InFolder", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "philosophy_of_mind"}
 {"edge": "InFolder", "from": "20250810_personal_identity_psychological_continuity_analysis", "to": "philosophy_of_mind"}
 {"edge": "InFolder", "from": "20250820_when_suicide_is_not_self_killing", "to": "philosophy_of_mind"}
 {"edge": "InFolder", "from": "20250915_defining_biological_naturalism", "to": "philosophy_of_mind"}
@@ -6453,26 +6453,26 @@
 {"edge": "InFolder", "from": "20251122_evidence_of_universal_conformal_invariance_in_living_biological_matter", "to": "theoretical_physics"}
 {"edge": "InFolder", "from": "20251122_topological_quantum_gates_in_homotopy_type_theory", "to": "theoretical_physics"}
 {"edge": "InFolder", "from": "20251129_non_local_detection_of_coherent_yu_shiba_rusinov_quantum_projections", "to": "theoretical_physics"}
-{"edge": "InFolder", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "virtual_reality_and_simulation"}
+{"edge": "InFolder", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20250927_the_logical_and_physical_impossibility_of_the_simulation_hypothesis", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251102_personal_universes", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_against_brain_in_a_vatism_on_the_value_of_virtual_reality", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_authenticities_online_understanding_cyberspace_identity", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_brain_in_a_vat_versus_enactive_views_of_experience", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_embodiment_and_presence_in_virtual_worlds_a_review", "to": "virtual_reality_and_simulation"}
-{"edge": "InFolder", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "virtual_reality_and_simulation"}
+{"edge": "InFolder", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere", "to": "virtual_reality_and_simulation"}
 {"edge": "InFolder", "from": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality", "to": "virtual_reality_and_simulation"}
-{"edge": "WrittenBy", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "shulman-carl"}
-{"edge": "WrittenBy", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "bostrom-nick"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "digital-minds"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "artificial-intelligence"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "moral-status"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "super-beneficiaries"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "resource-allocation"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "population-ethics"}
-{"edge": "Covers", "from": "20250824_ sharing_the_world_with_digital_minds", "to": "well-being"}
+{"edge": "WrittenBy", "from": "20250824_sharing_the_world_with_digital_minds", "to": "shulman-carl"}
+{"edge": "WrittenBy", "from": "20250824_sharing_the_world_with_digital_minds", "to": "bostrom-nick"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "digital-minds"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "artificial-intelligence"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "moral-status"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "super-beneficiaries"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "resource-allocation"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "population-ethics"}
+{"edge": "Covers", "from": "20250824_sharing_the_world_with_digital_minds", "to": "well-being"}
 {"edge": "WrittenBy", "from": "20250825_an_introduction_to_the_problems_of_ai_consciousness", "to": "alonso-nick"}
 {"edge": "Covers", "from": "20250825_an_introduction_to_the_problems_of_ai_consciousness", "to": "artificial-intelligence"}
 {"edge": "Covers", "from": "20250825_an_introduction_to_the_problems_of_ai_consciousness", "to": "moral-status"}
@@ -6502,7 +6502,7 @@
 {"edge": "Covers", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "digital-minds"}
 {"edge": "Covers", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "moral-status"}
 {"edge": "Cites", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "20251023_taking_ai_welfare_seriously"}
-{"edge": "Cites", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Cites", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Cites", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness"}
 {"edge": "Cites", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "20251010_intrinsic_cause_effect_power_the_tradeoff_between_differentiation_and_specification"}
 {"edge": "Cites", "from": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness", "to": "20250714_feelings_source_of_consciousness_damasio_article"}
@@ -6569,7 +6569,7 @@
 {"edge": "Covers", "from": "20251023_taking_ai_welfare_seriously", "to": "precautionary-principle"}
 {"edge": "Covers", "from": "20251023_taking_ai_welfare_seriously", "to": "ai-safety"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness"}
-{"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251023_deflating_deflationism_a_critical_perspective_on_debunking_arguments_against_llm_mentality"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20250927_multiple_realizability_and_the_rise_of_deep_learning"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251010_can_only_meat_machines_be_conscious"}
@@ -6579,7 +6579,7 @@
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251024_the_equivocation_in_chalmers_dancing_qualia_argument"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_against_brain_in_a_vatism_on_the_value_of_virtual_reality"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_embodiment_in_whole_brain_emulation_and_its_implications_for_death_anxiety"}
-{"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere"}
 {"edge": "Cites", "from": "20251023_taking_ai_welfare_seriously", "to": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality"}
@@ -6645,27 +6645,27 @@
 {"edge": "Covers", "from": "20250915_leveraging_transfer_learning_for_efficient_bioprinting", "to": "process-optimization"}
 {"edge": "Covers", "from": "20250915_leveraging_transfer_learning_for_efficient_bioprinting", "to": "printability"}
 {"edge": "Covers", "from": "20250915_leveraging_transfer_learning_for_efficient_bioprinting", "to": "extrusion-bioprinting"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "scaccini-luca"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "escarda-castro-enrique"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "seijas-gamardo-adrin"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "wu-hao"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "coimbra-toms-santos"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "raimondo-stefania"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "fregnan-federica"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "muratori-luisa"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "cecchini-marco"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "moroni-lorenzo"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "wieringa-paul"}
-{"edge": "WrittenBy", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "tonazzini-ilaria"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "peripheral-nerve-regeneration"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "biomaterials"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "scaffolds"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "chitosan"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "in-vitro-models"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "schwann-cells"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "neurite-outgrowth"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "induced-pluripotent-stem-cells"}
-{"edge": "Covers", "from": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "dorsal-root-ganglia"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "scaccini-luca"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "escarda-castro-enrique"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "seijas-gamardo-adrin"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "wu-hao"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "coimbra-toms-santos"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "raimondo-stefania"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "fregnan-federica"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "muratori-luisa"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "cecchini-marco"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "moroni-lorenzo"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "wieringa-paul"}
+{"edge": "WrittenBy", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "tonazzini-ilaria"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "peripheral-nerve-regeneration"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "biomaterials"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "scaffolds"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "chitosan"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "in-vitro-models"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "schwann-cells"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "neurite-outgrowth"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "induced-pluripotent-stem-cells"}
+{"edge": "Covers", "from": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration", "to": "dorsal-root-ganglia"}
 {"edge": "WrittenBy", "from": "20251125_bicontinuous_microarchitected_scaffolds_govern_neuronal_behavior_and_maturation", "to": "okoro-prince-d"}
 {"edge": "WrittenBy", "from": "20251125_bicontinuous_microarchitected_scaffolds_govern_neuronal_behavior_and_maturation", "to": "dalsania-kevin"}
 {"edge": "WrittenBy", "from": "20251125_bicontinuous_microarchitected_scaffolds_govern_neuronal_behavior_and_maturation", "to": "iragavarapu-shiril-b"}
@@ -6740,15 +6740,15 @@
 {"edge": "Covers", "from": "20251023_focal_cortical_lesions_and_interneuron_excitability", "to": "gabaergic-neurons"}
 {"edge": "Covers", "from": "20251023_focal_cortical_lesions_and_interneuron_excitability", "to": "hyperexcitability"}
 {"edge": "Covers", "from": "20251023_focal_cortical_lesions_and_interneuron_excitability", "to": "synaptic-plasticity"}
-{"edge": "WrittenBy", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "feng-jingyu"}
-{"edge": "WrittenBy", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "yang-jun"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "gliomas"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "neuroplasticity"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "neural-networks"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "synaptic-plasticity"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "glioma-stem-cell"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "tumor-microenvironment"}
-{"edge": "Covers", "from": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity", "to": "hyperexcitability"}
+{"edge": "WrittenBy", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "feng-jingyu"}
+{"edge": "WrittenBy", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "yang-jun"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "gliomas"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "neuroplasticity"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "neural-networks"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "synaptic-plasticity"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "glioma-stem-cell"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "tumor-microenvironment"}
+{"edge": "Covers", "from": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity", "to": "hyperexcitability"}
 {"edge": "WrittenBy", "from": "20251023_inhibitory_engrams_in_perception_and_memory", "to": "barron-helen-c"}
 {"edge": "WrittenBy", "from": "20251023_inhibitory_engrams_in_perception_and_memory", "to": "vogels-tim-p"}
 {"edge": "WrittenBy", "from": "20251023_inhibitory_engrams_in_perception_and_memory", "to": "behrens-timothy-e"}
@@ -6808,7 +6808,7 @@
 {"edge": "Covers", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "functional-recovery"}
 {"edge": "Covers", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "awake-surgery"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20250916_cognition_emotion_and_the_cerebellum"}
-{"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20250802_filename_ neuropsychological_basis_experience_free_will"}
+{"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20250802_neuropsychological_basis_experience_free_will"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20250828_burst_dopamine_neuron_activation_sustained_release"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251023_focal_cortical_lesions_and_interneuron_excitability"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251023_review_article_brain_plasticity_and_disease_a_matter_of_inhibition"}
@@ -6819,7 +6819,7 @@
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251120_adult_brain_plasticity_connectomics_glioma_serial_mapping"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251216_lower_grade_glioma_instability_and_brain_metaplasticity"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251216_glioma_neural_attractors_and_white_matter_plasticity"}
-{"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity"}
+{"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity"}
 {"edge": "Cites", "from": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity", "to": "20251023_neuroplasticity_of_glioma_patients_brain_structure_and_topological_network"}
 {"edge": "WrittenBy", "from": "20251216_lower_grade_glioma_instability_and_brain_metaplasticity", "to": "duffau-hugues"}
 {"edge": "Covers", "from": "20251216_lower_grade_glioma_instability_and_brain_metaplasticity", "to": "brain-metaplasticity"}
@@ -6868,7 +6868,7 @@
 {"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251120_adult_brain_plasticity_connectomics_glioma_serial_mapping"}
 {"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity"}
 {"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251216_glioma_neural_attractors_and_white_matter_plasticity"}
-{"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity"}
+{"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity"}
 {"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251023_low_grade_glioma_functional_mapping_and_neuroplasticity"}
 {"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20250703_motor_functional_reorganization_by_tumours_study"}
 {"edge": "Cites", "from": "20251216_nuancing_the_limitations_of_axonal_plasticity", "to": "20251112_motor_functional_reorganization_triggered_by_tumor_infiltration_and_repeated_surgery"}
@@ -6899,7 +6899,7 @@
 {"edge": "Cites", "from": "20260221_glioma_invasion_and_human_brain_plasticity", "to": "20251120_adult_brain_plasticity_connectomics_glioma_serial_mapping"}
 {"edge": "Cites", "from": "20260221_glioma_invasion_and_human_brain_plasticity", "to": "20251023_low_grade_glioma_functional_mapping_and_neuroplasticity"}
 {"edge": "Cites", "from": "20260221_glioma_invasion_and_human_brain_plasticity", "to": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity"}
-{"edge": "Cites", "from": "20260221_glioma_invasion_and_human_brain_plasticity", "to": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity"}
+{"edge": "Cites", "from": "20260221_glioma_invasion_and_human_brain_plasticity", "to": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity"}
 {"edge": "WrittenBy", "from": "20250703_restoration_brain_circulation_postmortem_cells", "to": "vrselja-zvonimir"}
 {"edge": "WrittenBy", "from": "20250703_restoration_brain_circulation_postmortem_cells", "to": "daniele-stefano-g"}
 {"edge": "WrittenBy", "from": "20250703_restoration_brain_circulation_postmortem_cells", "to": "silbereis-john"}
@@ -7188,18 +7188,18 @@
 {"edge": "Covers", "from": "20250915_computational_synthesis_of_cortical_dendritic_morphologies", "to": "connectome"}
 {"edge": "Covers", "from": "20250915_computational_synthesis_of_cortical_dendritic_morphologies", "to": "disease-modeling"}
 {"edge": "Covers", "from": "20250915_computational_synthesis_of_cortical_dendritic_morphologies", "to": "validation-metrics"}
-{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "magielse-neville"}
-{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "heuer-katja"}
-{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "toro-roberto"}
-{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "schutter-dennis-j-l-g"}
-{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "valk-sofie-l"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "cerebello-cerebral-system"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "cognition"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "human-brain-evolution"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "primates"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "functional-connectivity"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "neuroimaging"}
-{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition", "to": "evolution"}
+{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "magielse-neville"}
+{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "heuer-katja"}
+{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "toro-roberto"}
+{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "schutter-dennis-j-l-g"}
+{"edge": "WrittenBy", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "valk-sofie-l"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "cerebello-cerebral-system"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "cognition"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "human-brain-evolution"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "primates"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "functional-connectivity"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "neuroimaging"}
+{"edge": "Covers", "from": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition", "to": "evolution"}
 {"edge": "WrittenBy", "from": "20250916_cognition_emotion_and_the_cerebellum", "to": "schmahmann-jeremy-d"}
 {"edge": "WrittenBy", "from": "20250916_cognition_emotion_and_the_cerebellum", "to": "caplan-david"}
 {"edge": "Covers", "from": "20250916_cognition_emotion_and_the_cerebellum", "to": "cerebellum"}
@@ -7492,21 +7492,21 @@
 {"edge": "Covers", "from": "20251109_diffusion_markers_of_dendritic_density_and_arborization_in_gray_matter_predict_differences_in_intelligence", "to": "dendritic-arborization"}
 {"edge": "Covers", "from": "20251109_diffusion_markers_of_dendritic_density_and_arborization_in_gray_matter_predict_differences_in_intelligence", "to": "neural-efficiency"}
 {"edge": "Covers", "from": "20251109_diffusion_markers_of_dendritic_density_and_arborization_in_gray_matter_predict_differences_in_intelligence", "to": "brain-networks"}
-{"edge": "WrittenBy", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "meng-xiangyi"}
-{"edge": "WrittenBy", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "piazza-benjamin"}
-{"edge": "WrittenBy", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "both-csaba"}
-{"edge": "WrittenBy", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "barzel-baruch"}
-{"edge": "WrittenBy", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "barabsi-albert-lszl"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "physical-networks"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "wiring-minimization"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "surface-minimization"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "feynman-diagrams"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "string-theory"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "branching-geometry"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "connectome"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "vascular-system"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "neurons"}
-{"edge": "Covers", "from": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks", "to": "graph-theory"}
+{"edge": "WrittenBy", "from": "20260113_surface_optimization_physical_network_design", "to": "meng-xiangyi"}
+{"edge": "WrittenBy", "from": "20260113_surface_optimization_physical_network_design", "to": "piazza-benjamin"}
+{"edge": "WrittenBy", "from": "20260113_surface_optimization_physical_network_design", "to": "both-csaba"}
+{"edge": "WrittenBy", "from": "20260113_surface_optimization_physical_network_design", "to": "barzel-baruch"}
+{"edge": "WrittenBy", "from": "20260113_surface_optimization_physical_network_design", "to": "barabsi-albert-lszl"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "physical-networks"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "wiring-minimization"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "surface-minimization"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "feynman-diagrams"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "string-theory"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "branching-geometry"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "connectome"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "vascular-system"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "neurons"}
+{"edge": "Covers", "from": "20260113_surface_optimization_physical_network_design", "to": "graph-theory"}
 {"edge": "WrittenBy", "from": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model", "to": "lytton-william-w"}
 {"edge": "WrittenBy", "from": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model", "to": "lipton-peter"}
 {"edge": "Covers", "from": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model", "to": "computational-neuroscience"}
@@ -7680,7 +7680,7 @@
 {"edge": "Covers", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "machine-consciousness"}
 {"edge": "Covers", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "ontology"}
 {"edge": "Cites", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "20251010_intrinsic_cause_effect_power_the_tradeoff_between_differentiation_and_specification"}
-{"edge": "Cites", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "20250802_filename_ neuropsychological_basis_experience_free_will"}
+{"edge": "Cites", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "20250802_neuropsychological_basis_experience_free_will"}
 {"edge": "Cites", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness"}
 {"edge": "Cites", "from": "20251105_integrated_information_theory_consciousness_first_approach", "to": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness"}
 {"edge": "WrittenBy", "from": "20251112_near_death_experiences_scientific_analysis_physics_theory_disembodiment_supercivilization_theory", "to": "kruusen-marek-lars"}
@@ -7721,7 +7721,7 @@
 {"edge": "Covers", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "predictive-coding"}
 {"edge": "Covers", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "agency"}
 {"edge": "Covers", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "embodiment"}
-{"edge": "Cites", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Cites", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Cites", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "20260224_confusion_function_consciousness"}
 {"edge": "Cites", "from": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness", "to": "20260224_consciousness_accessibility_and_the_mesh_between_psychology_and_neuroscience"}
 {"edge": "WrittenBy", "from": "20251223_mouse_whole_cortex_simulation_on_fugaku", "to": "kuriyama-rin"}
@@ -8169,14 +8169,14 @@
 {"edge": "Covers", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "biomaterials"}
 {"edge": "Covers", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "tissue-engineering"}
 {"edge": "Covers", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "neurite-outgrowth"}
-{"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_"}
+{"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_dopaminergic_neurons_electrical_stimulation_dopamine_biosynthesis"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_biohybrid_neural_interface_deep_brain_stimulation"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_burst_dopamine_neuron_activation_sustained_release"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_principles_of_electrical_stimulation_of_neural_tissue"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250828_modeling_parkinsons_disease_midbrain_organoids"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20250901_3d_bioprinting_neural_tissues"}
-{"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration"}
+{"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20251112_adaptive_biomimicry_design_of_neural_interfaces_with_enhanced_biointegration"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20251112_biohybrid_neural_interfaces_improving_biological_integration_of_neural_implants"}
 {"edge": "Cites", "from": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function", "to": "20251116_implantable_biohybrid_neural_interface_toward_synaptic_deep_brain_stimulation"}
@@ -8269,52 +8269,52 @@
 {"edge": "Cites", "from": "20250828_biohybrid_neural_interface_deep_brain_stimulation", "to": "20251112_biohybrid_neural_interfaces_improving_biological_integration_of_neural_implants"}
 {"edge": "Cites", "from": "20250828_biohybrid_neural_interface_deep_brain_stimulation", "to": "20251112_time_code_for_multifunctional_3d_printhead_controls"}
 {"edge": "Cites", "from": "20250828_biohybrid_neural_interface_deep_brain_stimulation", "to": "20250927_neuromorphic_algorithms_for_brain_implants_a_review"}
-{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "kobelt-liza-j"}
-{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "wilkinson-ashley-e"}
-{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "mccormick-aleesha-m"}
-{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "willits-rebecca-kuntz"}
-{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "leipzig-nic-d"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "electrical-stimulation"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "neurite-outgrowth"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "neural-stem-cells"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "neuronal-differentiation"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "central-nervous-system"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "tissue-engineering"}
-{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "calcium-imaging"}
-{"edge": "Cites", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_", "to": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function"}
-{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "muhammad-tausif"}
-{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "park-byungwook"}
-{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "intisar-aseer"}
-{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "kim-minseok-s"}
-{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "park-jin-kyu"}
-{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "kim-sohee"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "drug-delivery"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "biomaterials"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "implantable-device"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "microfluidics"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "in-vivo-experiments"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "stretchable-electronics"}
-{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery", "to": "zero-order-release"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-namju"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "hong-yeji"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "cha-seongkwang"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kang-yoo-na"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "seo-hee-won"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "moon-hyunmin"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "ahn-jungryul"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "intisar-aseer"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-minseok-s"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-seong-woo"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "goo-yong-sook"}
-{"edge": "WrittenBy", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-sohee"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "microelectrode-arrays"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "retinal-prostheses"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "implantable-device"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "electrical-stimulation"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "biomaterials"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "biocompatibility"}
-{"edge": "Covers", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "neuroprosthetics"}
-{"edge": "Cites", "from": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
+{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "kobelt-liza-j"}
+{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "wilkinson-ashley-e"}
+{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "mccormick-aleesha-m"}
+{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "willits-rebecca-kuntz"}
+{"edge": "WrittenBy", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "leipzig-nic-d"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "electrical-stimulation"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "neurite-outgrowth"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "neural-stem-cells"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "neuronal-differentiation"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "central-nervous-system"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "tissue-engineering"}
+{"edge": "Covers", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "calcium-imaging"}
+{"edge": "Cites", "from": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult", "to": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function"}
+{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "muhammad-tausif"}
+{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "park-byungwook"}
+{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "intisar-aseer"}
+{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "kim-minseok-s"}
+{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "park-jin-kyu"}
+{"edge": "WrittenBy", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "kim-sohee"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "drug-delivery"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "biomaterials"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "implantable-device"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "microfluidics"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "in-vivo-experiments"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "stretchable-electronics"}
+{"edge": "Covers", "from": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery", "to": "zero-order-release"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-namju"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "hong-yeji"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "cha-seongkwang"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kang-yoo-na"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "seo-hee-won"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "moon-hyunmin"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "ahn-jungryul"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "intisar-aseer"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-minseok-s"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-seong-woo"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "goo-yong-sook"}
+{"edge": "WrittenBy", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "kim-sohee"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "microelectrode-arrays"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "retinal-prostheses"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "implantable-device"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "electrical-stimulation"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "biomaterials"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "biocompatibility"}
+{"edge": "Covers", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "neuroprosthetics"}
+{"edge": "Cites", "from": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
 {"edge": "WrittenBy", "from": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review", "to": "yu-yi-lin"}
 {"edge": "WrittenBy", "from": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review", "to": "muzaffar-jameel"}
 {"edge": "WrittenBy", "from": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review", "to": "philips-veronica"}
@@ -8742,37 +8742,37 @@
 {"edge": "Covers", "from": "20250908_heterochronic_myeloid_cell_replacement", "to": "transplantation"}
 {"edge": "Covers", "from": "20250908_heterochronic_myeloid_cell_replacement", "to": "transcriptomics"}
 {"edge": "Cites", "from": "20250908_heterochronic_myeloid_cell_replacement", "to": "20250915_mouse_brain_cell_atlas"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "zhu-hui"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "yao-cong"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "xu-zhengqi"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "shang-guojin"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "peng-jianhua"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "xie-huangfan"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "qian-tingyu"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "qiu-zhennan"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "maeso-lidia"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "mao-mao"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "liao-yucheng"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "jiang-yong"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "li-dichen"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "orive-gorka"}
-{"edge": "WrittenBy", "from": "20250814_3D_neural_models_review_2025", "to": "boccaccini-aldo-r"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "3d-neural-tissue-models"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "organoids"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "organ-on-a-chip-platforms"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "3d-printing"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "neural-regeneration"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "drug-development"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "central-nervous-system"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "peripheral-nervous-system"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "disease-modeling"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "drug-screening"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "personalized-medicine"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "artificial-intelligence"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "machine-learning"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "biomaterials"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "microfluidics"}
-{"edge": "Covers", "from": "20250814_3D_neural_models_review_2025", "to": "blood-brain-barrier"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "zhu-hui"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "yao-cong"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "xu-zhengqi"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "shang-guojin"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "peng-jianhua"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "xie-huangfan"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "qian-tingyu"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "qiu-zhennan"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "maeso-lidia"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "mao-mao"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "liao-yucheng"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "jiang-yong"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "li-dichen"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "orive-gorka"}
+{"edge": "WrittenBy", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "boccaccini-aldo-r"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "3d-neural-tissue-models"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "organoids"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "organ-on-a-chip-platforms"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "3d-printing"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "neural-regeneration"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "drug-development"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "central-nervous-system"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "peripheral-nervous-system"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "disease-modeling"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "drug-screening"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "personalized-medicine"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "artificial-intelligence"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "machine-learning"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "biomaterials"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "microfluidics"}
+{"edge": "Covers", "from": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development", "to": "blood-brain-barrier"}
 {"edge": "WrittenBy", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "donati-elisa"}
 {"edge": "WrittenBy", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "valle-giacomo"}
 {"edge": "Covers", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "neuroprosthetics"}
@@ -8795,21 +8795,21 @@
 {"edge": "Covers", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "neuromodulation"}
 {"edge": "Covers", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "adaptivity"}
 {"edge": "Covers", "from": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses", "to": "energy-efficiency"}
-{"edge": "WrittenBy", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "kansala-cooper"}
-{"edge": "WrittenBy", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "cicek-emre"}
-{"edge": "WrittenBy", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "nkansah-okoree-vanessa"}
-{"edge": "WrittenBy", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "golding-andrew"}
-{"edge": "WrittenBy", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "murugan-nirosha-j"}
-{"edge": "WrittenBy", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "rouleau-nicolas"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "free-will"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "determinism-indeterminism"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "superstitious-conditioning"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "dopamine"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "active-inference"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "neuroscience"}
-{"edge": "Covers", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "consciousness"}
-{"edge": "Cites", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "20251003_neurons_embodied_in_a_virtual_world_evidence_for_organoid_ethics"}
-{"edge": "Cites", "from": "20250802_filename_ neuropsychological_basis_experience_free_will", "to": "20260221_the_multiple_realizability_of_sentience_in_living_systems_and_beyond"}
+{"edge": "WrittenBy", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "kansala-cooper"}
+{"edge": "WrittenBy", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "cicek-emre"}
+{"edge": "WrittenBy", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "nkansah-okoree-vanessa"}
+{"edge": "WrittenBy", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "golding-andrew"}
+{"edge": "WrittenBy", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "murugan-nirosha-j"}
+{"edge": "WrittenBy", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "rouleau-nicolas"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "free-will"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "determinism-indeterminism"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "superstitious-conditioning"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "dopamine"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "active-inference"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "neuroscience"}
+{"edge": "Covers", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "consciousness"}
+{"edge": "Cites", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "20251003_neurons_embodied_in_a_virtual_world_evidence_for_organoid_ethics"}
+{"edge": "Cites", "from": "20250802_neuropsychological_basis_experience_free_will", "to": "20260221_the_multiple_realizability_of_sentience_in_living_systems_and_beyond"}
 {"edge": "WrittenBy", "from": "20250810_personal_identity_psychological_continuity_analysis", "to": "ord-toby"}
 {"edge": "Covers", "from": "20250810_personal_identity_psychological_continuity_analysis", "to": "personal-identity"}
 {"edge": "Covers", "from": "20250810_personal_identity_psychological_continuity_analysis", "to": "psychological-continuity"}
@@ -8982,14 +8982,14 @@
 {"edge": "Covers", "from": "20251129_non_local_detection_of_coherent_yu_shiba_rusinov_quantum_projections", "to": "coherent-quantum-states"}
 {"edge": "Covers", "from": "20251129_non_local_detection_of_coherent_yu_shiba_rusinov_quantum_projections", "to": "scanning-tunneling-microscopy"}
 {"edge": "Covers", "from": "20251129_non_local_detection_of_coherent_yu_shiba_rusinov_quantum_projections", "to": "particle-hole-composition"}
-{"edge": "WrittenBy", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "wolpert-david-h"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "simulation-hypothesis"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "turing-machine"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "physical-church-turing-thesis"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "self-simulation"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "recursion-theorem"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "rices-theorem"}
-{"edge": "Covers", "from": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis", "to": "undecidability"}
+{"edge": "WrittenBy", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "wolpert-david-h"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "simulation-hypothesis"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "turing-machine"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "physical-church-turing-thesis"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "self-simulation"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "recursion-theorem"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "rices-theorem"}
+{"edge": "Covers", "from": "20250927_implications_computer_science_theory_simulation_hypothesis", "to": "undecidability"}
 {"edge": "WrittenBy", "from": "20250927_the_logical_and_physical_impossibility_of_the_simulation_hypothesis", "to": "james-benjamin"}
 {"edge": "Covers", "from": "20250927_the_logical_and_physical_impossibility_of_the_simulation_hypothesis", "to": "simulation-hypothesis"}
 {"edge": "Covers", "from": "20250927_the_logical_and_physical_impossibility_of_the_simulation_hypothesis", "to": "computational-irreducibility"}
@@ -9092,14 +9092,14 @@
 {"edge": "Covers", "from": "20251204_embodiment_and_presence_in_virtual_worlds_a_review", "to": "communication"}
 {"edge": "Covers", "from": "20251204_embodiment_and_presence_in_virtual_worlds_a_review", "to": "identity"}
 {"edge": "Cites", "from": "20251204_embodiment_and_presence_in_virtual_worlds_a_review", "to": "20250714_feelings_source_of_consciousness_damasio_article"}
-{"edge": "WrittenBy", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "cartlidge-james"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "immersion"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "virtual-reality"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "video-games"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "virtual-worlds"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "cognition"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "agency"}
-{"edge": "Covers", "from": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "enactivism"}
+{"edge": "WrittenBy", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "cartlidge-james"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "immersion"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "virtual-reality"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "video-games"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "virtual-worlds"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "cognition"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "agency"}
+{"edge": "Covers", "from": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus", "to": "enactivism"}
 {"edge": "WrittenBy", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "meijsing-monica"}
 {"edge": "Covers", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "embodiment"}
 {"edge": "Covers", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "self-consciousness"}
@@ -9109,7 +9109,7 @@
 {"edge": "Covers", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "agency"}
 {"edge": "Covers", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "motor-control"}
 {"edge": "Cites", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "20250714_feelings_source_of_consciousness_damasio_article"}
-{"edge": "Cites", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "20250802_filename_ neuropsychological_basis_experience_free_will"}
+{"edge": "Cites", "from": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be", "to": "20250802_neuropsychological_basis_experience_free_will"}
 {"edge": "WrittenBy", "from": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere", "to": "gere-cathy"}
 {"edge": "Covers", "from": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere", "to": "brain-in-a-vat"}
 {"edge": "Covers", "from": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere", "to": "philosophical-skepticism"}
@@ -9619,7 +9619,7 @@
 {"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20251105_integrated_information_theory_consciousness_first_approach"}
 {"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20250927_multiple_realizability_and_the_rise_of_deep_learning"}
 {"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20251202_evaluating_artificial_consciousness_through_integrated_information_theory"}
-{"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20251025_the_stream_of_computation_temporal_continuity_as_a_missing_ingredient_for_artificial_consciousness"}
 {"edge": "Extends", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20260224_biological_and_artificial_consciousness_case_for_biological_computationalism"}
 {"edge": "Contradicts", "from": "20260401_could_a_large_language_model_be_conscious_chalmers_boston_review_2023", "to": "20250915_defining_biological_naturalism"}
@@ -10018,8 +10018,8 @@
 {"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250828_dopaminergic_neurons_electrical_stimulation_dopamine_biosynthesis"}
 {"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250828_principles_of_electrical_stimulation_of_neural_tissue"}
 {"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
-{"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery"}
-{"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
+{"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery"}
+{"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
 {"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250927_bioinspired_neuropods_ai_enhanced_4d_composite_bioprinting_revolutionizing_brain_on_chip_and_neural_regeneration"}
 {"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20250927_neuromorphic_algorithms_for_brain_implants_a_review"}
 {"edge": "Extends", "from": "20260418_printed_mos2_memristive_nanosheet_networks_for_spiking_neurons_with_multi_order_complexity", "to": "20251011_constructing_artificial_neurons_with_functional_parameters_comprehensively_matching_biological_values"}
@@ -10169,7 +10169,7 @@
 {"edge": "Covers", "from": "20260418_smoothbrains_complete", "to": "world-models"}
 {"edge": "Covers", "from": "20260418_smoothbrains_complete", "to": "neural-correlates-of-consciousness"}
 {"edge": "Covers", "from": "20260418_smoothbrains_complete", "to": "artificial-intelligence"}
-{"edge": "Extends", "from": "20260418_smoothbrains_complete", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Extends", "from": "20260418_smoothbrains_complete", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Extends", "from": "20260418_smoothbrains_complete", "to": "20250825_an_introduction_to_the_problems_of_ai_consciousness"}
 {"edge": "Extends", "from": "20260418_smoothbrains_complete", "to": "20250825_mind_uploading_philosophical_analysis_chalmers"}
 {"edge": "Extends", "from": "20260418_smoothbrains_complete", "to": "20250825_mind_uploading_philosophical_analysis"}
@@ -10569,7 +10569,7 @@
 {"edge": "Extends", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20251023_deflating_deflationism_a_critical_perspective_on_debunking_arguments_against_llm_mentality"}
 {"edge": "Extends", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20251023_focal_cortical_lesions_and_interneuron_excitability"}
 {"edge": "Extends", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20251023_taking_ai_welfare_seriously"}
-{"edge": "Extends", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Extends", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Contradicts", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness"}
 {"edge": "Contradicts", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20251023_ai_consciousness_is_inevitable"}
 {"edge": "Contradicts", "from": "20260418_conscious_artificial_intelligence_and_biological_naturalism_anil_k_seth_behavioral_and_brain_sciences_forthcoming", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness"}
@@ -10803,7 +10803,7 @@
 {"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_against_brain_in_a_vatism_on_the_value_of_virtual_reality"}
 {"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_embodiment_and_presence_in_virtual_worlds_a_review"}
 {"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_embodiment_in_whole_brain_emulation_and_its_implications_for_death_anxiety"}
-{"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere"}
 {"edge": "Contradicts", "from": "20260418_from_simulating_to_duplicating_the_brain_neuromorphic_computation_brain_duplication_criteria", "to": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality"}
@@ -11145,7 +11145,7 @@
 {"edge": "Covers", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "sparse-autoencoders"}
 {"edge": "Covers", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "ai-safety"}
 {"edge": "Cites", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness"}
-{"edge": "Cites", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Cites", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "MakesClaim", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20260418_large_language_models_self_referential_processing_subjective_experience--claim-1"}
 {"edge": "MakesClaim", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20260418_large_language_models_self_referential_processing_subjective_experience--claim-2"}
 {"edge": "MakesClaim", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20260418_large_language_models_self_referential_processing_subjective_experience--claim-3"}
@@ -11160,7 +11160,7 @@
 {"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20251023_consciousness_in_artificial_intelligence_insights_from_the_science_of_consciousness"}
 {"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20251202_evaluating_artificial_consciousness_through_integrated_information_theory"}
 {"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20260129_from_generative_models_to_generative_passages_a_computational_approach_to_neuro_phenomenology"}
-{"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20251023_taking_ai_welfare_seriously"}
 {"edge": "Extends", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "20251023_deflating_deflationism_a_critical_perspective_on_debunking_arguments_against_llm_mentality"}
 {"edge": "UsesTechnique", "from": "20260418_large_language_models_self_referential_processing_subjective_experience", "to": "large-language-models"}
@@ -11483,12 +11483,12 @@
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250828_modeling_parkinsons_disease_midbrain_organoids"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250828_principles_of_electrical_stimulation_of_neural_tissue"}
-{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_"}
+{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250915_machine_learning_in_polymer_science_a_new_lens_for_physical_and_chemical_exploration"}
-{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition"}
+{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250916_cognition_emotion_and_the_cerebellum"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
-{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
+{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20250927_neuromorphic_algorithms_for_brain_implants_a_review"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20251003_neurons_embodied_in_a_virtual_world_evidence_for_organoid_ethics"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20251011_constructing_artificial_neurons_with_functional_parameters_comprehensively_matching_biological_values"}
@@ -11512,7 +11512,7 @@
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20251215_human_neural_organoid_microphysiological_systems_building_blocks_learning_memory"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20251216_how_critical_is_brain_criticality_feature_review"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20251223_mouse_whole_cortex_simulation_on_fugaku"}
-{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks"}
+{"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20260113_surface_optimization_physical_network_design"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20260129_optofluidic_three_dimensional_microfabrication_and_nanofabrication"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20260205_3d_micropatterning_bioelectrodes"}
 {"edge": "Extends", "from": "20260419_physical_reservoir_computing_recent_advances_review_2019", "to": "20260210_connectionism_coming_of_age_legacy_and_future_challenges"}
@@ -11873,21 +11873,21 @@
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250828_electrical_stimulation_on_neural_stem_cell_fate_and_function"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250828_principles_of_electrical_stimulation_of_neural_tissue"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
-{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery"}
-{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
+{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery"}
+{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250927_bioinspired_neuropods_ai_enhanced_4d_composite_bioprinting_revolutionizing_brain_on_chip_and_neural_regeneration"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20250927_neuromorphic_algorithms_for_brain_implants_a_review"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251023_neuroplasticity_of_glioma_patients_brain_structure_and_topological_network"}
-{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration"}
+{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251111_dynamically_autofocused_3d_pulsed_laser_micromachining_for_advanced_3d_bioelectronics"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251112_adaptive_biomimicry_design_of_neural_interfaces_with_enhanced_biointegration"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251112_biohybrid_neural_interfaces_improving_biological_integration_of_neural_implants"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251112_constructing_organoid_brain_computer_interfaces_for_neurofunctional_repair_after_brain_injury"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251116_implantable_biohybrid_neural_interface_toward_synaptic_deep_brain_stimulation"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20251125_bicontinuous_microarchitected_scaffolds_govern_neuronal_behavior_and_maturation"}
-{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks"}
+{"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20260113_surface_optimization_physical_network_design"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20260129_optofluidic_three_dimensional_microfabrication_and_nanofabrication"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20260205_3d_micropatterning_bioelectrodes"}
 {"edge": "Extends", "from": "20260427_nature_electronics_2026_three_dimensional_micro_instrumented_neural_network_device", "to": "20260212_advanced_4d_bioprinting_technologies_for_brain_tissue_modeling_and_study"}
@@ -11969,7 +11969,7 @@
 {"edge": "Covers", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "tissue-complexity"}
 {"edge": "Covers", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "disease-modeling"}
 {"edge": "Covers", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "reproducibility"}
-{"edge": "Cites", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250814_3D_neural_models_review_2025"}
+{"edge": "Cites", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development"}
 {"edge": "Cites", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_modeling_parkinsons_disease_midbrain_organoids"}
 {"edge": "Cites", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250815_comprehensive_neural_dataset_report"}
 {"edge": "Cites", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250901_3d_bioprinting_neural_tissues"}
@@ -11985,14 +11985,14 @@
 {"edge": "MakesClaim", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260428_neural_organoids_diversity_and_complexity_perspective_2026--claim-9"}
 {"edge": "MakesClaim", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260428_neural_organoids_diversity_and_complexity_perspective_2026--claim-10"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_modeling_parkinsons_disease_midbrain_organoids"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250814_3D_neural_models_review_2025"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250703_maturation_transplanted_organoids"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251112_maturation_and_circuit_integration_of_transplanted_human_cortical_organoids"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250901_3d_bioprinting_neural_tissues"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250713_organ_droplet_bioprinting_neural_advancements"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251215_human_neural_organoid_microphysiological_systems_building_blocks_learning_memory"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250818_human_neural_organoids_learning_memory_study"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target-dependent_dopamine_neuron_maturation"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target_dependent_dopamine_neuron_maturation"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250815_comprehensive_neural_dataset_report"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251006_morphoelectric_and_transcriptomic_divergence_of_the_layer_1_interneuron_repertoire_in_human_versus_mouse_neocortex"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260212_advanced_4d_bioprinting_technologies_for_brain_tissue_modeling_and_study"}
@@ -12008,7 +12008,7 @@
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251216_how_critical_is_brain_criticality_feature_review"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251216_lower_grade_glioma_instability_and_brain_metaplasticity"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251023_neuroplasticity_of_glioma_patients_brain_structure_and_topological_network"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251023_low_grade_glioma_functional_mapping_and_neuroplasticity"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251120_adult_brain_plasticity_connectomics_glioma_serial_mapping"}
@@ -12054,7 +12054,7 @@
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260309_dark_path_to_eternal_life_machiavellianism_predicts_approval_of_mind_upload_technology"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251024_immortality_through_mind_uploading_and_resurrection"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260221_a_critical_enquiry_into_the_metaphysics_for_mind_uploading"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250927_dissociating_artificial_intelligence_from_artificial_consciousness"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251023_taking_ai_welfare_seriously"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260113_merging_minds_the_conceptual_and_ethical_impacts_of_emerging_technologies_for_collective_minds"}
@@ -12063,7 +12063,7 @@
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_brain_in_a_vat_versus_enactive_views_of_experience"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_embodiment_and_presence_in_virtual_worlds_a_review"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_embodiment_in_whole_brain_emulation_and_its_implications_for_death_anxiety"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality"}
@@ -12091,7 +12091,7 @@
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250915_computational_synthesis_of_cortical_dendritic_morphologies"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250915_mouse_brain_cell_atlas"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250916_cognition_emotion_and_the_cerebellum"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250810_accurate_spatial_cognition_grid_cells_representation"}
@@ -12105,24 +12105,24 @@
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250915_leveraging_transfer_learning_for_efficient_bioprinting"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260205_3d_micropatterning_bioelectrodes"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250908_heterochronic_myeloid_cell_replacement"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250909_stem_cell_derived_dopamine_cell_therapies_parkinsons_disease_trials_shown"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_burst_dopamine_neuron_activation_sustained_release"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_dopaminergic_neurons_electrical_stimulation_dopamine_biosynthesis"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_principles_of_electrical_stimulation_of_neural_tissue"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult_"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250828_short_duration_electrical_stimulation_to_enhance_neurite_outgrowth_and_maturation_of_adult"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251103_engineering_emergence"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251122_walrus_a_cross_domain_foundation_model_for_continuum_dynamics"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250927_implications_computer_science_theory_simulation_hypothesis"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250927_the_logical_and_physical_impossibility_of_the_simulation_hypothesis"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250802_filename_ neuropsychological_basis_experience_free_will"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20250802_neuropsychological_basis_experience_free_will"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260108_a_quantifiable_information_processing_hierarchy_provides_a_necessary_condition_for_detecting_agency"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251025_the_stream_of_computation_temporal_continuity_as_a_missing_ingredient_for_artificial_consciousness"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20251223_mouse_whole_cortex_simulation_on_fugaku"}
 {"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260210_connectionism_coming_of_age_legacy_and_future_challenges"}
-{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks"}
+{"edge": "Extends", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "20260113_surface_optimization_physical_network_design"}
 {"edge": "UsesTechnique", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "neural-organoids"}
 {"edge": "UsesTechnique", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "pluripotent-stem-cell-culture"}
 {"edge": "UsesTechnique", "from": "20260428_neural_organoids_diversity_and_complexity_perspective_2026", "to": "3d-cell-culture"}
@@ -14562,7 +14562,7 @@
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20250703_motor_functional_reorganization_by_tumours_study"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20260221_glioma_invasion_and_human_brain_plasticity"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251023_low_grade_glioma_functional_mapping_and_neuroplasticity"}
-{"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251023_glioma-neuron_interactions_insights_from_neural_plasticity"}
+{"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251023_glioma_neuron_interactions_insights_from_neural_plasticity"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251023_plasticity_of_inhibition_review"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251023_review_article_brain_plasticity_and_disease_a_matter_of_inhibition"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251120_adult_brain_plasticity_connectomics_glioma_serial_mapping"}
@@ -14577,7 +14577,7 @@
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251025_the_stream_of_computation_temporal_continuity_as_a_missing_ingredient_for_artificial_consciousness"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251204_against_brain_in_a_vatism_on_the_value_of_virtual_reality"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251204_embodiment_and_presence_in_virtual_worlds_a_review"}
-{"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20260224_consciousness_accessibility_and_the_mesh_between_psychology_and_neuroscience"}
@@ -14591,7 +14591,7 @@
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251216_how_critical_is_brain_criticality_feature_review"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20250703_topological_learning_brain_networks"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20250916_cognition_emotion_and_the_cerebellum"}
-{"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition"}
+{"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251023_inhibitory_engrams_in_perception_and_memory"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251223_mouse_whole_cortex_simulation_on_fugaku"}
 {"edge": "Extends", "from": "20260522_geometric_eigenmodes_brain_activity", "to": "20251024_fading_qualia_and_dancing_qualia"}
@@ -14635,7 +14635,7 @@
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_against_brain_in_a_vatism_on_the_value_of_virtual_reality"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_brain_in_a_vat_versus_enactive_views_of_experience"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_embodiment_and_presence_in_virtual_worlds_a_review"}
-{"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality"}
@@ -14643,7 +14643,7 @@
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251216_glioma_neural_attractors_and_white_matter_plasticity"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20251219_thermodynamics_of_consciousness_a_non_invasive_perturbational_framework"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20260108_a_quantifiable_information_processing_hierarchy_provides_a_necessary_condition_for_detecting_agency"}
-{"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks"}
+{"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20260113_surface_optimization_physical_network_design"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20260114_can_the_hippocampus_tell_time_the_temporo_septal_engram_shift_model"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20260125_representations_of_geometric_shapes_have_syntactic_structure"}
 {"edge": "Extends", "from": "20260522_hyperbolic_geometry_dmt_experiences", "to": "20260129_from_generative_models_to_generative_passages_a_computational_approach_to_neuro_phenomenology"}
@@ -14702,14 +14702,14 @@
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250828_biohybrid_neural_interface_deep_brain_stimulation"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250828_principles_of_electrical_stimulation_of_neural_tissue"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250918_a_3d_flexible_neural_interface_with_microfluidic_interconnection_cable_for_chemical_delivery"}
-{"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250918_an_ultrasoft_and_flexible_pdms-based_balloon-type_implantable_device_for_controlled_drug_delivery"}
-{"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250918_double-sided_thin-film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
+{"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250918_an_ultrasoft_and_flexible_pdms_based_balloon_type_implantable_device_for_controlled_drug_delivery"}
+{"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250918_double_sided_thin_film_microelectrode_array_with_hemispheric_electrodes_for_subretinal_stimulation"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250927_bioinspired_neuropods_ai_enhanced_4d_composite_bioprinting_revolutionizing_brain_on_chip_and_neural_regeneration"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20250927_neuromorphic_algorithms_for_brain_implants_a_review"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251011_constructing_artificial_neurons_with_functional_parameters_comprehensively_matching_biological_values"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251021_current_developments_and_challenges_in_the_field_of_biohybrid_neural_interfaces_a_scoping_review"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251021_neuromorphic_hardware_for_somatosensory_neuroprostheses"}
-{"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration"}
+{"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251023_stochasticity_versus_determinacy_in_neurobiology_from_ion_channels_to_the_question_of_the_free_will"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251111_dynamically_autofocused_3d_pulsed_laser_micromachining_for_advanced_3d_bioelectronics"}
 {"edge": "Extends", "from": "20260522_neuromimetic_circuits_electrical_double_layer", "to": "20251112_adaptive_biomimicry_design_of_neural_interfaces_with_enhanced_biointegration"}
@@ -14748,7 +14748,7 @@
 {"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20251112_adaptive_biomimicry_design_of_neural_interfaces_with_enhanced_biointegration"}
 {"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20251116_probabilistic_inference_in_discrete_spaces_implemented_into_networks_of_lif_neurons"}
 {"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20251116_the_discrete_and_continuous_brain_from_decisions_to_movement_and_back_again"}
-{"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20260113_Surface_optimization_governs_the_local_design_of_physical_networks"}
+{"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20260113_surface_optimization_physical_network_design"}
 {"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20260129_optofluidic_three_dimensional_microfabrication_and_nanofabrication"}
 {"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20260205_3d_micropatterning_bioelectrodes"}
 {"edge": "Extends", "from": "20260522_organic_molecular_layer_parallel_computing", "to": "20260210_connectionism_coming_of_age_legacy_and_future_challenges"}
@@ -14880,7 +14880,7 @@
 {"edge": "Extends", "from": "20260524_bioinspired_iontronic_architectures_neuromorphic_intelligence", "to": "20250802_neuromimetic_circuits_triboiontronics_perspective"}
 {"edge": "Contradicts", "from": "20260524_bioinspired_iontronic_architectures_neuromorphic_intelligence", "to": "20251223_mouse_whole_cortex_simulation_on_fugaku"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250713_organ_droplet_bioprinting_neural_advancements"}
-{"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250814_3D_neural_models_review_2025"}
+{"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250814_recent_advances_3d_nervous_system_models_neural_regeneration_drug_development"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250828_modeling_parkinsons_disease_midbrain_organoids"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250901_3d_bioprinting_neural_tissues"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250915_context_aware_bioprinting"}
@@ -14889,7 +14889,7 @@
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250915_regenerative_engineering_ai_new_paradigm_tissue_regeneration"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20250927_bioinspired_neuropods_ai_enhanced_4d_composite_bioprinting_revolutionizing_brain_on_chip_and_neural_regeneration"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251003_three_dimensional_explants"}
-{"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251023_soft_glycerol-plasticized_chitosan_scaffolds_for_nerve_regeneration"}
+{"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251023_soft_glycerol_plasticized_chitosan_scaffolds_for_nerve_regeneration"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251028_machine_learning_in_additive_manufacturing"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251111_dynamically_autofocused_3d_pulsed_laser_micromachining_for_advanced_3d_bioelectronics"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251112_constructing_organoid_brain_computer_interfaces_for_neurofunctional_repair_after_brain_injury"}
@@ -14898,7 +14898,7 @@
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251206_human_ipsc_subcerebral_projection_neuron_specification_and_maturation"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251213_unreal_engine_api_for_brain_on_a_chip_platforms"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20251215_human_neural_organoid_microphysiological_systems_building_blocks_learning_memory"}
-{"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target-dependent_dopamine_neuron_maturation"}
+{"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20260110_reconstruction_of_the_human_nigrostriatal_pathway_in_vitro_reveals_target_dependent_dopamine_neuron_maturation"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20260129_optofluidic_three_dimensional_microfabrication_and_nanofabrication"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20260205_3d_micropatterning_bioelectrodes"}
 {"edge": "Extends", "from": "20260524_volumetric_bioprinting_volu_hearts", "to": "20260212_advanced_4d_bioprinting_technologies_for_brain_tissue_modeling_and_study"}
@@ -15362,7 +15362,7 @@
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250703_neurophenomenal_structuralism"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250713_consciousness_physical_process_energetic_brain"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250717_principal_bundle_geometry_of_qualia"}
-{"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250825_an_introduction_to_the_problems_of_ai_consciousness"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250825_consciousness_and_existence_as_a_process_manzotti"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20250825_mind_uploading_philosophical_analysis_chalmers"}
@@ -15384,7 +15384,7 @@
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_brain_in_a_vat_versus_enactive_views_of_experience"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_embodiment_and_presence_in_virtual_worlds_a_review"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_embodiment_in_whole_brain_emulation_and_its_implications_for_death_anxiety"}
-{"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_non-perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
+{"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_non_perceptual_representational_immersion_in_video_games_response_to_chalmers_reality_plus"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_the_brain_in_a_vat_special_issue_introduction_cathy_gere"}
 {"edge": "Extends", "from": "20260527_non_materialist_physicalism_testable_conjecture", "to": "20251204_the_simulated_body_preliminary_investigation_neuroscientific_studies_phenomenology_virtual_reality"}
@@ -15829,7 +15829,7 @@
 {"edge": "Extends", "from": "20260605_direct_tests_for_consciousness", "to": "20260224_falsification_and_consciousness_theory_testing_dilemma"}
 {"edge": "Extends", "from": "20260605_direct_tests_for_consciousness", "to": "20260224_biological_and_artificial_consciousness_case_for_biological_computationalism"}
 {"edge": "Extends", "from": "20260605_direct_tests_for_consciousness", "to": "20260224_confusion_function_consciousness"}
-{"edge": "Extends", "from": "20260605_direct_tests_for_consciousness", "to": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition"}
+{"edge": "Extends", "from": "20260605_direct_tests_for_consciousness", "to": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition"}
 {"edge": "Extends", "from": "20260611_dream_engineering_sensory_stimulation", "to": "20251204_embodiment_and_presence_in_virtual_worlds_a_review"}
 {"edge": "Extends", "from": "20260611_dream_engineering_sensory_stimulation", "to": "20251204_real_people_and_virtual_bodies_how_disembodied_can_embodiment_be"}
 {"edge": "Extends", "from": "20260611_dream_engineering_sensory_stimulation", "to": "20250927_neural_foundations_of_mental_simulation_future_prediction_of_latent_representations_on_dynamic_scenes"}
@@ -17858,17 +17858,17 @@
 {"edge": "Extends", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20260223_blind_spot_spatial_warping_iit_predictive_processing_protocol"}
 {"edge": "Extends", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20260224_troubles_with_functionalism_ned_block"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250703_algorithmic_information_theory_of_consciousness"}
-{"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250824_ sharing_the_world_with_digital_minds"}
+{"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250824_sharing_the_world_with_digital_minds"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250825_an_introduction_to_the_problems_of_ai_consciousness"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250825_mind_uploading_philosophical_analysis_chalmers"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250825_mind_uploading_philosophical_analysis"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250825_selective_optimism_mind_uploading_clas_weber"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250825_the_metaphysics_of_uploading_chalmers_symposium"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250913_a_quantum_microtubule_substrate_of_consciousness"}
-{"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250916_a_comparative_perspective_on_the_cerebello-cerebral_system_and_its_link_to_cognition"}
+{"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250916_a_comparative_perspective_on_the_cerebello_cerebral_system_and_its_link_to_cognition"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250916_cognition_emotion_and_the_cerebellum"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250918_from_twinhood_to_selfhood_the_evolution_of_digital_human_twins_through_affordance_learning"}
-{"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250927_What_computer_science_has_to_say_about_the_simulation_hypothesis"}
+{"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250927_implications_computer_science_theory_simulation_hypothesis"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20250927_multiple_realizability_and_the_rise_of_deep_learning"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20251010_can_only_meat_machines_be_conscious"}
 {"edge": "Contradicts", "from": "20260719_shannon_information_and_integrated_information_message_and_meaning", "to": "20251023_ai_consciousness_is_inevitable"}
