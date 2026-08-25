@@ -187,7 +187,7 @@ nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 
 ## Conventions
 
-- Paper slugs: PDF filename minus `.pdf` extension (e.g. `20250703_neurophenomenal_structuralism`)
+- Paper slugs: lowercase `snake_case` PDF filename minus `.pdf` extension (e.g. `20250703_neurophenomenal_structuralism`)
 - Author slugs: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
 - Concept slugs: lowercase hyphenated (e.g. `integrated-information-theory`)
 - Technique slugs: lowercase hyphenated (e.g. `calcium-imaging`, `patch-clamp-electrophysiology`)

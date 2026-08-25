@@ -39,7 +39,7 @@ Papers are organised into topic directories:
 YYYYMMDD_descriptive_title.pdf
 ```
 
-The date prefix represents when the paper was added to the collection, not the publication date. Underscores replace spaces. The graph paper slug is the filename without the `.pdf` extension.
+The date prefix represents when the paper was added to the collection, not the publication date. The descriptive portion uses lowercase ASCII `snake_case`: convert spaces and hyphens to single underscores, with no whitespace, uppercase letters, repeated separators, or trailing underscore. The graph paper slug is the filename without the `.pdf` extension.
 
 ## Workflow
 
