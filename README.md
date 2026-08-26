@@ -39,7 +39,7 @@ Papers are organised into topic directories:
 YYYYMMDD_descriptive_title.pdf
 ```
 
-The date prefix represents when the paper was added to the collection, not the publication date. The descriptive portion uses lowercase ASCII `snake_case`: convert spaces and hyphens to single underscores, with no whitespace, uppercase letters, repeated separators, or trailing underscore. The graph paper slug is the filename without the `.pdf` extension.
+The date prefix represents when the paper was added to the collection, not the publication date. The descriptive portion uses lowercase ASCII `snake_case`: convert spaces and hyphens to single underscores, with no whitespace, uppercase letters, repeated separators, or trailing underscore. The graph paper slug starts as the filename without the `.pdf` extension and is then frozen: renaming the PDF updates `filename`, `path`, `folder`, and `InFolder`, not `slug` or edge endpoints.
 
 ## Workflow
 
@@ -130,7 +130,7 @@ This repository intentionally has no `nanograph.toml`. Run Nanograph from the re
 | `allPapers`                | --           | Full catalogue, sorted by date added             |
 | `allFolders`               | --           | List all topic folders                           |
 | `papersPerFolder`          | --           | Paper counts per topic folder                    |
-| `paperDetails`             | `paper`      | All stored fields for one paper                  |
+| `paperDetails`             | `paper`      | All stored fields for one paper, including path  |
 | `papersByFolder`           | `folder`     | Papers in a given topic directory                |
 | `papersByConcept`          | `concept`    | Papers covering a given concept                  |
 | `papersByAuthor`           | `author`     | Papers by a given author                         |
@@ -149,6 +149,7 @@ This repository intentionally has no `nanograph.toml`. Run Nanograph from the re
 | `figuresByPaper`           | `paper`      | Figures extracted from a paper                   |
 | `claimsByPaper`            | `paper`      | Claims extracted from a paper                    |
 | `openQuestionsByPaper`     | `paper`      | Open questions extracted from a paper            |
+| `extractionsByPaper`       | `paper`      | Extraction provenance records for a paper        |
 | `papersMissingMetadata`    | --           | Papers with no WrittenBy edge                    |
 | `papersMissingFigures`     | --           | Papers with no HasFigure edge                    |
 | `papersMissingClaims`      | --           | Papers with no MakesClaim edge                   |
@@ -164,6 +165,7 @@ The seed data contains paper nodes extracted from filenames. To enrich the graph
 1. **Authors** -- add Author nodes and WrittenBy edges
 2. **Concepts** -- add Concept nodes and Covers edges to map conceptual coverage
 3. **Citations** -- add Cites/Extends/Contradicts edges between papers in the collection
+4. **Provenance** -- Extraction nodes record which mode, model, and PDF bytes produced a run
 
 Append new records to `_graph/seed.jsonl`, keep one node per `(type, slug)` key, then run `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`.
 
