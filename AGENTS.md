@@ -48,7 +48,7 @@ Do not reopen filename cleanup, OCR derivatives, PDF repairs, or nested topic fo
 ## After reading
 
 - Capture visible annotations, key claims, authors, concepts, techniques, and in-collection citations into the graph.
-- Add Informs edges to active manuscripts when a paper actually feeds one.
+- When a paper newly feeds a manuscript, append Informs during ingest. Do not dump whole topic folders.
 
 ## Graph health
 
@@ -58,7 +58,7 @@ When checking the graph (not as a standing task list):
 - `nanograph lint --db _graph/readings.nano --query _graph/readings.gq`
 - `nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose`
 - Run `papersMissingMetadata` (and the other `papersMissing*` queries) for extract.py mode coverage
-- Look for duplicate keys, orphan endpoints, folder mismatches, unreviewed extraction runs, and papers with no Covers edges
+- Look for duplicate keys, orphan endpoints, folder mismatches, and papers with no Covers edges
 - Update `README.md`, `AGENTS.md`, and `.agents/skills/nanograph/` if the workflow changed
 
 ## Knowledge Graph
@@ -90,7 +90,8 @@ Nodes use `"type"` key; edges use `"edge"` key:
 - Paper: frozen identity, usually the original lowercase `snake_case` PDF stem (e.g. `20250703_neurophenomenal_structuralism`). A later rename updates `filename` and `path`, not `slug`
 - Author: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
 - Concept: lowercase hyphenated (e.g. `integrated-information-theory`)
-- Technique: lowercase hyphenated (e.g. `calcium-imaging`)
+- Technique: lowercase hyphenated (e.g. `calcium-imaging`). Named theories already moved from Technique to Concept; remaining theoretical tags are methods or constructs.
+- Author last-name groups: do not auto-merge; confirmed same-person slugs are already merged
 
 ### Automated Extraction
 
@@ -106,6 +107,8 @@ Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for f
 
 **Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so run `python3 _graph/build_seed.py --write` after extraction. It unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, `added`, `filename`, and `path` into one node per slug, and deduplicates other nodes (including Extraction) and edges. Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Keep exactly one Paper node per slug in `seed.jsonl`.
 
+New `extract.py` runs write real provenance; historical Extraction rows stay unknown until re-extracted.
+
 Use nanograph v1.3 or later. The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact, not a merge source. For a future complete rebuild, build `_graph/readings.nano.new/` with `nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg` followed by `nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite`; run `lint` and `doctor` before activating it under an unused backup name. This repository intentionally has no `nanograph.toml`, so every command must pass its database, schema, and query paths explicitly.
 
 ## Known gaps
@@ -114,18 +117,8 @@ Unfinished graph projects. Not leftover PDF ingest. Do not mark them done with a
 
 ### Review Extends and Contradicts
 
-A first pass on the high-degree outliers brought Extends from 815 to 345 and Contradicts from 137 to 94. Deletions are logged in `_graph/relation-review.md`. Remaining work is a slower pass on mid-degree papers and any new extractor output: run `extendsPerPaper` and `contradictsPerPaper`, keep real in-collection lineage, delete only clear title-keyword junk. The extractor still infers relations from titles and drops its justification.
+A first pass on the high-degree outliers brought Extends from 815 to 345 and Contradicts from 137 to 94. Deletions are logged in `_graph/relation-review.md` (a first-pass log; remove that file after the mid-degree pass). Remaining work is a slower pass on mid-degree papers and any new extractor output: run `extendsPerPaper` and `contradictsPerPaper`, keep real in-collection lineage, delete only clear title-keyword junk. The extractor still infers relations from titles and drops its justification.
 
-### Curate Techniques
+### Informs
 
-Named theories and philosophical positions (IIT, attention-schema theory, free-energy principle, computational functionalism, causal identity theory, and related) were moved from Technique to Concept. Remaining Technique nodes tagged `theoretical` or `philosophical` are methods, equations, tests, or constructs (Bloch equations, Turing test, phenomenological analysis, experience-spaces, and so on). Do not auto-merge remaining Author last-name groups; confirmed same-person slugs are already merged.
-
-### Populate Informs
-
-Four Manuscript nodes: `05-ocm`, `frontiers-consciousness-engineering`, `cortical-reorganisation`, `hybrid-mind-uploading`.
-
-This pass added Informs from bibliography matches and papers the manuscripts actually use: 8 to `05-ocm` (now 9 including the existing microtubules edge), 12 to `frontiers-consciousness-engineering` (now 13 including the existing similar-network-activity edge), 12 to `hybrid-mind-uploading` (now 14 including the two existing uploading edges), and 12 to `cortical-reorganisation` (was zero). Remaining Informs still need Daniel when a paper newly feeds a manuscript. Do not dump whole topic folders. Do not add Manuscript nodes for ecp, realisability, or centredness unless those papers already exist in this graph.
-
-### Extraction review
-
-Backfilled Extraction nodes for modes that already had a marker edge are `result_status=ok` with `review_status=unreviewed` and model/timestamp/checksum/version empty or `unknown`. Re-extraction stamps those fields. New extractor runs write provenance on ok, skipped, and failed. Unreviewed runs still need a human pass.
+When a paper newly feeds a manuscript, append Informs during ingest. Do not dump whole topic folders. Do not add Manuscript nodes for ecp, realisability, or centredness unless those papers already exist in this graph.

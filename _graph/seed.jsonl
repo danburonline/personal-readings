@@ -19282,3 +19282,6 @@
 {"edge": "HasExtraction", "from": "20260818_the_fallacy_of_favoring_gradual_replacement_mind_uploading_over_scan_and_copy", "to": "20260818_the_fallacy_of_favoring_gradual_replacement_mind_uploading_over_scan_and_copy--methods"}
 {"edge": "HasExtraction", "from": "20260818_the_fallacy_of_favoring_gradual_replacement_mind_uploading_over_scan_and_copy", "to": "20260818_the_fallacy_of_favoring_gradual_replacement_mind_uploading_over_scan_and_copy--definitions"}
 {"edge": "HasExtraction", "from": "20260818_the_fallacy_of_favoring_gradual_replacement_mind_uploading_over_scan_and_copy", "to": "20260818_the_fallacy_of_favoring_gradual_replacement_mind_uploading_over_scan_and_copy--open-questions"}
+{"edge": "Informs", "from": "20250713_coarse_graining_cerebral_cortex_dynamics", "to": "frontiers-consciousness-engineering"}
+{"edge": "Informs", "from": "20251112_constructing_organoid_brain_computer_interfaces_for_neurofunctional_repair_after_brain_injury", "to": "frontiers-consciousness-engineering"}
+{"edge": "Informs", "from": "20251112_old_brain_young_again", "to": "cortical-reorganisation"}
