@@ -32,6 +32,34 @@ You are operating in a personal research library of annotated scientific papers,
 - Use structured formats (tables, lists, headings) over prose when presenting extracted data
 - Keep summaries concise but technically complete -- no padding, no redundant context-setting
 
+## New papers
+
+When a PDF is added to this library:
+
+1. Keep an untouched source copy outside the archival filename if both exist.
+2. Name the archival file `YYYYMMDD_descriptive_title.pdf` and put it in one root-level topic folder.
+3. Append one Paper node and one InFolder edge to `_graph/seed.jsonl`.
+4. Run each desired extraction mode separately (`metadata`, `figures`, `claims`, `relations`, `methods`, `definitions`, `open-questions`).
+5. Squash to one canonical Paper node per slug, then reload: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`.
+6. Commit the PDF, seed update, and any reading notes together.
+
+Do not reopen filename cleanup, OCR derivatives, PDF repairs, or nested topic folders. Those splits are done. Broad folders such as `consciousness_theories/` and `computational_neuroscience/` stay; extra granularity is a new peer-level root folder.
+
+## After reading
+
+- Capture visible annotations, key claims, authors, concepts, techniques, and in-collection citations into the graph.
+- Add Informs edges to active manuscripts when a paper actually feeds one.
+
+## Graph health
+
+When checking the graph (not as a standing task list):
+
+- Compare Paper count with `find . -name "*.pdf" | wc -l`
+- `nanograph lint --db _graph/readings.nano --query _graph/readings.gq`
+- `nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose`
+- Look for duplicate keys, orphan endpoints, folder mismatches, unreviewed extraction runs, and papers with no Covers edges
+- Update `README.md`, `AGENTS.md`, and `.agents/skills/nanograph/` if the workflow changed
+
 ## Knowledge Graph
 
 This repository includes a nanograph property graph (`_graph/readings.nano/`) that models relationships between papers, authors, concepts, and manuscripts. The schema is in `_graph/readings.pg`, data in `_graph/seed.jsonl`, and canned queries in `_graph/readings.gq`.
