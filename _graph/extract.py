@@ -1140,7 +1140,8 @@ def main():
             with open(SEED_FILE, "a") as f:
                 f.writelines(line + "\n" for line in all_lines)
             print(f"\nAppended {len(all_lines)} lines to {SEED_FILE}", file=sys.stderr)
-            print("Run: nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)
+            print("Run: python3 _graph/build_seed.py --write", file=sys.stderr)
+            print("Then: nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)
         else:
             for line in all_lines:
                 print(line)
