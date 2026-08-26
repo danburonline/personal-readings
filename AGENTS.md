@@ -110,15 +110,3 @@ Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for f
 New `extract.py` runs write real provenance; historical Extraction rows stay unknown until re-extracted.
 
 Use nanograph v1.3 or later. The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact, not a merge source. For a future complete rebuild, build `_graph/readings.nano.new/` with `nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg` followed by `nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite`; run `lint` and `doctor` before activating it under an unused backup name. This repository intentionally has no `nanograph.toml`, so every command must pass its database, schema, and query paths explicitly.
-
-## Known gaps
-
-Unfinished graph projects. Not leftover PDF ingest. Do not mark them done with a stub.
-
-### Review Extends and Contradicts
-
-A first pass on the high-degree outliers brought Extends from 815 to 345 and Contradicts from 137 to 94. Deletions are logged in `_graph/relation-review.md` (a first-pass log; remove that file after the mid-degree pass). Remaining work is a slower pass on mid-degree papers and any new extractor output: run `extendsPerPaper` and `contradictsPerPaper`, keep real in-collection lineage, delete only clear title-keyword junk. The extractor still infers relations from titles and drops its justification.
-
-### Informs
-
-When a paper newly feeds a manuscript, append Informs during ingest. Do not dump whole topic folders. Do not add Manuscript nodes for ecp, realisability, or centredness unless those papers already exist in this graph.
