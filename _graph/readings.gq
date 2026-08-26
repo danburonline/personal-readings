@@ -209,3 +209,214 @@ query openQuestionsByPaper($paper: String) {
     $q.tractability
   }
 }
+
+query paperDetails($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+    $p.year
+    $p.authors
+    $p.doi
+    $p.arxiv_id
+    $p.abstract
+    $p.thesis
+    $p.study_type
+  }
+}
+
+query extendsWhat($paper: String) {
+  match {
+    $source: Paper { slug: $paper }
+    $source extends $target
+  }
+  return {
+    $target.slug
+    $target.title
+    $target.folder
+  }
+}
+
+query extendedBy($paper: String) {
+  match {
+    $source: Paper
+    $target: Paper { slug: $paper }
+    $source extends $target
+  }
+  return {
+    $source.slug
+    $source.title
+    $source.folder
+  }
+}
+
+query contradictsWhat($paper: String) {
+  match {
+    $source: Paper { slug: $paper }
+    $source contradicts $target
+  }
+  return {
+    $target.slug
+    $target.title
+    $target.folder
+  }
+}
+
+query contradictedBy($paper: String) {
+  match {
+    $source: Paper
+    $target: Paper { slug: $paper }
+    $source contradicts $target
+  }
+  return {
+    $source.slug
+    $source.title
+    $source.folder
+  }
+}
+
+query extendsPerPaper() {
+  match {
+    $p: Paper
+    $p extends $t
+  }
+  return {
+    $p.slug
+    $p.title
+    count($t) as extends
+  }
+  order { extends desc }
+}
+
+query contradictsPerPaper() {
+  match {
+    $p: Paper
+    $p contradicts $t
+  }
+  return {
+    $p.slug
+    $p.title
+    count($t) as contradicts
+  }
+  order { contradicts desc }
+}
+
+query manuscriptCoverage() {
+  match {
+    $m: Manuscript
+    maybe { $p informs $m }
+  }
+  return {
+    $m.slug
+    $m.title
+    $m.status
+    count($p) as papers
+  }
+  order { papers desc }
+}
+
+// Extraction completeness: papers with no marker edge for that extract.py mode.
+// relations skips papers that already have Extends or Contradicts (same as --all).
+
+query papersMissingMetadata() {
+  match {
+    $p: Paper
+    not { $p writtenBy $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersMissingFigures() {
+  match {
+    $p: Paper
+    not { $p hasFigure $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersMissingClaims() {
+  match {
+    $p: Paper
+    not { $p makesClaim $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersMissingRelations() {
+  match {
+    $p: Paper
+    not { $p extends $_ }
+    not { $p contradicts $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersMissingMethods() {
+  match {
+    $p: Paper
+    not { $p usesTechnique $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersMissingDefinitions() {
+  match {
+    $p: Paper
+    not { $p hasDefinition $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}
+
+query papersMissingQuestions() {
+  match {
+    $p: Paper
+    not { $p raises $_ }
+  }
+  return {
+    $p.slug
+    $p.title
+    $p.folder
+    $p.added
+  }
+  order { $p.added desc }
+}

@@ -87,7 +87,7 @@ The collection includes a [nanograph](https://github.com/nanograph/nanograph) pr
 | File                    | Purpose                                                            |
 | ----------------------- | ------------------------------------------------------------------ |
 | `_graph/readings.pg`    | Schema for all node and edge types                                 |
-| `_graph/readings.gq`    | Seventeen named queries for common operations                      |
+| `_graph/readings.gq`    | Named queries for catalogue, relations, completeness, and coverage |
 | `_graph/seed.jsonl`     | Canonical graph data as JSONL                                      |
 | `_graph/extract.py`     | Multi-mode Gemini extraction into graph records                    |
 | `_graph/readings.nano/` | Derived database, gitignored and rebuilt from the schema and JSONL |
@@ -119,31 +119,46 @@ nanograph lint --db _graph/readings.nano --query _graph/readings.gq
 nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 ```
 
-Nanograph 1.3.0 was installed and the active database was rebuilt from the canonical seed on 17 August 2026. It now uses the `namespace-lineage` storage generation, manifest format 3, and `db_version: 1`; `lint` passes all 17 queries and `doctor` passes all 25 datasets. The stale pre-v1.2 database is preserved at `_graph/readings.nano.legacy-v3/` for rollback only. Do not merge it into the active graph.
+Nanograph 1.3.0 was installed and the active database was rebuilt from the canonical seed on 17 August 2026. It now uses the `namespace-lineage` storage generation, manifest format 3, and `db_version: 1`; `doctor` passes all 25 datasets. After changing `_graph/readings.gq`, run `nanograph lint --db _graph/readings.nano --query _graph/readings.gq`. The stale pre-v1.2 database is preserved at `_graph/readings.nano.legacy-v3/` for rollback only. Do not merge it into the active graph.
 
 This repository intentionally has no `nanograph.toml`. Run Nanograph from the repository root and pass `--db`, `--schema`, and `--query` paths explicitly. If `nanograph init` generates a configuration scaffold under `_graph/`, remove it after the staged rebuild.
 
 ### Available Queries
 
-| Query                 | Parameters   | Description                           |
-| --------------------- | ------------ | ------------------------------------- |
-| `allPapers`           | --           | Full catalogue, sorted by date added  |
-| `allFolders`          | --           | List all topic folders                |
-| `papersPerFolder`     | --           | Paper counts per topic folder         |
-| `allManuscripts`      | --           | Daniel's manuscripts and their status |
-| `papersByFolder`      | `folder`     | Papers in a given topic directory     |
-| `papersByConcept`     | `concept`    | Papers covering a given concept       |
-| `papersByAuthor`      | `author`     | Papers by a given author              |
-| `papersByTechnique`   | `technique`  | Papers using a technique              |
-| `citedBy`             | `paper`      | Papers that cite a given paper        |
-| `citesWhat`           | `paper`      | Papers cited by a given paper         |
-| `papersForManuscript` | `manuscript` | Papers informing a given manuscript   |
-| `techniquesByPaper`   | `paper`      | Techniques used by a paper            |
-| `definitionsByTerm`   | `term`       | Definitions of a term across papers   |
-| `definitionsByPaper`  | `paper`      | Definitions extracted from a paper    |
-| `figuresByPaper`      | `paper`      | Figures extracted from a paper        |
-| `claimsByPaper`       | `paper`      | Claims extracted from a paper         |
-| `openQuestionsByPaper` | `paper`      | Open questions extracted from a paper |
+| Query                      | Parameters   | Description                                      |
+| -------------------------- | ------------ | ------------------------------------------------ |
+| `allPapers`                | --           | Full catalogue, sorted by date added             |
+| `allFolders`               | --           | List all topic folders                           |
+| `papersPerFolder`          | --           | Paper counts per topic folder                    |
+| `allManuscripts`           | --           | Daniel's manuscripts and their status            |
+| `manuscriptCoverage`       | --           | Manuscripts with Informs paper counts            |
+| `paperDetails`             | `paper`      | All stored fields for one paper                  |
+| `papersByFolder`           | `folder`     | Papers in a given topic directory                |
+| `papersByConcept`          | `concept`    | Papers covering a given concept                  |
+| `papersByAuthor`           | `author`     | Papers by a given author                         |
+| `papersByTechnique`        | `technique`  | Papers using a technique                         |
+| `citedBy`                  | `paper`      | Papers that cite a given paper                   |
+| `citesWhat`                | `paper`      | Papers cited by a given paper                    |
+| `extendsWhat`              | `paper`      | Papers a paper extends                           |
+| `extendedBy`               | `paper`      | Papers that extend a given paper                 |
+| `contradictsWhat`          | `paper`      | Papers a paper contradicts                       |
+| `contradictedBy`           | `paper`      | Papers that contradict a given paper             |
+| `extendsPerPaper`          | --           | Extends counts, highest degree first             |
+| `contradictsPerPaper`      | --           | Contradicts counts, highest degree first         |
+| `papersForManuscript`      | `manuscript` | Papers informing a given manuscript              |
+| `techniquesByPaper`        | `paper`      | Techniques used by a paper                       |
+| `definitionsByTerm`        | `term`       | Definitions of a term across papers              |
+| `definitionsByPaper`       | `paper`      | Definitions extracted from a paper               |
+| `figuresByPaper`           | `paper`      | Figures extracted from a paper                   |
+| `claimsByPaper`            | `paper`      | Claims extracted from a paper                    |
+| `openQuestionsByPaper`     | `paper`      | Open questions extracted from a paper            |
+| `papersMissingMetadata`    | --           | Papers with no WrittenBy edge                    |
+| `papersMissingFigures`     | --           | Papers with no HasFigure edge                    |
+| `papersMissingClaims`      | --           | Papers with no MakesClaim edge                   |
+| `papersMissingRelations`   | --           | Papers with no Extends and no Contradicts        |
+| `papersMissingMethods`     | --           | Papers with no UsesTechnique edge                |
+| `papersMissingDefinitions` | --           | Papers with no HasDefinition edge                |
+| `papersMissingQuestions`   | --           | Papers with no Raises edge                       |
 
 ### Enrichment
 

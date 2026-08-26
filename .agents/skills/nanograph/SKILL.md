@@ -82,25 +82,40 @@ nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 
 ## Available Queries
 
-| Query                  | Params       | Returns                                 |
-| ---------------------- | ------------ | --------------------------------------- |
-| `allPapers`            | --           | Full catalogue by date                  |
-| `allFolders`           | --           | Topic folders                           |
-| `papersPerFolder`      | --           | Paper counts per folder                 |
-| `allManuscripts`       | --           | Daniel's manuscripts + status           |
-| `papersByFolder`       | `folder`     | Papers in a topic dir                   |
-| `papersByConcept`      | `concept`    | Papers covering a concept               |
-| `papersByAuthor`       | `author`     | Papers by an author                     |
-| `papersByTechnique`    | `technique`  | Papers using a technique                |
-| `citedBy`              | `paper`      | Papers citing a paper                   |
-| `citesWhat`            | `paper`      | Papers a paper cites                    |
-| `papersForManuscript`  | `manuscript` | Papers informing a manuscript           |
-| `techniquesByPaper`    | `paper`      | Techniques used by a paper              |
-| `definitionsByTerm`    | `term`       | All definitions of a term across papers |
-| `definitionsByPaper`   | `paper`      | Definitions from a paper                |
-| `figuresByPaper`       | `paper`      | Figures in a paper                      |
-| `claimsByPaper`        | `paper`      | Claims made by a paper                  |
-| `openQuestionsByPaper` | `paper`      | Open questions from a paper             |
+| Query                      | Params       | Returns                                          |
+| -------------------------- | ------------ | ------------------------------------------------ |
+| `allPapers`                | --           | Full catalogue by date                           |
+| `allFolders`               | --           | Topic folders                                    |
+| `papersPerFolder`          | --           | Paper counts per folder                          |
+| `allManuscripts`           | --           | Daniel's manuscripts + status                    |
+| `manuscriptCoverage`       | --           | Manuscripts with Informs paper counts            |
+| `paperDetails`             | `paper`      | All stored fields for one paper                  |
+| `papersByFolder`           | `folder`     | Papers in a topic dir                            |
+| `papersByConcept`          | `concept`    | Papers covering a concept                        |
+| `papersByAuthor`           | `author`     | Papers by an author                              |
+| `papersByTechnique`        | `technique`  | Papers using a technique                         |
+| `citedBy`                  | `paper`      | Papers citing a paper                            |
+| `citesWhat`                | `paper`      | Papers a paper cites                             |
+| `extendsWhat`              | `paper`      | Papers a paper extends                           |
+| `extendedBy`               | `paper`      | Papers that extend a paper                       |
+| `contradictsWhat`          | `paper`      | Papers a paper contradicts                       |
+| `contradictedBy`           | `paper`      | Papers that contradict a paper                   |
+| `extendsPerPaper`          | --           | Extends counts, highest degree first             |
+| `contradictsPerPaper`      | --           | Contradicts counts, highest degree first         |
+| `papersForManuscript`      | `manuscript` | Papers informing a manuscript                    |
+| `techniquesByPaper`        | `paper`      | Techniques used by a paper                       |
+| `definitionsByTerm`        | `term`       | All definitions of a term across papers          |
+| `definitionsByPaper`       | `paper`      | Definitions from a paper                         |
+| `figuresByPaper`           | `paper`      | Figures in a paper                               |
+| `claimsByPaper`            | `paper`      | Claims made by a paper                           |
+| `openQuestionsByPaper`     | `paper`      | Open questions from a paper                      |
+| `papersMissingMetadata`    | --           | Papers with no WrittenBy edge                    |
+| `papersMissingFigures`     | --           | Papers with no HasFigure edge                    |
+| `papersMissingClaims`      | --           | Papers with no MakesClaim edge                   |
+| `papersMissingRelations`   | --           | Papers with no Extends and no Contradicts        |
+| `papersMissingMethods`     | --           | Papers with no UsesTechnique edge                |
+| `papersMissingDefinitions` | --           | Papers with no HasDefinition edge                |
+| `papersMissingQuestions`   | --           | Papers with no Raises edge                       |
 
 ## Workflows
 
@@ -126,12 +141,12 @@ Then reload with `--mode merge`.
 
 ### Automated extraction with Gemini
 
-The repository includes `_graph/extract.py` -- a multi-mode extraction script that uses the Gemini model selected by `GEMINI_MODEL` (default `gemini-3.6-flash`). Every mode produces JSONL for the knowledge graph.
+The repository includes `_graph/extract.py` -- a multi-mode extraction script that uses the Gemini model selected by `GEMINI_MODEL` (default `gemini-3.7-flash`). Every mode produces JSONL for the knowledge graph.
 
 **Prerequisites:**
 
 - `GEMINI_API_KEY` environment variable must be set
-- `GEMINI_MODEL` is optional and defaults to `gemini-3.6-flash`
+- `GEMINI_MODEL` is optional and defaults to `gemini-3.7-flash`
 - No pip dependencies (stdlib only)
 
 **Extraction modes:**

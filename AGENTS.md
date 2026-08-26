@@ -57,6 +57,7 @@ When checking the graph (not as a standing task list):
 - Compare Paper count with `find . -name "*.pdf" | wc -l`
 - `nanograph lint --db _graph/readings.nano --query _graph/readings.gq`
 - `nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose`
+- Run `papersMissingMetadata` (and the other `papersMissing*` queries) for extract.py mode coverage
 - Look for duplicate keys, orphan endpoints, folder mismatches, unreviewed extraction runs, and papers with no Covers edges
 - Update `README.md`, `AGENTS.md`, and `.agents/skills/nanograph/` if the workflow changed
 
@@ -93,7 +94,7 @@ Nodes use `"type"` key; edges use `"edge"` key:
 
 ### Automated Extraction
 
-`_graph/extract.py` uses the Gemini model selected by `GEMINI_MODEL` (default `gemini-3.6-flash`) to extract structured content from PDFs into JSONL. Modes: metadata, figures, claims, relations, methods, definitions, open-questions.
+`_graph/extract.py` uses the Gemini model selected by `GEMINI_MODEL` (default `gemini-3.7-flash`) to extract structured content from PDFs into JSONL. Modes: metadata, figures, claims, relations, methods, definitions, open-questions.
 
 ```bash
 python3 _graph/extract.py path/to/paper.pdf --mode metadata --append
@@ -105,3 +106,49 @@ Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for f
 **Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so squash these into a single node per slug carrying the union of all fields (`year`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`) before reloading. Keep exactly one Paper node per slug in `seed.jsonl`.
 
 Use nanograph v1.3 or later. The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact, not a merge source. For a future complete rebuild, build `_graph/readings.nano.new/` with `nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg` followed by `nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite`; run `lint` and `doctor` before activating it under an unused backup name. This repository intentionally has no `nanograph.toml`, so every command must pass its database, schema, and query paths explicitly.
+
+## Known gaps
+
+Unfinished graph projects. Not leftover PDF ingest. Do not mark them done with a stub.
+
+### Stable Paper identity
+
+Today `Paper.slug` is the PDF filename without `.pdf`. Every edge endpoint is that string. Renaming a file therefore rewrites the paper, its child slugs (`{slug}--fig-1`, `{slug}--claim-1`, and so on), and every affected edge.
+
+Done looks like: an internal `@key` that does not change when the file moves, plus separate fields for path, filename, DOI, and arXiv.
+
+Work: schema change, then one planned rewrite of 274 Paper keys and the 18,502-line seed. Do not migrate incrementally.
+
+### Extraction provenance
+
+`extract.py` writes nodes and edges with no record of which model, when, or which PDF bytes produced them. `--all` only checks for a marker edge (WrittenBy, HasFigure, MakesClaim, Extends or Contradicts, UsesTechnique, HasDefinition, Raises).
+
+Done looks like: per paper, per mode: model, timestamp, PDF checksum, extraction version, result status, review status.
+
+Work: schema plus `extract.py` redesign. Existing rows stay unprovenanced until re-extracted or stamped.
+
+### Canonical seed build
+
+`metadata`, `claims`, and `methods` each append their own Paper node. You squash duplicates by hand before `nanograph load`. The live seed currently has 274 unique Paper slugs and no duplicates.
+
+Done looks like: a deterministic builder that emits one Paper node per slug from the mode outputs.
+
+Work: write that builder and replace the squash step in the ingest workflow.
+
+### Review Extends and Contradicts
+
+815 Extends edges from 64 papers; 137 Contradicts from 25 papers. Highest Extends degree is `20260428_neural_organoids_diversity_and_complexity_perspective_2026` (139). Highest Contradicts degree is `20260719_shannon_information_and_integrated_information_message_and_meaning` (32). The extractor infers these from titles and drops its justification.
+
+Work: run `extendsPerPaper` and `contradictsPerPaper`, start at the top, delete title-only junk. This is a manual quality pass, not a script.
+
+### Curate Techniques and Author variants
+
+1,191 Technique nodes. 67 are tagged `theoretical` and 9 `philosophical`, so theories sit next to instruments. 1,115 Author slugs; 75 last-name groups have more than one slug. Confirmed same-person duplicates include `chalmers-david` / `chalmers-david-j`, `curtis-marco-de` / `curtis-m-de`, `destexhe-a` / `destexhe-alain`, `duffau-h` / `duffau-hugues`, `goding-josef` / `goding-josef-a`. Most groups are different people.
+
+Work: move theories from Technique to Concept. Merge only confirmed same-person Author slugs. Do not auto-merge.
+
+### Populate Informs
+
+Four Manuscript nodes: `05-ocm`, `frontiers-consciousness-engineering`, `cortical-reorganisation`, `hybrid-mind-uploading`. Four Informs edges, none of them to `cortical-reorganisation`. 270 of 274 papers have no Informs edge.
+
+Work: when a paper actually feeds one of your manuscripts, append an Informs edge. Run `manuscriptCoverage` to see the current counts. This needs your judgement.
