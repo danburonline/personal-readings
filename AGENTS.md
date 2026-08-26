@@ -20,12 +20,11 @@ You are operating in a personal research library of annotated scientific papers,
 
 ## Working with Documents
 
-- PDFs may contain flattened visible marks, but the repository does not contain standard PDF note/highlight/ink annotations or native reMarkable sidecars as of the 17 August 2026 audit
-- When extracting content, capture both the source text and any visible annotations; do not infer that a file is unannotated solely from its PDF annotation objects
+- PDFs may contain flattened visible marks. Capture source text and any visible annotations; do not infer that a file is unannotated solely from its PDF annotation objects
 - Respect the topic-based folder structure when organising output
 - File naming follows `YYYYMMDD_descriptive_title.pdf` -- the date is when the paper was added, not its publication date. The descriptive portion must use lowercase ASCII `snake_case`: convert spaces and hyphens to single underscores, with no whitespace, uppercase letters, repeated separators, or trailing underscore
 - Keep the folder structure flat: every PDF must live in one root-level topic folder. Do not create nested topic folders. When a broad category needs more granularity, add a generic peer-level root folder and retain the broad folder for papers that do not clearly fit the narrower category
-- Before adding, renaming, or moving a PDF, measure the complete prospective Kindle Scribe path as `Documents/<repository-relative path>`. Target 200 characters or fewer and never exceed 255 characters. Shorten the descriptive filename portion while preserving the `YYYYMMDD_` prefix
+- Keep repository-relative PDF paths reasonably short. Shorten the descriptive filename portion while preserving the `YYYYMMDD_` prefix
 
 ## Output Format
 

@@ -45,12 +45,11 @@ The date prefix represents when the paper was added to the collection, not the p
 
 1. **Find** a paper or document online and retain an untouched source copy
 2. **Rename** the archival file with a `YYYYMMDD_` date prefix (date of discovery, not publication)
-3. **Read** on the current device -- highlight passages, write margin notes, and work through derivations
-4. **Export** a portable annotated PDF and, where available, a device-native archive; verify visible marks before retiring the device copy
-5. **Archive** the canonical PDF in the appropriate topic folder and append its Paper node and InFolder edge to `_graph/seed.jsonl`
-6. **Extract** each desired mode separately. `python3 _graph/extract.py <pdf> --append` runs metadata only; use `--mode figures|claims|relations|methods|definitions|open-questions` for the other passes
-7. **Normalise** duplicate Paper records emitted by metadata, claims, and methods into one Paper node carrying the union of their fields
-8. **Graph** -- reload the compiled database: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`
+3. **Read** -- highlight passages, write margin notes, and work through derivations
+4. **Archive** the canonical PDF in the appropriate topic folder and append its Paper node and InFolder edge to `_graph/seed.jsonl`
+5. **Extract** each desired mode separately. `python3 _graph/extract.py <pdf> --append` runs metadata only; use `--mode figures|claims|relations|methods|definitions|open-questions` for the other passes
+6. **Normalise** duplicate Paper records emitted by metadata, claims, and methods into one Paper node carrying the union of their fields
+7. **Graph** -- reload the compiled database: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`
 
 ## Annotations
 
@@ -60,7 +59,7 @@ Reading annotations may include:
 - **Margin notes** -- questions, cross-references to other papers, disagreements
 - **Inline scribbles** -- derivation checks, alternative formulations
 
-An audit on 17 August 2026 found no standard PDF ink, highlight, text-note, or free-text annotation objects and no native reMarkable sidecars in this repository. Existing marks could be flattened into page content, which a structural scan cannot distinguish reliably. Preserve the untouched source, any device-native archive, and a visually verified annotated export as separate files before a device migration.
+Visible marks may be flattened into page content. Preserve an untouched source copy and the canonical archived PDF as separate files when both exist.
 
 ## Auxiliary Files
 
@@ -76,7 +75,7 @@ These are generated as part of working with and querying the collection programm
 
 The collection is indexed and queried through multiple tools:
 
-- **OpenCode / CLI agents** -- used for extracting content, generating summaries, building indices, and ad-hoc queries against the documents
+- **CLI agents** -- used for extracting content, generating summaries, building indices, and ad-hoc queries against the documents
 - **Any additional RAG or embedding tooling** as needed -- the repository is tool-agnostic; anything that can ingest PDFs and produce useful retrieval is fair game
 
 ## Knowledge Graph
