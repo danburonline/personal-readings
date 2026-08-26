@@ -1,11 +1,11 @@
 # TODO
 
+Operational backlog for the literature library and its nanograph. Not a project or correspondence tracker.
+
 ## Active
 
 - [x] Install nanograph 1.3.0 through Homebrew and verify it in fresh zsh sessions (17 August 2026)
 - [x] Rebuild, lint, doctor, and activate `_graph/readings.nano/` from the canonical seed; preserve the legacy v3 store at `_graph/readings.nano.legacy-v3/` (17 August 2026)
-- [ ] Pilot three representative PDFs on the Kindle Scribe and verify an export round trip before bulk upload
-- [ ] Re-export any reMarkable-native annotations that still exist on the old device; this repository contains no native annotation sidecars or standard note/highlight/ink objects
 
 ## Deferred PDF changes
 
@@ -35,8 +35,6 @@ Filename cleanup and the flat first-level topic split were completed on 23 Augus
 
 ## After reading
 
-- [ ] Preserve the device-native archive where available
-- [ ] Export and visually verify a portable annotated PDF
 - [ ] Capture visible annotations, key claims, authors, concepts, techniques, and in-collection citations
 - [ ] Add relevant Informs edges to active manuscripts
 
