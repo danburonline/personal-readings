@@ -15,6 +15,7 @@ This research library includes a [nanograph](https://github.com/nanograph/nanogr
 | `_graph/readings.gq`    | Named queries                                                 |
 | `_graph/seed.jsonl`     | All graph data (nodes + edges)                                |
 | `_graph/extract.py`     | Multi-mode Gemini extraction script (all modes produce JSONL) |
+| `_graph/build_seed.py`  | Canonicalise seed.jsonl (union Paper fields, dedupe nodes/edges) |
 | `_graph/readings.nano/` | Compiled database (gitignored, rebuilt from schema + data)    |
 
 ## Schema
@@ -88,7 +89,7 @@ nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 | `allFolders`               | --           | Topic folders                                    |
 | `papersPerFolder`          | --           | Paper counts per folder                          |
 | `allManuscripts`           | --           | Daniel's manuscripts + status                    |
-| `manuscriptCoverage`       | --           | Manuscripts with Informs paper counts            |
+| `manuscriptCoverage`       | --           | Manuscripts that have Informs edges, with counts |
 | `paperDetails`             | `paper`      | All stored fields for one paper                  |
 | `papersByFolder`           | `folder`     | Papers in a topic dir                            |
 | `papersByConcept`          | `concept`    | Papers covering a concept                        |
@@ -123,7 +124,7 @@ nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 
 1. Append Paper node + InFolder edge to `_graph/seed.jsonl` (do **not** reload yet if extraction modes will follow)
 2. Run all desired extraction modes with `--append` (see below)
-3. Squash the duplicate Paper nodes for the new slug into a single node (union of all fields) -- see "Duplicate Paper nodes" below
+3. Canonicalise: `python3 _graph/build_seed.py --write` -- see "Duplicate Paper nodes" below
 4. Then reload: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`
 
 Keep exactly one Paper node per slug in `seed.jsonl`.
@@ -192,10 +193,11 @@ python3 _graph/extract.py --all --mode claims --dry-run
 **After extraction:**
 
 ```bash
+python3 _graph/build_seed.py --write
 nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
-**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load, so if several modes ran for the same paper, squash those nodes into one node per slug (union of all fields, e.g. `year`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`) before reloading. Rewriting the file for a controlled migration or this squash is the exception to "never overwrite `seed.jsonl`".
+**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load. Do not squash by hand. Run `python3 _graph/build_seed.py --write` after extraction. The builder unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, and `added` into one node per slug, and also deduplicates other nodes by `(type, slug)` and edges by `(edge, from, to)`. Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Rewriting the file for a controlled migration or this canonicalisation is the exception to "never overwrite `seed.jsonl`".
 
 **Limitations:**
 

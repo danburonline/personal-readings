@@ -48,7 +48,7 @@ The date prefix represents when the paper was added to the collection, not the p
 3. **Read** -- highlight passages, write margin notes, and work through derivations
 4. **Archive** the canonical PDF in the appropriate topic folder and append its Paper node and InFolder edge to `_graph/seed.jsonl`
 5. **Extract** each desired mode separately. `python3 _graph/extract.py <pdf> --append` runs metadata only; use `--mode figures|claims|relations|methods|definitions|open-questions` for the other passes
-6. **Normalise** duplicate Paper records emitted by metadata, claims, and methods into one Paper node carrying the union of their fields
+6. **Normalise** with `python3 _graph/build_seed.py --write` so metadata, claims, and methods collapse to one Paper node per slug
 7. **Graph** -- reload the compiled database: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`
 
 ## Annotations

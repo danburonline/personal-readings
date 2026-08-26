@@ -305,10 +305,12 @@ query contradictsPerPaper() {
   order { contradicts desc }
 }
 
+// nanograph 1.3.0 has no optional/maybe match, so this is an inner join:
+// manuscripts with no Informs edges do not appear. Use allManuscripts for the full list.
 query manuscriptCoverage() {
   match {
     $m: Manuscript
-    maybe { $p informs $m }
+    $p informs $m
   }
   return {
     $m.slug

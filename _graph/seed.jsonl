@@ -86,7 +86,6 @@
 {"type": "Author", "data": {"slug": "pfau-jacob", "name": "Jacob Pfau"}}
 {"type": "Author", "data": {"slug": "sims-toni", "name": "Toni Sims"}}
 {"type": "Author", "data": {"slug": "birch-jonathan", "name": "Jonathan Birch"}}
-{"type": "Author", "data": {"slug": "chalmers-david", "name": "David Chalmers"}}
 {"type": "Concept", "data": {"slug": "robust-agency", "name": "Robust Agency"}}
 {"type": "Concept", "data": {"slug": "computational-functionalism", "name": "Computational Functionalism"}}
 {"type": "Concept", "data": {"slug": "ai-safety", "name": "AI Safety"}}
@@ -182,7 +181,6 @@
 {"type": "Concept", "data": {"slug": "functional-mri", "name": "Functional MRI"}}
 {"type": "Concept", "data": {"slug": "primary-motor-area", "name": "Primary Motor Area"}}
 {"type": "Concept", "data": {"slug": "repeated-surgery", "name": "Repeated Surgery"}}
-{"type": "Author", "data": {"slug": "duffau-h", "name": "H. Duffau"}}
 {"type": "Concept", "data": {"slug": "functional-mapping", "name": "Functional Mapping"}}
 {"type": "Concept", "data": {"slug": "connectome", "name": "Connectome"}}
 {"type": "Concept", "data": {"slug": "surgical-resection", "name": "Surgical Resection"}}
@@ -598,7 +596,6 @@
 {"type": "Author", "data": {"slug": "paolucci-ps", "name": "PS Paolucci"}}
 {"type": "Author", "data": {"slug": "massimini-m", "name": "M Massimini"}}
 {"type": "Author", "data": {"slug": "mattia-m", "name": "M Mattia"}}
-{"type": "Author", "data": {"slug": "destexhe-a", "name": "A Destexhe"}}
 {"type": "Concept", "data": {"slug": "cortical-brain-states", "name": "Cortical Brain States"}}
 {"type": "Concept", "data": {"slug": "consciousness", "name": "Consciousness"}}
 {"type": "Author", "data": {"slug": "parr-thomas", "name": "Thomas Parr"}}
@@ -6555,7 +6552,7 @@
 {"edge": "WrittenBy", "from": "20251023_taking_ai_welfare_seriously", "to": "pfau-jacob"}
 {"edge": "WrittenBy", "from": "20251023_taking_ai_welfare_seriously", "to": "sims-toni"}
 {"edge": "WrittenBy", "from": "20251023_taking_ai_welfare_seriously", "to": "birch-jonathan"}
-{"edge": "WrittenBy", "from": "20251023_taking_ai_welfare_seriously", "to": "chalmers-david"}
+{"edge": "WrittenBy", "from": "20251023_taking_ai_welfare_seriously", "to": "chalmers-david-j"}
 {"edge": "Covers", "from": "20251023_taking_ai_welfare_seriously", "to": "artificial-intelligence"}
 {"edge": "Covers", "from": "20251023_taking_ai_welfare_seriously", "to": "moral-status"}
 {"edge": "Covers", "from": "20251023_taking_ai_welfare_seriously", "to": "well-being"}
@@ -6715,7 +6712,7 @@
 {"edge": "Covers", "from": "20250703_motor_functional_reorganization_by_tumours_study", "to": "repeated-surgery"}
 {"edge": "Cites", "from": "20250703_motor_functional_reorganization_by_tumours_study", "to": "20251120_contrasting_acute_and_slow_growing_lesions_brain_plasticity"}
 {"edge": "Cites", "from": "20250703_motor_functional_reorganization_by_tumours_study", "to": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity"}
-{"edge": "WrittenBy", "from": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "to": "duffau-h"}
+{"edge": "WrittenBy", "from": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "to": "duffau-hugues"}
 {"edge": "Covers", "from": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "to": "gliomas"}
 {"edge": "Covers", "from": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "to": "neuroplasticity"}
 {"edge": "Covers", "from": "20251023_diffuse_low_grade_gliomas_and_neuroplasticity", "to": "awake-surgery"}
@@ -7452,7 +7449,7 @@
 {"edge": "WrittenBy", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "paolucci-ps"}
 {"edge": "WrittenBy", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "massimini-m"}
 {"edge": "WrittenBy", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "mattia-m"}
-{"edge": "WrittenBy", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "destexhe-a"}
+{"edge": "WrittenBy", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "destexhe-alain"}
 {"edge": "Covers", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "cortical-brain-states"}
 {"edge": "Covers", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "oscillations"}
 {"edge": "Covers", "from": "20251011_multiscale_dynamical_characterization_of_cortical_brain_states_from_synchrony_to_asynchrony", "to": "consciousness"}
@@ -15430,8 +15427,7 @@
 {"edge": "WrittenBy", "from": "20260529_olfactory_input_parahippocampal_region", "to": "kajiwara-r"}
 {"type": "Author", "data": {"slug": "iijima-t", "name": "T. Iijima"}}
 {"edge": "WrittenBy", "from": "20260529_olfactory_input_parahippocampal_region", "to": "iijima-t"}
-{"type": "Author", "data": {"slug": "curtis-m-de", "name": "M. de Curtis"}}
-{"edge": "WrittenBy", "from": "20260529_olfactory_input_parahippocampal_region", "to": "curtis-m-de"}
+{"edge": "WrittenBy", "from": "20260529_olfactory_input_parahippocampal_region", "to": "curtis-marco-de"}
 {"edge": "Covers", "from": "20260529_olfactory_input_parahippocampal_region", "to": "entorhinal-cortex"}
 {"type": "Concept", "data": {"slug": "perirhinal-cortex", "name": "Perirhinal Cortex"}}
 {"edge": "Covers", "from": "20260529_olfactory_input_parahippocampal_region", "to": "perirhinal-cortex"}
@@ -16953,8 +16949,7 @@
 {"type": "Author", "data": {"slug": "ferris-daniel-p", "name": "Daniel P Ferris"}}
 {"edge": "WrittenBy", "from": "20260709_a_roadmap_to_navigate_the_future_of_neural_engineering", "to": "ferris-daniel-p"}
 {"edge": "WrittenBy", "from": "20260709_a_roadmap_to_navigate_the_future_of_neural_engineering", "to": "green-rylie-a"}
-{"type": "Author", "data": {"slug": "goding-josef", "name": "Josef Goding"}}
-{"edge": "WrittenBy", "from": "20260709_a_roadmap_to_navigate_the_future_of_neural_engineering", "to": "goding-josef"}
+{"edge": "WrittenBy", "from": "20260709_a_roadmap_to_navigate_the_future_of_neural_engineering", "to": "goding-josef-a"}
 {"type": "Author", "data": {"slug": "asplund-maria", "name": "Maria Asplund"}}
 {"edge": "WrittenBy", "from": "20260709_a_roadmap_to_navigate_the_future_of_neural_engineering", "to": "asplund-maria"}
 {"edge": "Covers", "from": "20260709_a_roadmap_to_navigate_the_future_of_neural_engineering", "to": "brain-computer-interfaces"}
