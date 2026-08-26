@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Canonicalise seed.jsonl: one Paper per slug, unique nodes and edges.
 
-Reads _graph/seed.jsonl, unions duplicate Paper nodes for the same slug,
-deduplicates other nodes by (type, slug) and edges by (edge, from, to),
+Reads _graph/seed.jsonl, unions duplicate Paper nodes for the same slug (including filename and path),
+deduplicates other nodes by (type, slug) -- Extraction included -- and edges by (edge, from, to),
 and writes a temp file. Replaces seed.jsonl only with --write.
 
 Dry-run (default) prints what would be squashed and does not write.
@@ -36,6 +36,8 @@ PAPER_FIELDS = (
     "title",
     "folder",
     "added",
+    "filename",
+    "path",
 )
 
 

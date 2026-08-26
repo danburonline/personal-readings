@@ -226,6 +226,8 @@ query paperDetails($paper: String) {
     $p.abstract
     $p.thesis
     $p.study_type
+    $p.filename
+    $p.path
   }
 }
 
@@ -421,4 +423,21 @@ query papersMissingQuestions() {
     $p.added
   }
   order { $p.added desc }
+}
+
+query extractionsByPaper($paper: String) {
+  match {
+    $p: Paper { slug: $paper }
+    $p hasExtraction $e
+  }
+  return {
+    $e.slug
+    $e.mode
+    $e.model
+    $e.timestamp
+    $e.pdf_checksum
+    $e.version
+    $e.result_status
+    $e.review_status
+  }
 }

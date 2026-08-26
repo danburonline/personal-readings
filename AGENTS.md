@@ -39,7 +39,7 @@ When a PDF is added to this library:
 1. Keep an untouched source copy outside the archival filename if both exist.
 2. Name the archival file `YYYYMMDD_descriptive_title.pdf` and put it in one root-level topic folder.
 3. Append one Paper node and one InFolder edge to `_graph/seed.jsonl`.
-4. Run each desired extraction mode separately (`metadata`, `figures`, `claims`, `relations`, `methods`, `definitions`, `open-questions`).
+4. Run each desired extraction mode separately (`metadata`, `figures`, `claims`, `relations`, `methods`, `definitions`, `open-questions`). Each run writes an Extraction node (`{slug}--{mode}`) and a HasExtraction edge.
 5. Run `python3 _graph/build_seed.py --write` to emit one canonical Paper node per slug, then reload: `nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge`.
 6. Commit the PDF, seed update, and any reading notes together.
 
@@ -68,8 +68,8 @@ This repository includes a nanograph property graph (`_graph/readings.nano/`) th
 ### When to Update
 
 - **Adding a paper**: append Paper node + InFolder edge to `_graph/seed.jsonl` (reload only after all extraction modes have run)
-- **After reading/extracting**: append Author, Concept, Technique, Claim, Definition, OpenQuestion nodes and their edges
-- **Renaming or moving a paper**: a filename change requires migration of the Paper slug, paper-prefixed child slugs, and every affected edge endpoint; a root-folder change requires matching updates to `Paper.folder` and its `InFolder` edge. Keep PDF/Paper/`InFolder` identity and folder parity
+- **After reading/extracting**: append Author, Concept, Technique, Claim, Definition, OpenQuestion, Extraction nodes and their edges
+- **Renaming or moving a paper**: `Paper.slug` is a frozen identity. Do not change it when a PDF is renamed. Update `filename`, `path`, `folder`, and the `InFolder` edge instead. Child slugs (`{slug}--fig-1`, `{slug}--claim-1`, `{slug}--metadata`, and so on) and every edge endpoint stay keyed off that frozen slug. A root-folder change still requires matching updates to `Paper.folder`, `Paper.path`, and its `InFolder` edge
 - **Never overwrite** `_graph/seed.jsonl` during routine use -- always append. Controlled slug/schema migrations and `python3 _graph/build_seed.py --write` are the exceptions
 
 ### JSONL Format (minimal reference)
@@ -77,7 +77,7 @@ This repository includes a nanograph property graph (`_graph/readings.nano/`) th
 Nodes use `"type"` key; edges use `"edge"` key:
 
 ```json
-{"type": "Paper", "data": {"slug": "20260115_my_paper", "title": "...", "folder": "consciousness_theories", "added": "20260115"}}
+{"type": "Paper", "data": {"slug": "20260115_my_paper", "title": "...", "folder": "consciousness_theories", "added": "20260115", "filename": "20260115_my_paper.pdf", "path": "consciousness_theories/20260115_my_paper.pdf"}}
 {"type": "Author", "data": {"slug": "tononi-giulio", "name": "Giulio Tononi"}}
 {"type": "Concept", "data": {"slug": "integrated-information-theory", "name": "Integrated Information Theory"}}
 {"edge": "WrittenBy", "from": "20260115_my_paper", "to": "tononi-giulio"}
@@ -87,7 +87,7 @@ Nodes use `"type"` key; edges use `"edge"` key:
 
 ### Slug Conventions
 
-- Paper: lowercase `snake_case` PDF filename minus `.pdf` (e.g. `20250703_neurophenomenal_structuralism`)
+- Paper: frozen identity, usually the original lowercase `snake_case` PDF stem (e.g. `20250703_neurophenomenal_structuralism`). A later rename updates `filename` and `path`, not `slug`
 - Author: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
 - Concept: lowercase hyphenated (e.g. `integrated-information-theory`)
 - Technique: lowercase hyphenated (e.g. `calcium-imaging`)
@@ -104,7 +104,7 @@ nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 
 Requires `GEMINI_API_KEY` env var. See `.agents/skills/nanograph/SKILL.md` for full CLI reference, all modes, batch operations, and workflow details.
 
-**Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so run `python3 _graph/build_seed.py --write` after extraction. It unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, and `added` into one node per slug, and deduplicates other nodes and edges. Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Keep exactly one Paper node per slug in `seed.jsonl`.
+**Duplicate Paper nodes**: the `metadata`, `claims`, and `methods` modes each append their own Paper node for the same slug. nanograph rejects duplicate `@key` values within one load, so run `python3 _graph/build_seed.py --write` after extraction. It unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, `added`, `filename`, and `path` into one node per slug, and deduplicates other nodes (including Extraction) and edges. Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Keep exactly one Paper node per slug in `seed.jsonl`.
 
 Use nanograph v1.3 or later. The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact, not a merge source. For a future complete rebuild, build `_graph/readings.nano.new/` with `nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg` followed by `nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite`; run `lint` and `doctor` before activating it under an unused backup name. This repository intentionally has no `nanograph.toml`, so every command must pass its database, schema, and query paths explicitly.
 
@@ -112,36 +112,20 @@ Use nanograph v1.3 or later. The active database was rebuilt with nanograph 1.3.
 
 Unfinished graph projects. Not leftover PDF ingest. Do not mark them done with a stub.
 
-### Stable Paper identity
-
-Today `Paper.slug` is the PDF filename without `.pdf`. Every edge endpoint is that string. Renaming a file therefore rewrites the paper, its child slugs (`{slug}--fig-1`, `{slug}--claim-1`, and so on), and every affected edge.
-
-Done looks like: an internal `@key` that does not change when the file moves, plus separate fields for path, filename, DOI, and arXiv.
-
-Work: schema change, then one planned rewrite of 274 Paper keys and the 18,497-line seed. Do not migrate incrementally.
-
-### Extraction provenance
-
-`extract.py` writes nodes and edges with no record of which model, when, or which PDF bytes produced them. `--all` only checks for a marker edge (WrittenBy, HasFigure, MakesClaim, Extends or Contradicts, UsesTechnique, HasDefinition, Raises).
-
-Done looks like: per paper, per mode: model, timestamp, PDF checksum, extraction version, result status, review status.
-
-Work: schema plus `extract.py` redesign. Existing rows stay unprovenanced until re-extracted or stamped.
-
 ### Review Extends and Contradicts
 
-815 Extends edges from 64 papers; 137 Contradicts from 25 papers. Highest Extends degree is `20260428_neural_organoids_diversity_and_complexity_perspective_2026` (139). Highest Contradicts degree is `20260719_shannon_information_and_integrated_information_message_and_meaning` (32). The extractor infers these from titles and drops its justification.
-
-Work: run `extendsPerPaper` and `contradictsPerPaper`, start at the top, delete title-only junk. This is a manual quality pass, not a script.
+A first pass on the high-degree outliers brought Extends from 815 to 345 and Contradicts from 137 to 94. Deletions are logged in `_graph/relation-review.md`. Remaining work is a slower pass on mid-degree papers and any new extractor output: run `extendsPerPaper` and `contradictsPerPaper`, keep real in-collection lineage, delete only clear title-keyword junk. The extractor still infers relations from titles and drops its justification.
 
 ### Curate Techniques
 
-1,191 Technique nodes. 67 are tagged `theoretical` and 9 `philosophical`, so theories sit next to instruments.
-
-Work: move theories from Technique to Concept. Confirmed same-person Author slugs are already merged; do not auto-merge remaining last-name groups (they are different people).
+Named theories and philosophical positions (IIT, attention-schema theory, free-energy principle, computational functionalism, causal identity theory, and related) were moved from Technique to Concept. Remaining Technique nodes tagged `theoretical` or `philosophical` are methods, equations, tests, or constructs (Bloch equations, Turing test, phenomenological analysis, experience-spaces, and so on). Do not auto-merge remaining Author last-name groups; confirmed same-person slugs are already merged.
 
 ### Populate Informs
 
-Four Manuscript nodes: `05-ocm`, `frontiers-consciousness-engineering`, `cortical-reorganisation`, `hybrid-mind-uploading`. Four Informs edges, none of them to `cortical-reorganisation`. 270 of 274 papers have no Informs edge.
+Four Manuscript nodes: `05-ocm`, `frontiers-consciousness-engineering`, `cortical-reorganisation`, `hybrid-mind-uploading`.
 
-Work: when a paper actually feeds one of your manuscripts, append an Informs edge. Run `manuscriptCoverage` for manuscripts that already have Informs edges; `allManuscripts` lists the rest. This needs your judgement.
+This pass added Informs from bibliography matches and papers the manuscripts actually use: 8 to `05-ocm` (now 9 including the existing microtubules edge), 12 to `frontiers-consciousness-engineering` (now 13 including the existing similar-network-activity edge), 12 to `hybrid-mind-uploading` (now 14 including the two existing uploading edges), and 12 to `cortical-reorganisation` (was zero). Remaining Informs still need Daniel when a paper newly feeds a manuscript. Do not dump whole topic folders. Do not add Manuscript nodes for ecp, realisability, or centredness unless those papers already exist in this graph.
+
+### Extraction review
+
+Backfilled Extraction nodes for modes that already had a marker edge are `result_status=ok` with `review_status=unreviewed` and model/timestamp/checksum/version empty or `unknown`. Re-extraction stamps those fields. New extractor runs write provenance on ok, skipped, and failed. Unreviewed runs still need a human pass.

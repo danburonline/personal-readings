@@ -20,12 +20,12 @@ This research library includes a [nanograph](https://github.com/nanograph/nanogr
 
 ## Schema
 
-**Nodes:** Paper, Author, Concept, TopicFolder, Manuscript, Figure, Claim, Technique, Definition, OpenQuestion
-**Edges:** Cites, Extends, Contradicts, WrittenBy, Covers, InFolder, Informs, AffiliatedWith, HasFigure, MakesClaim, UsesTechnique, HasDefinition, Raises
+**Nodes:** Paper, Author, Concept, TopicFolder, Manuscript, Figure, Claim, Technique, Definition, OpenQuestion, Extraction
+**Edges:** Cites, Extends, Contradicts, WrittenBy, Covers, InFolder, Informs, AffiliatedWith, HasFigure, MakesClaim, UsesTechnique, HasDefinition, Raises, HasExtraction
 
 Every node type has a `slug: String @key` used for edge references.
 
-Paper has: `slug`, `title`, `folder`, `added` (YYYYMMDD), plus optional `year`, `abstract`, `thesis`, `study_type`, `doi`, `arxiv_id`.
+Paper has: `slug` (frozen identity), `title`, `folder`, `added` (YYYYMMDD), plus optional `filename`, `path`, `year`, `abstract`, `thesis`, `study_type`, `doi`, `arxiv_id`. Renaming a PDF updates `filename`, `path`, `folder`, and InFolder -- it does not change `slug` or edge endpoints. Child slugs (`{slug}--fig-1`, `{slug}--metadata`) stay keyed off the frozen slug.
 
 ## JSONL Format
 
@@ -40,6 +40,7 @@ Nodes:
 {"type": "Claim", "data": {"slug": "20260115_my_paper--claim-1", "claim": "...", "evidence_type": "empirical", "strength": "strong", "support": "..."}}
 {"type": "Definition", "data": {"slug": "20260115_my_paper--def-consciousness", "term": "consciousness", "definition": "...", "section": "2.1", "formal": "false"}}
 {"type": "OpenQuestion", "data": {"slug": "20260115_my_paper--oq-1", "question": "...", "context": "...", "tractability": "near_term", "question_type": "open_problem"}}
+{"type": "Extraction", "data": {"slug": "20260115_my_paper--metadata", "mode": "metadata", "model": "gemini-3.7-flash", "timestamp": "2026-08-26T12:00:00Z", "pdf_checksum": "...", "version": "1.0.0", "result_status": "ok", "review_status": "unreviewed"}}
 ```
 
 Edges:
@@ -53,6 +54,7 @@ Edges:
 {"edge": "UsesTechnique", "from": "20260115_my_paper", "to": "calcium-imaging"}
 {"edge": "HasDefinition", "from": "20260115_my_paper", "to": "20260115_my_paper--def-consciousness"}
 {"edge": "Raises", "from": "20260115_my_paper", "to": "20260115_my_paper--oq-1"}
+{"edge": "HasExtraction", "from": "20260115_my_paper", "to": "20260115_my_paper--metadata"}
 ```
 
 **Critical:** Edges use `"edge"` key, NOT `"type"`. The `"from"` and `"to"` values must match existing `@key` slugs.
@@ -90,7 +92,7 @@ nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 | `papersPerFolder`          | --           | Paper counts per folder                          |
 | `allManuscripts`           | --           | Daniel's manuscripts + status                    |
 | `manuscriptCoverage`       | --           | Manuscripts that have Informs edges, with counts |
-| `paperDetails`             | `paper`      | All stored fields for one paper                  |
+| `paperDetails`             | `paper`      | All stored fields for one paper, including path  |
 | `papersByFolder`           | `folder`     | Papers in a topic dir                            |
 | `papersByConcept`          | `concept`    | Papers covering a concept                        |
 | `papersByAuthor`           | `author`     | Papers by an author                              |
@@ -110,6 +112,7 @@ nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 | `figuresByPaper`           | `paper`      | Figures in a paper                               |
 | `claimsByPaper`            | `paper`      | Claims made by a paper                           |
 | `openQuestionsByPaper`     | `paper`      | Open questions from a paper                      |
+| `extractionsByPaper`       | `paper`      | Extraction provenance for a paper                |
 | `papersMissingMetadata`    | --           | Papers with no WrittenBy edge                    |
 | `papersMissingFigures`     | --           | Papers with no HasFigure edge                    |
 | `papersMissingClaims`      | --           | Papers with no MakesClaim edge                   |
@@ -162,6 +165,8 @@ The repository includes `_graph/extract.py` -- a multi-mode extraction script th
 | `definitions`    | Definition nodes + HasDefinition edges                                         |
 | `open-questions` | OpenQuestion nodes + Raises edges                                              |
 
+Every mode also writes an Extraction node (`{paper_slug}--{mode}`) and a HasExtraction edge, including skipped and failed runs. `EXTRACTION_VERSION` in `extract.py` is the short version string stored on that node.
+
 **Usage:**
 
 ```bash
@@ -188,7 +193,7 @@ python3 _graph/extract.py --all --mode relations --append
 python3 _graph/extract.py --all --mode claims --dry-run
 ```
 
-**Deduplication / crash recovery:** For `--all`, each mode checks `seed.jsonl` for its marker edge type (e.g. `HasFigure` for figures mode, `WrittenBy` for metadata). Papers that already have the relevant edge are skipped. In `--all --append` mode, JSONL is flushed to `seed.jsonl` after each paper, so a crash mid-batch loses at most the paper being processed -- re-running picks up where it left off. Technique nodes (like Author and Concept) are deduplicated in memory during a run.
+**Deduplication / crash recovery:** For `--all`, each mode checks `seed.jsonl` for its marker edge type (e.g. `HasFigure` for figures mode, `WrittenBy` for metadata) and for an Extraction node with `result_status=ok`. Papers that already have the relevant edge or a successful Extraction are skipped. In `--all --append` mode, JSONL is flushed to `seed.jsonl` after each paper, so a crash mid-batch loses at most the paper being processed -- re-running picks up where it left off. Technique nodes (like Author and Concept) are deduplicated in memory during a run.
 
 **After extraction:**
 
@@ -197,7 +202,7 @@ python3 _graph/build_seed.py --write
 nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
-**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load. Do not squash by hand. Run `python3 _graph/build_seed.py --write` after extraction. The builder unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, and `added` into one node per slug, and also deduplicates other nodes by `(type, slug)` and edges by `(edge, from, to)`. Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Rewriting the file for a controlled migration or this canonicalisation is the exception to "never overwrite `seed.jsonl`".
+**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load. Do not squash by hand. Run `python3 _graph/build_seed.py --write` after extraction. The builder unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, `added`, `filename`, and `path` into one node per slug, and also deduplicates other nodes by `(type, slug)` (including Extraction) and edges by `(edge, from, to`). Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Rewriting the file for a controlled migration or this canonicalisation is the exception to "never overwrite `seed.jsonl`".
 
 **Limitations:**
 
@@ -216,7 +221,7 @@ Daniel's active manuscripts (use these slugs for Informs edges):
 
 ## Conventions
 
-- Paper slugs: lowercase `snake_case` PDF filename minus `.pdf` extension (e.g. `20250703_neurophenomenal_structuralism`)
+- Paper slugs: frozen identity, usually the original lowercase `snake_case` PDF stem (e.g. `20250703_neurophenomenal_structuralism`). Renames update `filename` and `path`, not `slug`
 - Author slugs: `lastname-firstname` lowercase (e.g. `tononi-giulio`)
 - Concept slugs: lowercase hyphenated (e.g. `integrated-information-theory`)
 - Technique slugs: lowercase hyphenated (e.g. `calcium-imaging`, `patch-clamp-electrophysiology`)
@@ -224,6 +229,7 @@ Daniel's active manuscripts (use these slugs for Informs edges):
 - Claim slugs: `{paper_slug}--claim-{n}`
 - Definition slugs: `{paper_slug}--def-{term_slug}` (e.g. `20260115_my_paper--def-consciousness`)
 - OpenQuestion slugs: `{paper_slug}--oq-{n}`
+- Extraction slugs: `{paper_slug}--{mode}` (modes: metadata, figures, claims, relations, methods, definitions, open-questions)
 
 Always check existing slugs before creating duplicates: `nanograph run --db _graph/readings.nano --query _graph/readings.gq --name allPapers`
 

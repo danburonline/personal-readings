@@ -9,6 +9,8 @@ node Paper {
   title: String
   folder: String
   added: String
+  filename: String?
+  path: String?
   year: String?
   authors: String?
   doi: String?
@@ -81,6 +83,17 @@ node OpenQuestion {
   question_type: String?
 }
 
+node Extraction {
+  slug: String @key
+  mode: String
+  model: String?
+  timestamp: String?
+  pdf_checksum: String?
+  version: String?
+  result_status: String?
+  review_status: String?
+}
+
 // -- Edges --
 
 // Paper relationships
@@ -102,6 +115,7 @@ edge MakesClaim: Paper -> Claim
 edge UsesTechnique: Paper -> Technique
 edge HasDefinition: Paper -> Definition
 edge Raises: Paper -> OpenQuestion
+edge HasExtraction: Paper -> Extraction
 
 // Cross-entity
 edge AffiliatedWith: Author -> Concept

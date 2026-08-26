@@ -25,12 +25,17 @@ Modes:
     definitions         Definition nodes + HasDefinition edges
     open-questions      OpenQuestion nodes + Raises edges
 
+Every mode also writes an Extraction node ({paper_slug}--{mode}) and a
+HasExtraction edge, including skipped and failed runs. Extraction.slug is
+keyed off the frozen Paper.slug, not the current filename.
+
 Requires: GEMINI_API_KEY environment variable
 Optional: GEMINI_MODEL environment variable (defaults to gemini-3.7-flash)
 No pip dependencies -- stdlib only.
 """
 
 import base64
+import hashlib
 import json
 import os
 import re
@@ -39,12 +44,14 @@ import time
 import urllib.error
 import urllib.request
 from collections.abc import Callable
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, TypedDict
 
 # --- Config ---
 
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.7-flash")
+EXTRACTION_VERSION = "1.0.0"
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 READINGS_DIR = Path(__file__).parent.parent.resolve()
 SEED_FILE = Path(__file__).parent / "seed.jsonl"
@@ -90,6 +97,54 @@ MODE_EDGE = {
     "open-questions": "Raises",
 }
 
+# Extraction.slug is {paper_slug}--{mode}. Modes must match the schema comment.
+EXTRACTION_MODES = (
+    "metadata",
+    "figures",
+    "claims",
+    "relations",
+    "methods",
+    "definitions",
+    "open-questions",
+)
+
+
+def pdf_sha256(pdf_path):
+    digest = hashlib.sha256()
+    with open(pdf_path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def utc_timestamp():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def extraction_records(paper_slug, mode, result_status, pdf_path=None):
+    """Paper Extraction node + HasExtraction edge for one mode run."""
+    data = {
+        "slug": f"{paper_slug}--{mode}",
+        "mode": mode,
+        "model": MODEL,
+        "timestamp": utc_timestamp(),
+        "pdf_checksum": pdf_sha256(pdf_path) if pdf_path else "",
+        "version": EXTRACTION_VERSION,
+        "result_status": result_status,
+        "review_status": "unreviewed",
+    }
+    return [
+        json.dumps({"type": "Extraction", "data": data}),
+        json.dumps({"edge": "HasExtraction", "from": paper_slug, "to": data["slug"]}),
+    ]
+
+
+def paper_filename_path(pdf_path, folder):
+    name = Path(pdf_path).name
+    if folder:
+        return name, f"{folder}/{name}"
+    return name, name
+
 
 # ─────────────────────────────────────────────
 # Seed data
@@ -98,18 +153,19 @@ MODE_EDGE = {
 def load_seed_data():
     """Load existing nodes and edges from seed.jsonl.
 
-    Returns (papers, concepts, authors, techniques, enriched) where
-    enriched maps edge-type -> set-of-paper-slugs that already have
-    that edge.
+    Returns (papers, concepts, authors, techniques, enriched, extractions)
+    where enriched maps edge-type -> set-of-paper-slugs that already have
+    that edge, and extractions maps mode -> slugs with result_status=ok.
     """
     papers = {}
     concepts = {}
     authors = {}
     techniques = {}
     enriched = {edge: set() for edge in set(MODE_EDGE.values()) | {"Contradicts"}}
+    extractions = {mode: set() for mode in EXTRACTION_MODES}
 
     if not SEED_FILE.exists():
-        return papers, concepts, authors, techniques, enriched
+        return papers, concepts, authors, techniques, enriched, extractions
 
     with open(SEED_FILE) as f:
         for line in f:
@@ -130,12 +186,18 @@ def load_seed_data():
             elif obj.get("type") == "Technique":
                 slug = obj["data"]["slug"]
                 techniques[slug] = obj["data"]
+            elif obj.get("type") == "Extraction":
+                mode = obj["data"].get("mode")
+                status = obj["data"].get("result_status")
+                paper_slug = obj["data"]["slug"].rsplit("--", 1)[0]
+                if mode in extractions and status == "ok":
+                    extractions[mode].add(paper_slug)
 
             edge_type = obj.get("edge")
             if edge_type in enriched:
                 enriched[edge_type].add(obj["from"])
 
-    return papers, concepts, authors, techniques, enriched
+    return papers, concepts, authors, techniques, enriched, extractions
 
 
 def make_author_slug(name):
@@ -280,8 +342,23 @@ def call_gemini(pdf_path, prompt, max_tokens=8192):
 
 
 def find_pdf_path(paper_slug, papers):
-    """Find the PDF file for a given paper slug."""
-    folder = papers.get(paper_slug, {}).get("folder", "")
+    """Find the PDF file for a given paper slug.
+
+    Paper.slug is a frozen identity. Look up stored path/filename first;
+    fall back to {folder}/{slug}.pdf only when those fields are empty.
+    """
+    data = papers.get(paper_slug, {})
+    stored_path = data.get("path") or ""
+    if stored_path:
+        path = READINGS_DIR / stored_path
+        if path.exists():
+            return path
+    stored_name = data.get("filename") or ""
+    folder = data.get("folder", "")
+    if stored_name and folder:
+        path = READINGS_DIR / folder / stored_name
+        if path.exists():
+            return path
     if folder:
         path = READINGS_DIR / folder / f"{paper_slug}.pdf"
         if path.exists():
@@ -291,6 +368,29 @@ def find_pdf_path(paper_slug, papers):
         if path.exists():
             return path
     return None
+
+
+def resolve_paper_slug(pdf_path, papers):
+    """Map a PDF path to the frozen Paper.slug.
+
+    Renaming the file must not change the slug. Match stored filename/path
+    first, then fall back to the current stem for newly added papers.
+    """
+    pdf_path = Path(pdf_path)
+    try:
+        rel = str(pdf_path.resolve().relative_to(READINGS_DIR))
+    except ValueError:
+        rel = ""
+    name = pdf_path.name
+    stem = pdf_path.stem
+    for slug, data in papers.items():
+        if data.get("path") and rel and data["path"] == rel:
+            return slug
+        if data.get("filename") and data["filename"] == name:
+            return slug
+        if slug == stem:
+            return slug
+    return stem
 
 
 # ─────────────────────────────────────────────
@@ -562,6 +662,10 @@ def handle_metadata_output(extraction, ctx):
         "slug": slug, "title": ctx["paper_title"],
         "folder": ctx["paper_folder"], "added": ctx["paper_added"],
     }
+    if ctx.get("paper_filename"):
+        update_data["filename"] = ctx["paper_filename"]
+    if ctx.get("paper_path"):
+        update_data["path"] = ctx["paper_path"]
     if extraction.get("year"):
         update_data["year"] = extraction["year"]
     if extraction.get("doi"):
@@ -655,6 +759,10 @@ def handle_claims_output(extraction, ctx):
             "slug": slug, "title": ctx["paper_title"],
             "folder": ctx["paper_folder"], "added": ctx["paper_added"],
         }
+        if ctx.get("paper_filename"):
+            paper_update["filename"] = ctx["paper_filename"]
+        if ctx.get("paper_path"):
+            paper_update["path"] = ctx["paper_path"]
         if extraction.get("thesis"):
             paper_update["thesis"] = extraction["thesis"]
         lines.append(json.dumps({"type": "Paper", "data": paper_update}))
@@ -743,6 +851,10 @@ def handle_methods_output(extraction, ctx):
             "folder": ctx["paper_folder"], "added": ctx["paper_added"],
             "study_type": study_type,
         }
+        if ctx.get("paper_filename"):
+            paper_update["filename"] = ctx["paper_filename"]
+        if ctx.get("paper_path"):
+            paper_update["path"] = ctx["paper_path"]
         lines.append(json.dumps({"type": "Paper", "data": paper_update}))
 
     tech_count = 0
@@ -1011,18 +1123,32 @@ MODES: dict[str, ModeSpec] = {
 # ─────────────────────────────────────────────
 
 def process_paper(pdf_path, mode_name, ctx):
-    """Process a single paper with the given mode. Returns JSONL lines."""
+    """Process a single paper with the given mode. Returns JSONL lines.
+
+    Always includes an Extraction node and HasExtraction edge. result_status
+    is ok, skipped, or failed. Paper.slug is resolved from the seed so a
+    renamed PDF does not rewrite identity or child-slug prefixes.
+    """
     mode = MODES[mode_name]
-    paper_slug = Path(pdf_path).stem
+    paper_slug = resolve_paper_slug(pdf_path, ctx["papers"])
     paper_data = ctx["papers"].get(paper_slug, {})
+    folder = paper_data.get("folder", "")
+    filename, rel_path = paper_filename_path(pdf_path, folder)
 
     paper_ctx = {
         **ctx,
         "paper_slug": paper_slug,
         "paper_title": paper_data.get("title", paper_slug),
-        "paper_folder": paper_data.get("folder", ""),
+        "paper_folder": folder,
         "paper_added": paper_data.get("added", ""),
+        "paper_filename": filename,
+        "paper_path": rel_path,
     }
+
+    pdf_size_mb = Path(pdf_path).stat().st_size / (1024 * 1024)
+    if pdf_size_mb > MAX_PDF_SIZE_MB:
+        print(f"  SKIP (too large): {paper_slug} ({pdf_size_mb:.1f}MB)", file=sys.stderr)
+        return extraction_records(paper_slug, mode_name, "skipped", pdf_path)
 
     print(f"  Extracting ({mode_name}): {paper_slug}", file=sys.stderr)
 
@@ -1031,9 +1157,11 @@ def process_paper(pdf_path, mode_name, ctx):
 
     if not extraction:
         print(f"  FAILED: {paper_slug}", file=sys.stderr)
-        return []
+        return extraction_records(paper_slug, mode_name, "failed", pdf_path)
 
-    return mode["handle_output"](extraction, paper_ctx)
+    lines = mode["handle_output"](extraction, paper_ctx)
+    lines.extend(extraction_records(paper_slug, mode_name, "ok", pdf_path))
+    return lines
 
 
 def parse_args(args):
@@ -1077,7 +1205,7 @@ def main():
         print(f"Error: unknown mode '{mode_name}'. Available: {', '.join(MODES)}", file=sys.stderr)
         sys.exit(1)
 
-    papers, concepts, authors, techniques, enriched = load_seed_data()
+    papers, concepts, authors, techniques, enriched, extractions = load_seed_data()
     ctx = {"papers": papers, "concepts": concepts, "authors": authors, "techniques": techniques}
 
     all_lines = []
@@ -1088,6 +1216,7 @@ def main():
         # For relations, also count Contradicts
         if mode_name == "relations":
             already_done = already_done | enriched.get("Contradicts", set())
+        already_done = already_done | extractions.get(mode_name, set())
         candidates = [s for s in papers if s not in already_done]
 
         total = len(candidates)
@@ -1102,6 +1231,12 @@ def main():
             pdf_path = find_pdf_path(slug, papers)
             if not pdf_path:
                 print(f"  SKIP (no PDF): {slug}", file=sys.stderr)
+                skip_lines = extraction_records(slug, mode_name, "skipped", None)
+                if append_mode:
+                    with open(SEED_FILE, "a") as f:
+                        f.writelines(line + "\n" for line in skip_lines)
+                else:
+                    all_lines.extend(skip_lines)
                 continue
 
             print(f"[{i+1}/{total}]", file=sys.stderr)
