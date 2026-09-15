@@ -2,6 +2,14 @@
 
 You are operating in a personal research library of annotated scientific papers, essays, and technical documents.
 
+## Reading Sources and External Highlights
+
+- The reading corpus extends beyond the repository's PDFs. Book highlights and notes are held in Readwise, and saved documents in Reader. Consult these sources when relevant and authorised; do not assume a particular tool is installed or account access is available.
+- Daniel's public Goodreads profile is https://goodreads.com/danburonline. Its [read shelf](https://www.goodreads.com/review/list/188819813?shelf=read) identifies books marked as read. Match titles and authors before associating them with highlights. Public reading metadata does not imply public access to highlights or full book text.
+- Preserve provenance: repository-relative PDF path and page or section; book title, author, source identifier, and available URL or location for external highlights. Distinguish quotations, reader notes, and interpretation.
+- Use read-only discovery unless changes are requested. Follow pagination when completeness matters, and report access or retrieval limitations rather than inferring absence from incomplete results. Do not mirror external libraries or add them to the graph without an explicit ingestion request.
+- This repository is public. Keep documentation portable and tool-agnostic; exclude machine-specific paths, private configuration, credentials, agent-runtime setup, and session diagnostics. Do not commit private account exports.
+
 ## Language and Style
 
 - Write in **British English** (e.g. "summarise", "behaviour", "organised")

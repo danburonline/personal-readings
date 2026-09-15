@@ -2,6 +2,18 @@
 
 Personal collection of scientific papers, essays, and technical documents. Device annotations are not uniformly embedded in the archived PDFs.
 
+## Reading Sources
+
+The PDFs here are one part of Daniel's reading corpus. Book highlights are also held in Readwise, and the public book catalogue and reading shelves are on [Goodreads](https://goodreads.com/danburonline).
+
+| Source | Contents | Access and use |
+| ------ | -------- | -------------- |
+| This repository | Scientific papers, essays, technical documents, local annotations, and their knowledge graph | Read the archived source and inspect visible annotations; use the graph for relationships within the collection |
+| Readwise and Reader | Book highlights and notes in Readwise; saved documents and their highlights in Reader | Requires authorised account access through the service's interfaces; see [optional CLI examples](#optional-readwise-cli) |
+| [Goodreads profile](https://goodreads.com/danburonline) and [read shelf](https://www.goodreads.com/review/list/188819813?shelf=read) | Public book listings and reading status | Identify books Daniel has read, then search Readwise by title or author for the associated highlights |
+
+Goodreads listings are public metadata, not a public copy of the Readwise library or a licence to redistribute book text. A listed book does not establish that its full text is locally available or that every passage has been highlighted. Check the relevant source rather than assuming complete coverage or synchronisation between services.
+
 ## Structure
 
 Papers are organised into topic directories:
@@ -77,6 +89,26 @@ The collection is indexed and queried through multiple tools:
 
 - **CLI agents** -- used for extracting content, generating summaries, building indices, and ad-hoc queries against the documents
 - **Any additional RAG or embedding tooling** as needed -- the repository is tool-agnostic; anything that can ingest PDFs and produce useful retrieval is fair game
+
+### Optional Readwise CLI
+
+Readwise is an optional external source, not a repository dependency. With authorised account access, its CLI can retrieve highlights and document metadata alongside the local collection. Any compatible interface can be used; no particular agent or local environment is assumed.
+
+```bash
+# Discover current command options
+readwise --help
+
+# Retrieve recent highlights with book identity and notes
+readwise readwise-list-highlights --page-size 5 --response-fields text,note,book_id,book_title,book_author --json
+
+# Search book/article highlights by topic
+readwise readwise-search-highlights --vector-search-term "consciousness" --limit 5 --json
+
+# Browse Reader documents separately from the Readwise highlight library
+readwise reader-list-documents --location new --limit 5 --response-fields title,author --json
+```
+
+Match books by title and author, preserve source identifiers and locations, and distinguish quoted text from notes and interpretation. Follow pagination when complete retrieval is required; a limited search is not a complete inventory. External highlights are not automatically mirrored into this repository or its graph. Credentials and private account exports do not belong in the public repository.
 
 ## Knowledge Graph
 
