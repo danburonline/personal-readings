@@ -25,9 +25,10 @@ Modes:
     definitions         Definition nodes + HasDefinition edges
     open-questions      OpenQuestion nodes + Raises edges
 
-Every mode also writes an Extraction node ({paper_slug}--{mode}) and a
-HasExtraction edge, including skipped and failed runs. Extraction.slug is
-keyed off the frozen Paper.slug, not the current filename.
+Handled mode runs emit a unique Extraction node ({paper_slug}--{mode}--{run_id})
+and a HasExtraction edge, including skips and failures. Abrupt termination or
+filesystem failure can prevent persistence. Existing run records are retained;
+Extraction.slug uses the frozen Paper.slug.
 
 Requires: GEMINI_API_KEY environment variable
 Optional: GEMINI_MODEL environment variable (defaults to gemini-3.7-flash)
@@ -35,6 +36,7 @@ No pip dependencies -- stdlib only.
 """
 
 import base64
+import copy
 import hashlib
 import json
 import os
@@ -43,15 +45,22 @@ import sys
 import time
 import urllib.error
 import urllib.request
+import uuid
 from collections.abc import Callable
+from contextlib import nullcontext
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, TypedDict
 
+try:
+    from .seed_guard import SeedGuard
+except ImportError:  # Direct script invocation.
+    from seed_guard import SeedGuard
+
 # --- Config ---
 
 MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.7-flash")
-EXTRACTION_VERSION = "1.0.0"
+EXTRACTION_VERSION = "1.2.0"
 API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 READINGS_DIR = Path(__file__).parent.parent.resolve()
 SEED_FILE = Path(__file__).parent / "seed.jsonl"
@@ -97,7 +106,7 @@ MODE_EDGE = {
     "open-questions": "Raises",
 }
 
-# Extraction.slug is {paper_slug}--{mode}. Modes must match the schema comment.
+# New Extraction slugs include a unique run ID; old per-mode slugs remain valid.
 EXTRACTION_MODES = (
     "metadata",
     "figures",
@@ -124,7 +133,7 @@ def utc_timestamp():
 def extraction_records(paper_slug, mode, result_status, pdf_path=None):
     """Paper Extraction node + HasExtraction edge for one mode run."""
     data = {
-        "slug": f"{paper_slug}--{mode}",
+        "slug": f"{paper_slug}--{mode}--{uuid.uuid4().hex}",
         "mode": mode,
         "model": MODEL,
         "timestamp": utc_timestamp(),
@@ -163,6 +172,8 @@ def load_seed_data():
     techniques = {}
     enriched = {edge: set() for edge in set(MODE_EDGE.values()) | {"Contradicts"}}
     extractions = {mode: set() for mode in EXTRACTION_MODES}
+    successful_runs = {}
+    extraction_links = []
 
     if not SEED_FILE.exists():
         return papers, concepts, authors, techniques, enriched, extractions
@@ -189,13 +200,20 @@ def load_seed_data():
             elif obj.get("type") == "Extraction":
                 mode = obj["data"].get("mode")
                 status = obj["data"].get("result_status")
-                paper_slug = obj["data"]["slug"].rsplit("--", 1)[0]
                 if mode in extractions and status == "ok":
-                    extractions[mode].add(paper_slug)
+                    successful_runs[obj["data"]["slug"]] = mode
 
             edge_type = obj.get("edge")
             if edge_type in enriched:
                 enriched[edge_type].add(obj["from"])
+            elif edge_type == "HasExtraction":
+                extraction_links.append((obj["from"], obj["to"]))
+
+    # Edges establish identity for both historical and unique-run slugs.
+    # Read them after all nodes so JSONL order does not affect completion.
+    for paper_slug, run_slug in extraction_links:
+        if paper_slug in papers and run_slug in successful_runs:
+            extractions[successful_runs[run_slug]].add(paper_slug)
 
     return papers, concepts, authors, techniques, enriched, extractions
 
@@ -1122,11 +1140,93 @@ MODES: dict[str, ModeSpec] = {
 # Core processing
 # ─────────────────────────────────────────────
 
+def validate_response(mode_name, response):
+    """Validate the mode's output shape before accepting an empty or full run.
+
+    Extra fields are tolerated, but every requested collection must be explicit.
+    This validates structure, not the scientific truth of a model's assertions.
+    """
+    if not isinstance(response, dict) or not response:
+        raise ValueError("expected a non-empty response object")
+
+    # Collection -> (required non-empty text fields, optional text fields).
+    collections = {
+        "metadata": {
+            "authors": (("name",), ()),
+            "concepts": ((), ("slug", "name")),
+        },
+        "figures": {"figures": (("id",), ("caption", "type", "description", "significance"))},
+        "claims": {"claims": (("claim",), ("evidence_type", "support", "strength"))},
+        "relations": {
+            "extends": (("slug",), ("justification",)),
+            "contradicts": (("slug",), ("justification",)),
+        },
+        "methods": {"techniques": ((), ("slug", "name", "category"))},
+        "definitions": {
+            "definitions": (("term", "definition"), ("section",)),
+            "axioms": (("name", "statement"), ("role",)),
+            "novel_terms": (("term", "meaning"), ("motivation",)),
+            "nonstandard_usage": (("term", "usage_here"), ("standard_meaning",)),
+        },
+        "open-questions": {
+            "limitations": (("limitation",), ("impact",)),
+            "open_problems": (("problem",), ("context", "tractability")),
+            "future_work": (("direction",), ("specificity",)),
+            "tensions": (("tension",), ("between",)),
+        },
+    }
+
+    def text_field(obj, key, where, required=False):
+        if key not in obj and not required:
+            return
+        value = obj.get(key)
+        if not isinstance(value, str) or (required and not value.strip()):
+            raise ValueError(f"{where}.{key} must be {'non-empty ' if required else ''}text")
+
+    for key, (required, optional) in collections[mode_name].items():
+        values = response.get(key)
+        if not isinstance(values, list):
+            raise ValueError(f"{key} must be an explicit list")
+        for index, value in enumerate(values):
+            where = f"{key}[{index}]"
+            if not isinstance(value, dict):
+                raise ValueError(f"{where} must be an object")
+            for field in required:
+                text_field(value, field, where, required=True)
+            for field in optional:
+                text_field(value, field, where)
+            if key in ("concepts", "techniques") and not any(value.get(field, "").strip() for field in ("slug", "name")):
+                raise ValueError(f"{where} needs a slug or name")
+            for field in ("formal", "stated_by_authors"):
+                if field in value and not isinstance(value[field], bool):
+                    raise ValueError(f"{where}.{field} must be a boolean")
+            if key == "figures" and "key_data" in value:
+                data = value["key_data"]
+                if not isinstance(data, list) or any(type(item) not in (str, int, float) for item in data):
+                    raise ValueError(f"{where}.key_data must be a list of text or numbers")
+
+    strings = {
+        "metadata": ("year", "doi", "arxiv_id", "abstract"),
+        "claims": ("thesis", "structure"),
+    }
+    for key in strings.get(mode_name, ()):
+        text_field(response, key, mode_name)
+    for key in {"metadata": ("cites_in_collection",), "claims": ("assumptions",)}.get(mode_name, ()):
+        values = response.get(key)
+        if not isinstance(values, list) or any(not isinstance(value, str) for value in values):
+            raise ValueError(f"{key} must be an explicit list of text")
+    if mode_name == "methods":
+        value = response.get("study_type")
+        if not isinstance(value, str) and not (isinstance(value, list) and all(isinstance(item, str) for item in value)):
+            raise ValueError("study_type must be text or an explicit list of text")
+
+
 def process_paper(pdf_path, mode_name, ctx):
     """Process a single paper with the given mode. Returns JSONL lines.
 
-    Always includes an Extraction node and HasExtraction edge. result_status
-    is ok, skipped, or failed. Paper.slug is resolved from the seed so a
+    Handled runs include an Extraction node and HasExtraction edge. result_status
+    is ok, skipped, or failed; abrupt termination or filesystem errors can prevent
+    persistence. Paper.slug is resolved from the seed so a
     renamed PDF does not rewrite identity or child-slug prefixes.
     """
     mode = MODES[mode_name]
@@ -1152,15 +1252,22 @@ def process_paper(pdf_path, mode_name, ctx):
 
     print(f"  Extracting ({mode_name}): {paper_slug}", file=sys.stderr)
 
-    prompt = mode["build_prompt"](paper_ctx)
-    extraction = call_gemini(str(pdf_path), prompt, max_tokens=mode["max_tokens"])
-
-    if not extraction:
-        print(f"  FAILED: {paper_slug}", file=sys.stderr)
+    try:
+        prompt = mode["build_prompt"](paper_ctx)
+        extraction = call_gemini(str(pdf_path), prompt, max_tokens=mode["max_tokens"])
+        validate_response(mode_name, extraction)
+        # Handlers update shared deduplication caches. Discard those updates if
+        # any part of the attempt fails, alongside its proposed output records.
+        for cache in ("authors", "concepts", "techniques"):
+            paper_ctx[cache] = copy.deepcopy(ctx[cache])
+        lines = mode["handle_output"](extraction, paper_ctx)
+    except Exception as exc:
+        print(f"  FAILED: {paper_slug} ({type(exc).__name__}: {exc})", file=sys.stderr)
         return extraction_records(paper_slug, mode_name, "failed", pdf_path)
 
-    lines = mode["handle_output"](extraction, paper_ctx)
     lines.extend(extraction_records(paper_slug, mode_name, "ok", pdf_path))
+    for cache in ("authors", "concepts", "techniques"):
+        ctx[cache].update(paper_ctx[cache])
     return lines
 
 
@@ -1205,6 +1312,15 @@ def main():
         print(f"Error: unknown mode '{mode_name}'. Available: {', '.join(MODES)}", file=sys.stderr)
         sys.exit(1)
 
+    try:
+        with SeedGuard(SEED_FILE) if append_mode and not dry_run else nullcontext() as guard:
+            run_extraction(mode_name, pdf_args, append_mode, all_mode, dry_run, guard)
+    except (OSError, RuntimeError) as exc:
+        print(f"Extraction stopped: {exc}", file=sys.stderr)
+        sys.exit(1)
+
+
+def run_extraction(mode_name, pdf_args, append_mode, all_mode, dry_run, guard):
     papers, concepts, authors, techniques, enriched, extractions = load_seed_data()
     ctx = {"papers": papers, "concepts": concepts, "authors": authors, "techniques": techniques}
 
@@ -1233,8 +1349,7 @@ def main():
                 print(f"  SKIP (no PDF): {slug}", file=sys.stderr)
                 skip_lines = extraction_records(slug, mode_name, "skipped", None)
                 if append_mode:
-                    with open(SEED_FILE, "a") as f:
-                        f.writelines(line + "\n" for line in skip_lines)
+                    guard.append(skip_lines)
                 else:
                     all_lines.extend(skip_lines)
                 continue
@@ -1243,8 +1358,7 @@ def main():
             lines = process_paper(pdf_path, mode_name, ctx)
 
             if append_mode and lines:
-                with open(SEED_FILE, "a") as f:
-                    f.writelines(line + "\n" for line in lines)
+                guard.append(lines)
             else:
                 all_lines.extend(lines)
 
@@ -1272,8 +1386,7 @@ def main():
 
     if all_lines:
         if append_mode:
-            with open(SEED_FILE, "a") as f:
-                f.writelines(line + "\n" for line in all_lines)
+            guard.append(all_lines)
             print(f"\nAppended {len(all_lines)} lines to {SEED_FILE}", file=sys.stderr)
             print("Run: python3 _graph/build_seed.py --write", file=sys.stderr)
             print("Then: nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge", file=sys.stderr)

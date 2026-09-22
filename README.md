@@ -122,7 +122,11 @@ The collection includes a [nanograph](https://github.com/nanograph/nanograph) pr
 | `_graph/readings.gq`    | Named queries for catalogue, relations, completeness, and coverage |
 | `_graph/seed.jsonl`     | Canonical graph data as JSONL                                      |
 | `_graph/extract.py`     | Multi-mode Gemini extraction into graph records                    |
+| `_graph/build_seed.py`  | Canonicalise duplicate records; refuse conflicting field values    |
+| `_graph/rebuild.py`     | Build, validate and optionally activate a database with a backup    |
 | `_graph/readings.nano/` | Derived database, gitignored and rebuilt from the schema and JSONL |
+
+Use the graph to find papers and follow relationships, then verify scientific claims against the archived PDF and its page or section. `_graph/seed.jsonl` is authoritative for graph records; it is not a replacement for source evidence. Coverage is partial, and an absent edge does not establish that a relationship does not exist. No background process keeps the graph synchronised.
 
 ### Quick Reference
 
@@ -130,19 +134,22 @@ The collection includes a [nanograph](https://github.com/nanograph/nanograph) pr
 # Install the current CLI
 brew tap nanograph/tap
 brew install nanograph/tap/nanograph
+nanograph --version  # requires 1.3 or later
 
-# Future complete rebuild through a staging database
-nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg
-nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite
-nanograph lint --db _graph/readings.nano.new --query _graph/readings.gq
-nanograph doctor --db _graph/readings.nano.new --schema _graph/readings.pg --verbose
+# Build and validate separately; leave any active database unchanged
+python3 _graph/rebuild.py
+
+# First setup, or activate a fresh full rebuild after stopping database users
+python3 _graph/rebuild.py --activate
 
 # Run a query
 nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papersPerFolder
 nanograph run --db _graph/readings.nano --query _graph/readings.gq --name papersByFolder --param folder=consciousness_theories
 
 # Add data (e.g. new paper)
-# Append to seed.jsonl, then:
+# Append to seed.jsonl, inspect canonicalisation, then reload if conflict-free:
+python3 _graph/build_seed.py
+python3 _graph/build_seed.py --write
 nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 
 # Inspect
@@ -151,9 +158,27 @@ nanograph lint --db _graph/readings.nano --query _graph/readings.gq
 nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 ```
 
-Nanograph 1.3.0 was installed and the active database was rebuilt from the canonical seed on 17 August 2026. It now uses the `namespace-lineage` storage generation, manifest format 3, and `db_version: 1`; `doctor` passes all 25 datasets. After changing `_graph/readings.gq`, run `nanograph lint --db _graph/readings.nano --query _graph/readings.gq`. The stale pre-v1.2 database is preserved at `_graph/readings.nano.legacy-v3/` for rollback only. Do not merge it into the active graph.
+### Graph maintenance
 
-This repository intentionally has no `nanograph.toml`. Run Nanograph from the repository root and pass `--db`, `--schema`, and `--query` paths explicitly. If `nanograph init` generates a configuration scaffold under `_graph/`, remove it after the staged rebuild.
+Run examples from the repository root. The rebuild helper needs Python 3 and Nanograph on `PATH`; extraction also needs authorised Gemini access. This repository intentionally has no `nanograph.toml`, so direct Nanograph commands must pass their database, schema and query paths explicitly.
+
+Use one seed writer at a time. Stop manual seed editors and other writers before appending, canonicalising or rebuilding, not just before activation. `extract.py --append`, `build_seed.py --write` and `rebuild.py` share an advisory `seed.jsonl.write-lock` and fail fast on contention. Extraction holds it for the whole append run, including API waits. Direct Nanograph commands and arbitrary editors do not honour this lock; it is not a filesystem permission or universal transaction mechanism.
+
+Canonicalisation checks that the seed is unchanged immediately before replacing it; extraction checks before each append. These checks detect intervening edits but cannot eliminate a simultaneous write from an uncooperative editor. If a check fails, inspect the current seed and rerun from that state; do not force an older result over it.
+
+`rebuild.py` copies the schema, seed and saved queries into a uniquely named ignored staging directory, then runs `init`, `load --mode overwrite`, `lint` and `doctor` against that snapshot. It checks that the sources remain unchanged before reporting validation or activating. By default it leaves the active database untouched. `--activate` builds and validates a fresh stage, then moves any existing database to an unused `readings.nano.backup-<id>` directory before activating the new one. A failed activation restores the old database when the destination is unoccupied. Stop other database clients before activation. Never combine backup database contents with the canonical seed.
+
+Failed stages, backups and generated configuration stay in ignored build artefacts for inspection; the helper does not delete them or rewrite PDFs or the seed. A `readings.nano.rebuild-lock` also protects helper builds. If a process is interrupted, first establish that its owning process has stopped, then remove only its abandoned empty lock directory or directories before retrying. Never remove an active lock to get past contention. After changing saved queries, run `nanograph lint`; after changing schema or removing graph records, use a complete staged rebuild rather than `load --mode merge`.
+
+#### Corrections and repeated extraction
+
+Normal extraction appends enrichment. Canonicalisation fills missing fields but does not choose between conflicting non-empty assertions: `build_seed.py --write` refuses such conflicts and leaves the seed unchanged. Inspect its dry-run report before writing.
+
+For an authorised correction, check the source PDF, edit the affected canonical field or edge explicitly, and record the source location and reason in the associated reading note or change description. Resolve any conflicting proposed duplicate against that evidence, keeping one node per key. Preserve frozen Paper slugs and historical Extraction records. Canonicalise and inspect the diff. Stop database clients and seed writers, then run `python3 _graph/rebuild.py --activate` to build, validate and activate a fresh database without retained obsolete edges. Query the corrected claims or relationships and `extractionsByPaper` in the active database before reporting the correction complete. Running the helper without `--activate` validates only a separate stage.
+
+Each new extraction attempt has a unique `{paper_slug}--{mode}--{run_id}` identity. Failed attempts and successful retries coexist; legacy `{paper_slug}--{mode}` records remain valid and are not rewritten. Re-extraction does not overwrite curated assertions or convert historical unknown provenance into a verified record. `result_status=ok` means the response passed the mode's structural checks and output processing, which can accept explicit empty collections; it does not mean the claims have been reviewed. Missing collections, malformed field types and handled model or output-processing exceptions produce a failed run, discard proposed outputs and cache changes, and let the batch continue. Abrupt termination or filesystem failure can prevent provenance from being written. Use `extractionsByPaper` to inspect attempt, model, PDF checksum and review status separately from output edges. Run a named paper without `--append` to review proposed re-extraction output before ingestion; API use still requires authorisation.
+
+Run the offline maintenance tests with `python3 -B -m unittest discover -s _graph/tests -v`. The optional Nanograph integration test uses a synthetic graph in a temporary directory, never the active database.
 
 ### Available Queries
 
@@ -190,6 +215,8 @@ This repository intentionally has no `nanograph.toml`. Run Nanograph from the re
 | `papersMissingDefinitions` | --           | Papers with no HasDefinition edge                |
 | `papersMissingQuestions`   | --           | Papers with no Raises edge                       |
 
+The `papersMissing*` queries identify missing output relationships, not whether an extraction mode was attempted. A successful extraction that found no figures or relations can still appear here. Check `extractionsByPaper` for processing and review status; unknown historical fields must remain unknown.
+
 ### Enrichment
 
 The seed data contains paper nodes extracted from filenames. To enrich the graph over time:
@@ -203,10 +230,12 @@ Append new records to `_graph/seed.jsonl`, keep one node per `(type, slug)` key,
 
 ## Agent Instructions
 
-An `AGENTS.md` file at the repository root governs how AI agents operate within this workspace. Key constraints:
+Start with [AGENTS.md](AGENTS.md) and the repository-local [nanograph skill](.agents/skills/nanograph/SKILL.md). For literature discovery and relationship questions, query the graph, inspect extraction provenance, then read the canonical PDFs. Fall back to file search where coverage is incomplete. The skill is scoped to this library, not other repositories, and automatic discovery depends on the agent application. A portable explicit instruction is: “Read AGENTS.md and the nanograph skill, use the graph to find relevant papers, then verify their source text.”
+
+Key constraints:
 
 - Write in **British English**
-- Maintain scientific precision -- exact terminology, no hedging, no simplification
+- Maintain scientific precision -- exact terminology, explicit uncertainty and limitations, no unsupported simplification
 - No AI-typical wording ("delve", "crucial", "it's important to note", etc.)
 - No em dashes -- use double hyphens or restructure the sentence
 - All output should read as if written by a researcher, not generated by a model

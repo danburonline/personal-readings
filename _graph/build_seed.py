@@ -6,6 +6,8 @@ deduplicates other nodes by (type, slug) -- Extraction included -- and edges by 
 and writes a temp file. Replaces seed.jsonl only with --write.
 
 Dry-run (default) prints what would be squashed and does not write.
+Conflicting non-empty node values block --write. Resolve corrections explicitly
+against the source rather than discarding newer assertions during deduplication.
 
 Usage:
     python3 _graph/build_seed.py
@@ -19,8 +21,14 @@ import json
 import os
 import sys
 import tempfile
+from contextlib import nullcontext
 from pathlib import Path
 from typing import Any
+
+try:
+    from .seed_guard import SeedGuard, require_unchanged
+except ImportError:  # Direct script invocation.
+    from seed_guard import SeedGuard, require_unchanged
 
 SEED_DEFAULT = Path(__file__).parent / "seed.jsonl"
 
@@ -114,6 +122,7 @@ def canonicalise(records: list[tuple[str, dict[str, Any]]]) -> tuple[list[str], 
     paper_conflicts: dict[str, list[str]] = {}
     dropped_nodes: list[tuple[str, str]] = []
     filled_nodes: dict[tuple[str, str], list[str]] = {}
+    node_conflicts: dict[tuple[str, str], list[str]] = {}
     dropped_edges: list[tuple[str, str, str]] = []
     skipped: list[str] = []
 
@@ -154,6 +163,12 @@ def canonicalise(records: list[tuple[str, dict[str, Any]]]) -> tuple[list[str], 
                     idx = node_at[key]
                     dest = node_data[key]
                     extra_fields = tuple(k for k in data.keys() if k != "slug")
+                    clash = conflicts(dest, data, extra_fields)
+                    if clash:
+                        node_conflicts.setdefault(key, [])
+                        for field in clash:
+                            if field not in node_conflicts[key]:
+                                node_conflicts[key].append(field)
                     filled = merge_fields(dest, data, extra_fields)
                     if filled:
                         filled_nodes.setdefault(key, []).extend(filled)
@@ -193,6 +208,7 @@ def canonicalise(records: list[tuple[str, dict[str, Any]]]) -> tuple[list[str], 
         "paper_conflicts": paper_conflicts,
         "dropped_nodes": dropped_nodes,
         "filled_nodes": filled_nodes,
+        "node_conflicts": node_conflicts,
         "dropped_edges": dropped_edges,
         "skipped": len(skipped),
         "paper_count": len(paper_at),
@@ -233,9 +249,14 @@ def print_report(report: dict[str, Any]) -> None:
         print("duplicate Paper nodes dropped: 0")
 
     if paper_conflicts:
-        print("Paper field conflicts (kept first non-empty value):")
+        print("Paper field conflicts (first value shown; --write blocked):")
         for slug, fields in sorted(paper_conflicts.items()):
             print(f"  {slug}: {', '.join(fields)}")
+
+    if report["node_conflicts"]:
+        print("Other node conflicts (first value shown; --write blocked):")
+        for (ntype, slug), fields in sorted(report["node_conflicts"].items()):
+            print(f"  {ntype} {slug}: {', '.join(fields)}")
 
     if dropped_nodes:
         print(f"duplicate other nodes dropped: {len(dropped_nodes)}")
@@ -262,7 +283,7 @@ def print_report(report: dict[str, Any]) -> None:
         print("nothing to squash")
 
 
-def write_seed(path: Path, lines: list[str]) -> None:
+def write_seed(path: Path, lines: list[str], *, expected: str | None) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, tmp_name = tempfile.mkstemp(
         prefix="seed.jsonl.",
@@ -276,6 +297,7 @@ def write_seed(path: Path, lines: list[str]) -> None:
                 tmp.write("\n")
             tmp.flush()
             os.fsync(tmp.fileno())
+        require_unchanged(path, expected)
         os.replace(tmp_name, path)
     except Exception:
         try:
@@ -305,18 +327,33 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: {seed} not found", file=sys.stderr)
         return 1
 
+    try:
+        with SeedGuard(seed) if args.write else nullcontext() as guard:
+            return canonicalise_seed(seed, write=args.write, guard=guard)
+    except (OSError, RuntimeError) as exc:
+        print(f"Canonicalisation failed: {exc}", file=sys.stderr)
+        return 2
+
+
+def canonicalise_seed(seed: Path, *, write: bool, guard: SeedGuard | None) -> int:
     records = load_records(seed)
     lines, report = canonicalise(records)
     print_report(report)
 
-    if not args.write:
+    if not write:
         return 0
+
+    if report["paper_conflicts"] or report["node_conflicts"]:
+        print("Refusing to write conflicting records. Review the source and resolve "
+              "the named fields explicitly; the seed is unchanged.", file=sys.stderr)
+        return 2
 
     if not report["changed"]:
         print(f"left {seed} unchanged")
         return 0
 
-    write_seed(seed, lines)
+    assert guard is not None
+    write_seed(seed, lines, expected=guard.expected)
     print(f"wrote {len(lines)} records to {seed}")
     return 0
 

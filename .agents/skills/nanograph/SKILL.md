@@ -1,11 +1,15 @@
 ---
 name: nanograph
-description: Manage the Readings knowledge graph -- add papers, enrich with authors/concepts/citations, query cross-topic relationships. Use when adding papers, extracting knowledge, or querying the research library graph.
+description: Discover papers and cross-paper relationships in the Readings library, verify extraction provenance, and maintain its Nanograph records. Use for literature discovery, adding papers or authorised graph enrichment in this repository.
 ---
 
 # Nanograph -- Readings Knowledge Graph
 
 This research library includes a [nanograph](https://github.com/nanograph/nanograph) property graph at the repository root. Use nanograph v1.3 or later.
+
+## Retrieval
+
+Start with the repository's `AGENTS.md`. Query the graph for relevant papers and relationships, use `paperDetails` for the PDF path and `extractionsByPaper` for provenance, then read the source PDF and cite the page or section. Scientific claims remain grounded in the source, not an unreviewed extraction. Missing relationships do not prove absence; fall back to file search where coverage is incomplete. Read-only retrieval does not authorise extraction, ingestion or API calls. This skill belongs to this repository, not every workspace containing research.
 
 ## Files
 
@@ -16,6 +20,7 @@ This research library includes a [nanograph](https://github.com/nanograph/nanogr
 | `_graph/seed.jsonl`     | All graph data (nodes + edges)                                |
 | `_graph/extract.py`     | Multi-mode Gemini extraction script (all modes produce JSONL) |
 | `_graph/build_seed.py`  | Canonicalise seed.jsonl (union Paper fields, dedupe nodes/edges) |
+| `_graph/rebuild.py`     | Staged validation and explicit activation with an unused backup |
 | `_graph/readings.nano/` | Compiled database (gitignored, rebuilt from schema + data)    |
 
 ## Schema
@@ -25,7 +30,7 @@ This research library includes a [nanograph](https://github.com/nanograph/nanogr
 
 Every node type has a `slug: String @key` used for edge references.
 
-Paper has: `slug` (frozen identity), `title`, `folder`, `added` (YYYYMMDD), plus optional `filename`, `path`, `year`, `abstract`, `thesis`, `study_type`, `doi`, `arxiv_id`. Renaming a PDF updates `filename`, `path`, `folder`, and InFolder -- it does not change `slug` or edge endpoints. Child slugs (`{slug}--fig-1`, `{slug}--metadata`) stay keyed off the frozen slug.
+Paper has: `slug` (frozen identity), `title`, `folder`, `added` (YYYYMMDD), plus optional `filename`, `path`, `year`, `abstract`, `thesis`, `study_type`, `doi`, `arxiv_id`. Renaming a PDF updates `filename`, `path`, `folder`, and InFolder -- it does not change `slug` or edge endpoints. Child slugs (`{slug}--fig-1`, `{slug}--metadata--{run_id}`, and legacy `{slug}--metadata`) stay keyed off the frozen slug.
 
 ## JSONL Format
 
@@ -40,7 +45,7 @@ Nodes:
 {"type": "Claim", "data": {"slug": "20260115_my_paper--claim-1", "claim": "...", "evidence_type": "empirical", "strength": "strong", "support": "..."}}
 {"type": "Definition", "data": {"slug": "20260115_my_paper--def-consciousness", "term": "consciousness", "definition": "...", "section": "2.1", "formal": "false"}}
 {"type": "OpenQuestion", "data": {"slug": "20260115_my_paper--oq-1", "question": "...", "context": "...", "tractability": "near_term", "question_type": "open_problem"}}
-{"type": "Extraction", "data": {"slug": "20260115_my_paper--metadata", "mode": "metadata", "model": "gemini-3.7-flash", "timestamp": "2026-08-26T12:00:00Z", "pdf_checksum": "...", "version": "1.0.0", "result_status": "ok", "review_status": "unreviewed"}}
+{"type": "Extraction", "data": {"slug": "20260115_my_paper--metadata--unique_run_id", "mode": "metadata", "model": "gemini-3.7-flash", "timestamp": "2026-08-26T12:00:00Z", "pdf_checksum": "...", "version": "1.2.0", "result_status": "ok", "review_status": "unreviewed"}}
 ```
 
 Edges:
@@ -54,21 +59,23 @@ Edges:
 {"edge": "UsesTechnique", "from": "20260115_my_paper", "to": "calcium-imaging"}
 {"edge": "HasDefinition", "from": "20260115_my_paper", "to": "20260115_my_paper--def-consciousness"}
 {"edge": "Raises", "from": "20260115_my_paper", "to": "20260115_my_paper--oq-1"}
-{"edge": "HasExtraction", "from": "20260115_my_paper", "to": "20260115_my_paper--metadata"}
+{"edge": "HasExtraction", "from": "20260115_my_paper", "to": "20260115_my_paper--metadata--unique_run_id"}
 ```
 
 **Critical:** Edges use `"edge"` key, NOT `"type"`. The `"from"` and `"to"` values must match existing `@key` slugs.
 
 ## CLI Commands
 
-The active database was rebuilt with nanograph 1.3.0 on 17 August 2026 and passes `lint` and `doctor`. `_graph/readings.nano.legacy-v3/` is a stale rollback artefact and must never be merged into the active graph. This repository intentionally has no `nanograph.toml`; always pass explicit database, schema, and query paths. Remove any configuration scaffold generated under `_graph/` during a staged rebuild.
+Run the examples from the repository root. There is no `nanograph.toml`; direct commands need explicit database, schema and query paths. For a fresh checkout, schema change or record removal, follow [Graph maintenance](../../../README.md#graph-maintenance): validate a separate build, stop database clients and seed writers before activation, and retain the previous database as a backup. Never merge backup database contents into the seed.
+
+Use one seed writer at a time, including manual editors, before any append, canonicalisation or rebuild. The three helpers share an advisory `seed.jsonl.write-lock` and refuse contention; extraction holds it throughout an append run. Editors and direct Nanograph commands do not honour that lock. Change checks reject intervening seed edits but do not make arbitrary simultaneous writes safe. On contention, wait for the owner to finish. Remove an abandoned empty lock only after establishing that its process has stopped; see the maintenance reference above.
 
 ```bash
-# Future complete rebuild through a staging database
-nanograph init --db _graph/readings.nano.new --schema _graph/readings.pg
-nanograph load --db _graph/readings.nano.new --data _graph/seed.jsonl --mode overwrite
-nanograph lint --db _graph/readings.nano.new --query _graph/readings.gq
-nanograph doctor --db _graph/readings.nano.new --schema _graph/readings.pg --verbose
+# Build and validate without changing the active database
+python3 _graph/rebuild.py
+
+# First setup, or activate a fresh build with an unused backup
+python3 _graph/rebuild.py --activate
 
 # Incremental update (after appending to seed.jsonl)
 nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
@@ -118,6 +125,8 @@ nanograph doctor --db _graph/readings.nano --schema _graph/readings.pg --verbose
 | `papersMissingDefinitions` | --           | Papers with no HasDefinition edge                |
 | `papersMissingQuestions`   | --           | Papers with no Raises edge                       |
 
+The `papersMissing*` queries measure missing output edges, not extraction attempts. A valid empty result still counts as a successful attempt. Inspect `extractionsByPaper` for `result_status` and `review_status`; success is not scientific review.
+
 ## Workflows
 
 ### Adding a new paper
@@ -161,7 +170,7 @@ The repository includes `_graph/extract.py` -- a multi-mode extraction script th
 | `definitions`    | Definition nodes + HasDefinition edges                                         |
 | `open-questions` | OpenQuestion nodes + Raises edges                                              |
 
-Every mode also writes an Extraction node (`{paper_slug}--{mode}`) and a HasExtraction edge, including skipped and failed runs. `EXTRACTION_VERSION` in `extract.py` is the short version string stored on that node.
+Every handled mode run also emits a unique Extraction node (`{paper_slug}--{mode}--{run_id}`) and a HasExtraction edge, including skipped and failed runs. Mode-specific structural checks require explicit collections with valid field types; genuine empty collections are allowed. A handled model or output-processing failure discards its proposed output and cache changes, emits failed provenance and continues the batch. Abrupt termination or filesystem failure can prevent persistence. `EXTRACTION_VERSION` in `extract.py` is the short version string stored on that node. Existing legacy per-mode records remain valid and unchanged; new retries preserve both failure and success history.
 
 **Usage:**
 
@@ -189,7 +198,7 @@ python3 _graph/extract.py --all --mode relations --append
 python3 _graph/extract.py --all --mode claims --dry-run
 ```
 
-**Deduplication / crash recovery:** For `--all`, each mode checks `seed.jsonl` for its marker edge type (e.g. `HasFigure` for figures mode, `WrittenBy` for metadata) and for an Extraction node with `result_status=ok`. Papers that already have the relevant edge or a successful Extraction are skipped. In `--all --append` mode, JSONL is flushed to `seed.jsonl` after each paper, so a crash mid-batch loses at most the paper being processed -- re-running picks up where it left off. Technique nodes (like Author and Concept) are deduplicated in memory during a run.
+**Deduplication / crash recovery:** For `--all`, each mode checks `seed.jsonl` for its marker edge type (e.g. `HasFigure` for figures mode, `WrittenBy` for metadata) and for a linked Extraction with `result_status=ok`. Papers with the relevant edge or any successful attempt are skipped, including successful empty results. This is not a checksum freshness or review check; use a named paper for an authorised retry. In `--all --append` mode, JSONL is flushed after each paper; inspect the last records after an interrupted write before resuming. Technique nodes (like Author and Concept) are deduplicated in memory during a run.
 
 **After extraction:**
 
@@ -198,7 +207,7 @@ python3 _graph/build_seed.py --write
 nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 ```
 
-**Duplicate Paper nodes (merge gotcha):** `metadata`, `claims`, and `methods` each append their own Paper node for the processed slug (carrying `abstract`, `thesis`, and `study_type` respectively). nanograph rejects duplicate `@key` values within a single load. Do not squash by hand. Run `python3 _graph/build_seed.py --write` after extraction. The builder unions `year`, `authors`, `doi`, `arxiv_id`, `abstract`, `thesis`, `study_type`, `title`, `folder`, `added`, `filename`, and `path` into one node per slug, and also deduplicates other nodes by `(type, slug)` (including Extraction) and edges by `(edge, from, to`). Dry-run is the default; `--write` replaces `seed.jsonl` only when something needs squashing. Rewriting the file for a controlled migration or this canonicalisation is the exception to "never overwrite `seed.jsonl`".
+**Duplicate nodes and corrections:** `metadata`, `claims`, and `methods` append partial Paper nodes. Nanograph rejects duplicate keys in one load. Inspect `python3 _graph/build_seed.py`, then use `--write` to fill missing fields and deduplicate records. Conflicting non-empty values block writing, including old duplicate Extraction statuses; neither first-write-wins nor last-write-wins is a correction policy. Follow [Corrections and repeated extraction](../../../README.md#corrections-and-repeated-extraction) to resolve source-backed corrections explicitly. Review re-extraction output without `--append` before ingestion where assertions already exist. A new successful attempt does not replace curated claims or alter historical provenance.
 
 **Limitations:**
 
@@ -216,8 +225,8 @@ nanograph load --db _graph/readings.nano --data _graph/seed.jsonl --mode merge
 - Claim slugs: `{paper_slug}--claim-{n}`
 - Definition slugs: `{paper_slug}--def-{term_slug}` (e.g. `20260115_my_paper--def-consciousness`)
 - OpenQuestion slugs: `{paper_slug}--oq-{n}`
-- Extraction slugs: `{paper_slug}--{mode}` (modes: metadata, figures, claims, relations, methods, definitions, open-questions)
+- Extraction slugs: new attempts use `{paper_slug}--{mode}--{run_id}`; legacy `{paper_slug}--{mode}` records remain valid. Follow HasExtraction edges instead of parsing slugs
 
 Always check existing slugs before creating duplicates: `nanograph run --db _graph/readings.nano --query _graph/readings.gq --name allPapers`
 
-Append to `_graph/seed.jsonl` -- never overwrite it. The file is the source of truth.
+Append routine enrichment to `_graph/seed.jsonl`. Authorised source-backed corrections and controlled canonicalisation are the documented exceptions. The seed is the source of truth for graph records; PDFs remain the evidence for scientific claims.
