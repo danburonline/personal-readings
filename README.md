@@ -2,6 +2,8 @@
 
 Personal collection of scientific papers, essays, and technical documents. Device annotations are not uniformly embedded in the archived PDFs.
 
+Use this public repository and its graph only for public literature, source-grounded reading notes and research metadata intended for public sharing. Keep private plans, project mappings, correspondence and account exports outside the repository.
+
 ## Reading Sources
 
 The PDFs here are one part of Daniel's reading corpus. Book highlights are also held in Readwise, and the public book catalogue and reading shelves are on [Goodreads](https://goodreads.com/danburonline).

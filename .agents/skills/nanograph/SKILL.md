@@ -11,6 +11,8 @@ This research library includes a [nanograph](https://github.com/nanograph/nanogr
 
 Start with the repository's `AGENTS.md`. Query the graph for relevant papers and relationships, use `paperDetails` for the PDF path and `extractionsByPaper` for provenance, then read the source PDF and cite the page or section. Scientific claims remain grounded in the source, not an unreviewed extraction. Missing relationships do not prove absence; fall back to file search where coverage is incomplete. Read-only retrieval does not authorise extraction, ingestion or API calls. This skill belongs to this repository, not every workspace containing research.
 
+This public graph is limited to public literature, source-grounded reading notes and research metadata intended for public sharing. Do not add private plans, project mappings, correspondence or account exports to the graph or other repository files.
+
 ## Files
 
 | File                    | Purpose                                                       |

@@ -9,6 +9,7 @@ You are operating in a personal research library of annotated scientific papers,
 - Preserve provenance: repository-relative PDF path and page or section; book title, author, source identifier, and available URL or location for external highlights. Distinguish quotations, reader notes, and interpretation.
 - Use read-only discovery unless changes are requested. Follow pagination when completeness matters, and report access or retrieval limitations rather than inferring absence from incomplete results. Do not mirror external libraries or add them to the graph without an explicit ingestion request.
 - This repository is public. Keep documentation portable and tool-agnostic; exclude machine-specific paths, private configuration, credentials, agent-runtime setup, and session diagnostics. Do not commit private account exports.
+- Files and graph records must be limited to public literature, source-grounded reading notes and research metadata intended for public sharing. Do not add private plans, project mappings or correspondence.
 
 ## Language and Style
 
