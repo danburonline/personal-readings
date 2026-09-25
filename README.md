@@ -23,6 +23,7 @@ Papers are organised into topic directories:
 | Directory                                  | Focus                                                           |
 | ------------------------------------------ | --------------------------------------------------------------- |
 | `ai_consciousness_and_ethics/`             | Moral status of AI, machine consciousness criteria              |
+| `astrobiology/`                            | Exocivilisations, the Fermi paradox, and extraterrestrial life  |
 | `biophysical_mechanisms/`                  | Electromagnetic, thermodynamic, quantum, and microtubular models |
 | `bioprinting_and_biofabrication/`          | 3D bioprinting, tissue fabrication techniques                   |
 | `brain_plasticity_and_gliomas/`            | Neuroplasticity, glioma biology and modelling                   |
